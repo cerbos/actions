@@ -4,6 +4,7 @@ go 1.26.1
 
 require (
 	aead.dev/minisign v0.3.0
+	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v84 v84.0.0
 	github.com/lmittmann/tint v1.1.3
 	github.com/sourcegraph/conc v0.3.0

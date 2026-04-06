@@ -1,0 +1,88 @@
+name: golangci-lint
+description: Lint Go code
+
+inputs:
+  # wrap:inputs:start
+  args:
+    description: golangci-lint command line arguments.
+    required: false
+  cache-invalidation-interval:
+    description: Periodically invalidate a cache when new code is added (number of days).
+    required: false
+    default: "7"
+  debug:
+    description: |
+      Debug options for the action.
+      List of comma separated options, the values are `cache`, `clean`.
+      example: "cache,clean"
+    required: false
+  experimental:
+    description: |
+      Experimental options for the action.
+      List of comma separated options.
+    required: false
+  github-token:
+    description: The token is used for fetching the patch of a pull request to show only new issues.
+    required: false
+    default: ${{ github.token }}
+  install-only:
+    description: Only install golangci-lint. It does not run golangci-lint.
+    required: false
+    default: "false"
+  only-new-issues:
+    description: If set to true and the action runs on a pull request, the action outputs only newly found issues.
+    required: false
+    default: "false"
+  problem-matchers:
+    description: Force the usage of the embedded problem matchers.
+    required: false
+    default: "false"
+  skip-cache:
+    description: |
+      If set to true, all caching functionality will be completely disabled.
+      This takes precedence over all other caching options.
+    required: false
+    default: "false"
+  skip-save-cache:
+    description: |
+      If set to true, the action will not save any caches,
+      but it may still restore existing caches, subject to other options.
+    required: false
+    default: "false"
+  verify:
+    description: If set to true, the action verifies the configuration file against the JSONSchema.
+    required: false
+    default: "true"
+  working-directory:
+    description: golangci-lint working directory. The default is the project root.
+    required: false
+  # wrap:inputs:end
+
+runs:
+  using: composite
+
+  steps:
+    - name: Install golangci-lint
+      uses: cerbos/actions/install-tools@3304e404b863da94df7b984e803866a45a671a44
+      with:
+        tools: golangci-lint
+
+    - name: Run golangci-lint
+      if: inputs.install-only != 'true'
+      uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
+      with:
+        install-mode: none
+        # wrap:uses.with:start
+        args: ${{ inputs.args }}
+        cache-invalidation-interval: ${{ inputs.cache-invalidation-interval }}
+        debug: ${{ inputs.debug }}
+        experimental: ${{ inputs.experimental }}
+        github-token: ${{ inputs.github-token }}
+        install-only: ${{ inputs.install-only }}
+        only-new-issues: ${{ inputs.only-new-issues }}
+        problem-matchers: ${{ inputs.problem-matchers }}
+        skip-cache: ${{ inputs.skip-cache }}
+        skip-save-cache: ${{ inputs.skip-save-cache }}
+        verify: ${{ inputs.verify }}
+        working-directory: ${{ inputs.working-directory }}
+        # wrap:uses.with:end

@@ -246,6 +246,11 @@ func (c *Client) DownloadAsset(ctx context.Context, release *Release, name strin
 	return asset.Contents, nil
 }
 
+func (c *Client) DownloadFile(ctx context.Context, repo Repository, ref, path string) (io.ReadCloser, error) {
+	file, _, err := c.github.Repositories.DownloadContents(ctx, repo.Owner, repo.Name, path, &github.RepositoryContentGetOptions{Ref: ref})
+	return file, err
+}
+
 func (c *Client) acquire(ctx context.Context) error {
 	return c.semaphore.Acquire(ctx, 1)
 }
