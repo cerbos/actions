@@ -1,0 +1,16 @@
+name: Check repo status
+description: Detect uncommitted changes
+
+runs:
+  using: composite
+
+  steps:
+    - name: Check repo status
+      shell: bash
+      run: |
+        status=$(git status --porcelain)
+        if [[ -n "${status}" ]]; then
+          echo "::error::Uncommitted changes detected"
+          git -c color.ui=always status -vv
+          exit 1
+        fi
