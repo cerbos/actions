@@ -1,0 +1,11 @@
+name: Install tools
+description: Download, verify, and install tools
+
+inputs:
+  tools:
+    description: Newline-delimited list of tools to install
+    required: true
+
+runs:
+  using: node24
+  main: action.mjs

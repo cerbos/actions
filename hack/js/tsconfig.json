@@ -1,0 +1,8 @@
+{
+  "extends": ["@tsconfig/node24", "@tsconfig/strictest"],
+  "include": ["src", "rolldown.config.ts", "../../toolbox.json"],
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"]
+  }
+}
