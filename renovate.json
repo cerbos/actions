@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>cerbos/renovate"],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions deps"
+    },
+    {
+      "matchManagers": ["gomod"],
+      "groupName": "Go deps"
+    },
+    {
+      "matchManagers": ["nodenv", "npm"],
+      "groupName": "npm deps"
+    },
+    {
+      "matchPackageNames": ["cerbos/actions"],
+      "enabled": false
+    }
+  ]
+}
