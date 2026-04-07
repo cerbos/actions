@@ -1,0 +1,142 @@
+name: Buf
+description: Run build, lint, format, and breaking change checks on Protobuf files, and publish schemas to the Buf Schema Registry.
+
+inputs:
+  # wrap:inputs:start
+  archive:
+    description: Whether to run the archive step. Runs by default on deletes, for non forked repositories.
+    required: false
+    default: ${{ github.event_name == 'delete' }}
+  breaking:
+    description: |-
+      Whether to run the breaking change detection step.
+      Runs by default on pull requests if the "buf skip breaking" label is not applied.
+    required: false
+    default: ${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'buf skip breaking') }}
+  breaking_against:
+    description: |-
+      Input to compare against for breaking change detection.
+      Defaults to the base branch of the pull request or the commit before the push.
+    required: false
+  breaking_against_registry:
+    description: |-
+      Whether to use the Buf Schema Registry for breaking change detection.
+      If true, the `breaking_against` parameter is ignored.
+      Defaults to false.
+    required: false
+    default: "false"
+  domain:
+    description: Domain for logging into the BSR, enterprise only.
+    required: false
+    default: buf.build
+  exclude_imports:
+    description: Exclude files imported by the target modules.
+    required: false
+    default: "false"
+  exclude_paths:
+    description: |-
+      Exclude specific files or directories (separated by newlines).
+      Example:
+        with:
+          exclude_paths: |
+            proto/a/a.proto
+            proto/a
+    required: false
+  format:
+    description: |-
+      Whether to run the formatting step.
+      Runs by default on pull requests.
+    required: false
+    default: ${{ github.event_name == 'pull_request' }}
+  github_actor:
+    description: GitHub actor for API requests.
+    required: false
+    default: ${{ github.actor }}
+  github_token:
+    description: GitHub token for the GitHub instance this action is running on.
+    required: false
+    default: ${{ github.token }}
+  input:
+    description: Input for the buf command.
+    required: false
+  lint:
+    description: |-
+      Whether to run the linting step.
+      Runs by default on pull requests.
+    required: false
+    default: ${{ github.event_name == 'pull_request' }}
+  paths:
+    description: |-
+      Limit to specific files or directories (separated by newlines).
+      Example:
+        with:
+          paths: |
+            proto/a/a.proto
+            proto/a
+    required: false
+  pr_comment:
+    description: |-
+      Comment on the pull request with the results of each step. The workflow and job name combination must be unique.
+      Only runs on pull requests, for non forked repositories.
+    required: false
+    default: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
+  public_github_token:
+    description: GitHub token for github.com. Must be set when running on a private GitHub Enterprise instance to authenticate requests, otherwise ignored.
+    required: false
+  push:
+    description: Whether to run the push step. Runs by default on pushes, for non forked repositories.
+    required: false
+    default: ${{ github.event_name == 'push' }}
+  push_create_visibility:
+    description: |-
+      Repository's visibility setting if created.
+      Must be either "public" or "private". Defaults to private.
+    required: false
+  push_disable_create:
+    description: Disables repository creation if it does not exist. Defaults to false.
+    required: false
+    default: "false"
+  setup_only:
+    description: Setup only the buf environment, optionally logging into the BSR, but without executing other commands.
+    required: false
+    default: "false"
+  token:
+    description: API token for logging into the BSR.
+    required: false
+  # wrap:inputs:end
+
+runs:
+  using: composite
+  steps:
+    - name: Install buf
+      id: install
+      uses: cerbos/actions/install-tools@3304e404b863da94df7b984e803866a45a671a44
+      with:
+        tools: buf
+
+    - name: Run buf
+      uses: bufbuild/buf-action@fd21066df7214747548607aaa45548ba2b9bc1ff # v1.4.0
+      with:
+        version: ${{ steps.install.outputs.buf }}
+        # wrap:uses.with:start
+        archive: ${{ inputs.archive }}
+        breaking: ${{ inputs.breaking }}
+        breaking_against: ${{ inputs.breaking_against }}
+        breaking_against_registry: ${{ inputs.breaking_against_registry }}
+        domain: ${{ inputs.domain }}
+        exclude_imports: ${{ inputs.exclude_imports }}
+        exclude_paths: ${{ inputs.exclude_paths }}
+        format: ${{ inputs.format }}
+        github_actor: ${{ inputs.github_actor }}
+        github_token: ${{ inputs.github_token }}
+        input: ${{ inputs.input }}
+        lint: ${{ inputs.lint }}
+        paths: ${{ inputs.paths }}
+        pr_comment: ${{ inputs.pr_comment }}
+        public_github_token: ${{ inputs.public_github_token }}
+        push: ${{ inputs.push }}
+        push_create_visibility: ${{ inputs.push_create_visibility }}
+        push_disable_create: ${{ inputs.push_disable_create }}
+        setup_only: ${{ inputs.setup_only }}
+        token: ${{ inputs.token }}
+        # wrap:uses.with:end

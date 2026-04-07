@@ -44,6 +44,14 @@ type Input struct { //nolint:govet
 
 var actions = []Action{
 	{
+		Target: "buf",
+		Source: Source{
+			Repo: github.Repository{Owner: "bufbuild", Name: "buf-action"},
+			Path: "action.yml",
+		},
+		ExcludeInputs: []string{"checksum", "version"},
+	},
+	{
 		Target: "golangci-lint",
 		Source: Source{
 			Repo: github.Repository{Owner: "golangci", Name: "golangci-lint-action"},
