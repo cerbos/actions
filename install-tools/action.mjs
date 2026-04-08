@@ -18354,6 +18354,20 @@ var toolbox_default = {
 			}
 		},
 		"postInstall": ["reimage", "-V"]
+	},
+	rmz: {
+		"version": "3.1.1",
+		"downloads": {
+			"linux/arm64": {
+				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/aarch64-unknown-linux-gnu-rmz",
+				"digest": "sha256:1ac8e83a0242938b10bd6a37ebd1b96d92896f84547aead32f3608c3e5ff733d"
+			},
+			"linux/x64": {
+				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/x86_64-unknown-linux-gnu-rmz",
+				"digest": "sha256:9017131f24a6a619568316d3cf1aabbf4fb8297d8082b11fd2b6817436876a3b"
+			}
+		},
+		"postInstall": ["rmz", "--version"]
 	}
 };
 //#endregion
