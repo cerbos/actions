@@ -18243,6 +18243,22 @@ var toolbox_default = {
 		},
 		"postInstall": ["buf", "--version"]
 	},
+	flipt: {
+		"version": "1.61.1",
+		"downloads": {
+			"linux/arm64": {
+				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_arm64.tar.gz",
+				"digest": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46",
+				"extract": "flipt"
+			},
+			"linux/x64": {
+				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_x86_64.tar.gz",
+				"digest": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa",
+				"extract": "flipt"
+			}
+		},
+		"postInstall": ["flipt", "--version"]
+	},
 	"golangci-lint": {
 		"version": "2.11.4",
 		"downloads": {

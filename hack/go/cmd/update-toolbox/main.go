@@ -14,6 +14,7 @@ import (
 
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/buf"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/flipt"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/golangcilint"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
 	"github.com/cerbos/actions/internal/command"
@@ -23,6 +24,7 @@ import (
 
 var tools = map[string]toolbox.Tool{
 	"buf":           buf.Tool,
+	"flipt":         flipt.Tool,
 	"golangci-lint": golangcilint.Tool,
 	"just":          just.Tool,
 }
