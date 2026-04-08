@@ -129,5 +129,24 @@
       "just",
       "--version"
     ]
+  },
+  "reimage": {
+    "version": "0.12.1",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
+        "digest": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
+        "extract": "reimage"
+      },
+      "linux/x64": {
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_x86_64.tar.gz",
+        "digest": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
+        "extract": "reimage"
+      }
+    },
+    "postInstall": [
+      "reimage",
+      "-V"
+    ]
   }
 }

@@ -164,10 +164,11 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 			continue
 		}
 
-		age := time.Since(createdAt)
-		if age < minReleaseAge {
-			log.Debug(ctx, "Skipped", "reason", "too recent", "age", age)
-			continue
+		if repo.Owner != "cerbos" {
+			if age := time.Since(createdAt); age < minReleaseAge {
+				log.Debug(ctx, "Skipped", "reason", "too recent", "age", age)
+				continue
+			}
 		}
 
 		if semver.Compare(version, oldVersion) <= 0 {
