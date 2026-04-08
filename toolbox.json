@@ -92,6 +92,25 @@
       "--version"
     ]
   },
+  "helmfile": {
+    "version": "1.4.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_arm64.tar.gz",
+        "digest": "sha256:071d0ae7557f8a01aedc6865d9d2da17ab989ff6e3766466162f6c4c958d8636",
+        "extract": "helmfile"
+      },
+      "linux/x64": {
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_amd64.tar.gz",
+        "digest": "sha256:08e1926f248031e3dc553bdadb17c44fc8efecdc0ac50c07fa194a293ddefc59",
+        "extract": "helmfile"
+      }
+    },
+    "postInstall": [
+      "helmfile",
+      "--version"
+    ]
+  },
   "just": {
     "version": "1.48.1",
     "downloads": {

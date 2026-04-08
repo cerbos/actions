@@ -18,6 +18,7 @@ import (
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/golangcilint"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/goreleaser"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/grype"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/helmfile"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
 	"github.com/cerbos/actions/internal/command"
 	"github.com/cerbos/actions/internal/log"
@@ -29,6 +30,7 @@ var tools = map[string]toolbox.Tool{
 	"golangci-lint": golangcilint.Tool,
 	"goreleaser":    goreleaser.Tool,
 	"grype":         grype.Tool,
+	"helmfile":      helmfile.Tool,
 	"just":          just.Tool,
 }
 
