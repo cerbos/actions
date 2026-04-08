@@ -24,6 +24,7 @@ import (
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/rmz"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/syft"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/telepresence"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/vals"
 	"github.com/cerbos/actions/internal/command"
 	"github.com/cerbos/actions/internal/log"
 )
@@ -40,6 +41,7 @@ var tools = map[string]toolbox.Tool{
 	"rmz":           rmz.Tool,
 	"syft":          syft.Tool,
 	"telepresence":  telepresence.Tool,
+	"vals":          vals.Tool,
 }
 
 func main() {

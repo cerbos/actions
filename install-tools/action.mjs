@@ -18398,6 +18398,22 @@ var toolbox_default = {
 			}
 		},
 		"postInstall": ["telepresence", "version"]
+	},
+	vals: {
+		"version": "0.43.7",
+		"downloads": {
+			"linux/arm64": {
+				"url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_arm64.tar.gz",
+				"digest": "sha256:1b0b02d05ce9fdfb1c3cd28cf60c574bd691dab506d9a1883780e27b584914d6",
+				"extract": "vals"
+			},
+			"linux/x64": {
+				"url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_amd64.tar.gz",
+				"digest": "sha256:b3a2b55e5312f0ad77cc460773f2e97674556ceba69c8177689b4bc9c46a7cc4",
+				"extract": "vals"
+			}
+		},
+		"postInstall": ["vals", "version"]
 	}
 };
 //#endregion
