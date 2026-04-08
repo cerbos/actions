@@ -16,9 +16,9 @@ import (
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/buf"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/flipt"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/golangcilint"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/goreleaser"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
 	"github.com/cerbos/actions/internal/command"
-	"github.com/cerbos/actions/internal/github"
 	"github.com/cerbos/actions/internal/log"
 )
 
@@ -26,6 +26,7 @@ var tools = map[string]toolbox.Tool{
 	"buf":           buf.Tool,
 	"flipt":         flipt.Tool,
 	"golangci-lint": golangcilint.Tool,
+	"goreleaser":    goreleaser.Tool,
 	"just":          just.Tool,
 }
 
@@ -34,6 +35,11 @@ func main() {
 }
 
 func updateToolbox(ctx context.Context) error {
+	clients, err := toolbox.NewClients(ctx)
+	if err != nil {
+		return err
+	}
+
 	manifest, err := toolbox.Read()
 	if err != nil {
 		return err
@@ -46,7 +52,6 @@ func updateToolbox(ctx context.Context) error {
 		}
 	}
 
-	client := github.NewClient(ctx)
 	updates := pool.New().WithContext(ctx)
 	start := time.Now()
 	var mutex sync.RWMutex
@@ -61,7 +66,7 @@ func updateToolbox(ctx context.Context) error {
 			mutex.RUnlock()
 
 			start := time.Now()
-			source, err := toolbox.Update(ctx, client, tool, oldVersion)
+			source, err := toolbox.Update(ctx, clients, tool, oldVersion)
 			ctx = log.With(ctx, "duration", time.Since(start))
 			if err != nil {
 				failed.Add(1)

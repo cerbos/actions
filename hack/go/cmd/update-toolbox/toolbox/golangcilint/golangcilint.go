@@ -17,7 +17,7 @@ var Tool = toolbox.Tool{
 	PostInstall: []string{"golangci-lint", "version"},
 }
 
-func verify(ctx context.Context, client *github.Client, release *github.Release) (toolbox.Installations, error) {
+func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
 	version := release.Version.Number()
 
 	installations := toolbox.Installations{
@@ -33,7 +33,7 @@ func verify(ctx context.Context, client *github.Client, release *github.Release)
 
 	digestsAsset := fmt.Sprintf("golangci-lint-%s-checksums.txt", version)
 
-	if err := client.DownloadAssets(ctx, release, digestsAsset); err != nil {
+	if err := clients.GitHub.DownloadAssets(ctx, release, digestsAsset); err != nil {
 		return nil, err
 	}
 

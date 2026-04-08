@@ -13,7 +13,7 @@ import (
 type Tool struct {
 	Repo                    github.Repository
 	FindNewerReleaseOptions []github.FindNewerReleaseOption
-	Verify                  func(context.Context, *github.Client, *github.Release) (Installations, error)
+	Verify                  func(context.Context, *Clients, *github.Release) (Installations, error)
 	PostInstall             []string
 }
 
@@ -24,13 +24,13 @@ type Installation struct {
 	Extract string
 }
 
-func Update(ctx context.Context, client *github.Client, tool Tool, oldVersion semver.Version) (*Source, error) {
-	release, err := client.FindNewerRelease(ctx, tool.Repo, oldVersion, tool.FindNewerReleaseOptions...)
+func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.Version) (*Source, error) {
+	release, err := clients.GitHub.FindNewerRelease(ctx, tool.Repo, oldVersion, tool.FindNewerReleaseOptions...)
 	if release == nil || err != nil {
 		return nil, err
 	}
 
-	installations, err := tool.Verify(ctx, client, release)
+	installations, err := tool.Verify(ctx, clients, release)
 	if err != nil {
 		return nil, fmt.Errorf("failed to verify %s: %w", release, err)
 	}

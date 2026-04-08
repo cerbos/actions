@@ -37,8 +37,8 @@ var (
 	}
 )
 
-func verify(ctx context.Context, client *github.Client, release *github.Release) (toolbox.Installations, error) {
-	if err := client.DownloadAssets(ctx, release, digestsAsset); err != nil {
+func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
+	if err := clients.GitHub.DownloadAssets(ctx, release, digestsAsset); err != nil {
 		return nil, err
 	}
 

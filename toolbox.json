@@ -54,6 +54,25 @@
       "version"
     ]
   },
+  "goreleaser": {
+    "version": "2.15.2",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
+        "digest": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
+        "extract": "goreleaser"
+      },
+      "linux/x64": {
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_x86_64.tar.gz",
+        "digest": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
+        "extract": "goreleaser"
+      }
+    },
+    "postInstall": [
+      "goreleaser",
+      "--version"
+    ]
+  },
   "just": {
     "version": "1.48.1",
     "downloads": {

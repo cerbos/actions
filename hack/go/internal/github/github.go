@@ -66,6 +66,7 @@ func (r Repository) String() string {
 type Release struct {
 	Assets  map[string]*Asset
 	Repo    Repository
+	Tag     string
 	Version semver.Version
 }
 
@@ -191,6 +192,7 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 
 	release := &Release{
 		Repo:    repo,
+		Tag:     newer.GetTagName(),
 		Version: oldVersion,
 		Assets:  make(map[string]*Asset, len(newer.Assets)),
 	}
