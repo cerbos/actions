@@ -22,6 +22,7 @@ import (
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/reimage"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/rmz"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/syft"
 	"github.com/cerbos/actions/internal/command"
 	"github.com/cerbos/actions/internal/log"
 )
@@ -36,6 +37,7 @@ var tools = map[string]toolbox.Tool{
 	"just":          just.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
+	"syft":          syft.Tool,
 }
 
 func main() {

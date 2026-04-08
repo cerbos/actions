@@ -165,5 +165,24 @@
       "rmz",
       "--version"
     ]
+  },
+  "syft": {
+    "version": "1.42.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/anchore/syft/releases/download/v1.42.3/syft_1.42.3_linux_arm64.tar.gz",
+        "digest": "sha256:dc630590c953347789d08f8ebf57c7d8094db89100785fcd94b1cddeac791804",
+        "extract": "syft"
+      },
+      "linux/x64": {
+        "url": "https://github.com/anchore/syft/releases/download/v1.42.3/syft_1.42.3_linux_amd64.tar.gz",
+        "digest": "sha256:0d6be741479eddd2c8644a288990c04f3df0d609bbc1599a005532a9dff63509",
+        "extract": "syft"
+      }
+    },
+    "postInstall": [
+      "syft",
+      "--version"
+    ]
   }
 }
