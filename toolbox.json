@@ -184,5 +184,22 @@
       "syft",
       "--version"
     ]
+  },
+  "telepresence": {
+    "version": "2.27.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.3/telepresence-linux-arm64",
+        "digest": "sha256:08292d0e1b1a23abcd67aa477ddd1e41c9ecad90f77a841f1bc08807110bb67b"
+      },
+      "linux/x64": {
+        "url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.3/telepresence-linux-amd64",
+        "digest": "sha256:2d7f35e51db57f62b2ea41254f58181244b42650d2559ad44b37d9aaa90abfae"
+      }
+    },
+    "postInstall": [
+      "telepresence",
+      "version"
+    ]
   }
 }
