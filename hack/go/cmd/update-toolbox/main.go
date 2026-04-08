@@ -4,30 +4,44 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
-	"os"
 	"sync"
 	"sync/atomic"
 	"time"
 
 	"github.com/sourcegraph/conc/pool"
-	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/cmd/update-toolbox/tool"
-	"github.com/cerbos/actions/cmd/update-toolbox/tool/buf"
-	"github.com/cerbos/actions/cmd/update-toolbox/tool/golangcilint"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/buf"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/flipt"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/golangcilint"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/goreleaser"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/grype"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/helmfile"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/reimage"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/rmz"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/syft"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/telepresence"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/vals"
 	"github.com/cerbos/actions/internal/command"
-	"github.com/cerbos/actions/internal/github"
 	"github.com/cerbos/actions/internal/log"
 )
 
-const manifestPath = "../../toolbox.json"
-
-var updaters = map[string]tool.Update{
-	"buf":           buf.Update,
-	"golangci-lint": golangcilint.Update,
+var tools = map[string]toolbox.Tool{
+	"buf":           buf.Tool,
+	"flipt":         flipt.Tool,
+	"golangci-lint": golangcilint.Tool,
+	"goreleaser":    goreleaser.Tool,
+	"grype":         grype.Tool,
+	"helmfile":      helmfile.Tool,
+	"just":          just.Tool,
+	"reimage":       reimage.Tool,
+	"rmz":           rmz.Tool,
+	"syft":          syft.Tool,
+	"telepresence":  telepresence.Tool,
+	"vals":          vals.Tool,
 }
 
 func main() {
@@ -35,34 +49,38 @@ func main() {
 }
 
 func updateToolbox(ctx context.Context) error {
-	tools, err := readManifest()
+	clients, err := toolbox.NewClients(ctx)
 	if err != nil {
 		return err
 	}
 
-	for name := range tools {
-		if _, ok := updaters[name]; !ok {
+	manifest, err := toolbox.Read()
+	if err != nil {
+		return err
+	}
+
+	for name := range manifest {
+		if _, ok := tools[name]; !ok {
 			log.Debug(ctx, "Removing tool", "tool", name)
-			delete(tools, name)
+			delete(manifest, name)
 		}
 	}
 
-	client := github.NewClient(ctx)
 	updates := pool.New().WithContext(ctx)
 	start := time.Now()
 	var mutex sync.RWMutex
 	var updated, notUpdated, failed atomic.Int32
 
-	for name, update := range updaters {
+	for name, tool := range tools {
 		updates.Go(func(ctx context.Context) error {
 			ctx = log.With(ctx, "tool", name)
 
 			mutex.RLock()
-			oldVersion := tools[name].Version
+			oldVersion := manifest[name].Version
 			mutex.RUnlock()
 
 			start := time.Now()
-			source, err := update(ctx, client, oldVersion)
+			source, err := toolbox.Update(ctx, clients, tool, oldVersion)
 			ctx = log.With(ctx, "duration", time.Since(start))
 			if err != nil {
 				failed.Add(1)
@@ -77,7 +95,7 @@ func updateToolbox(ctx context.Context) error {
 			}
 
 			mutex.Lock()
-			tools[name] = *source
+			manifest[name] = *source
 			mutex.Unlock()
 
 			updated.Add(1)
@@ -99,39 +117,5 @@ func updateToolbox(ctx context.Context) error {
 		}
 	}
 
-	return writeManifest(tools)
-}
-
-func readManifest() (tools map[string]tool.Source, err error) {
-	file, err := os.Open(manifestPath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to open tools file for reading: %w", err)
-	}
-	defer multierr.AppendInvoke(&err, multierr.Close(file))
-
-	decoder := json.NewDecoder(file)
-	decoder.DisallowUnknownFields()
-
-	if err := decoder.Decode(&tools); err != nil {
-		return nil, fmt.Errorf("failed to read tools file: %w", err)
-	}
-
-	return tools, nil
-}
-
-func writeManifest(tools map[string]tool.Source) (err error) {
-	file, err := os.Create(manifestPath)
-	if err != nil {
-		return fmt.Errorf("failed to open tools file for writing: %w", err)
-	}
-	defer multierr.AppendInvoke(&err, multierr.Close(file))
-
-	encoder := json.NewEncoder(file)
-	encoder.SetIndent("", "  ")
-
-	if err := encoder.Encode(tools); err != nil {
-		return fmt.Errorf("failed to write tools file: %w", err)
-	}
-
-	return nil
+	return toolbox.Write(manifest)
 }

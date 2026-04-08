@@ -16,6 +16,25 @@
       "--version"
     ]
   },
+  "flipt": {
+    "version": "1.61.1",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_arm64.tar.gz",
+        "digest": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46",
+        "extract": "flipt"
+      },
+      "linux/x64": {
+        "url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_x86_64.tar.gz",
+        "digest": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa",
+        "extract": "flipt"
+      }
+    },
+    "postInstall": [
+      "flipt",
+      "--version"
+    ]
+  },
   "golangci-lint": {
     "version": "2.11.4",
     "downloads": {
@@ -32,6 +51,173 @@
     },
     "postInstall": [
       "golangci-lint",
+      "version"
+    ]
+  },
+  "goreleaser": {
+    "version": "2.15.2",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
+        "digest": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
+        "extract": "goreleaser"
+      },
+      "linux/x64": {
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_x86_64.tar.gz",
+        "digest": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
+        "extract": "goreleaser"
+      }
+    },
+    "postInstall": [
+      "goreleaser",
+      "--version"
+    ]
+  },
+  "grype": {
+    "version": "0.110.0",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/anchore/grype/releases/download/v0.110.0/grype_0.110.0_linux_arm64.tar.gz",
+        "digest": "sha256:804041ee69f119022e3e866741a558eae6f2df372a5dc1a5376d456d16f8c931",
+        "extract": "grype"
+      },
+      "linux/x64": {
+        "url": "https://github.com/anchore/grype/releases/download/v0.110.0/grype_0.110.0_linux_amd64.tar.gz",
+        "digest": "sha256:aaa98d27d2d7efd9317c6a1ad6d9b15f3e65bab320e7d03bde41e251387bb71c",
+        "extract": "grype"
+      }
+    },
+    "postInstall": [
+      "grype",
+      "--version"
+    ]
+  },
+  "helmfile": {
+    "version": "1.4.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_arm64.tar.gz",
+        "digest": "sha256:071d0ae7557f8a01aedc6865d9d2da17ab989ff6e3766466162f6c4c958d8636",
+        "extract": "helmfile"
+      },
+      "linux/x64": {
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_amd64.tar.gz",
+        "digest": "sha256:08e1926f248031e3dc553bdadb17c44fc8efecdc0ac50c07fa194a293ddefc59",
+        "extract": "helmfile"
+      }
+    },
+    "postInstall": [
+      "helmfile",
+      "--version"
+    ]
+  },
+  "just": {
+    "version": "1.48.1",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/casey/just/releases/download/1.48.1/just-1.48.1-aarch64-unknown-linux-musl.tar.gz",
+        "digest": "sha256:3308721b991cf88cf2b9bbb3b31ac40550ec61a0c9b6fc011564e25e87964030",
+        "extract": "just"
+      },
+      "linux/x64": {
+        "url": "https://github.com/casey/just/releases/download/1.48.1/just-1.48.1-x86_64-unknown-linux-musl.tar.gz",
+        "digest": "sha256:9293e553ce401d1b524bf4e104918f72f268e3f9c6827e0055fe98d84a1b2522",
+        "extract": "just"
+      }
+    },
+    "postInstall": [
+      "just",
+      "--version"
+    ]
+  },
+  "reimage": {
+    "version": "0.12.1",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
+        "digest": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
+        "extract": "reimage"
+      },
+      "linux/x64": {
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_x86_64.tar.gz",
+        "digest": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
+        "extract": "reimage"
+      }
+    },
+    "postInstall": [
+      "reimage",
+      "-V"
+    ]
+  },
+  "rmz": {
+    "version": "3.1.1",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/aarch64-unknown-linux-gnu-rmz",
+        "digest": "sha256:1ac8e83a0242938b10bd6a37ebd1b96d92896f84547aead32f3608c3e5ff733d"
+      },
+      "linux/x64": {
+        "url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/x86_64-unknown-linux-gnu-rmz",
+        "digest": "sha256:9017131f24a6a619568316d3cf1aabbf4fb8297d8082b11fd2b6817436876a3b"
+      }
+    },
+    "postInstall": [
+      "rmz",
+      "--version"
+    ]
+  },
+  "syft": {
+    "version": "1.42.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/anchore/syft/releases/download/v1.42.3/syft_1.42.3_linux_arm64.tar.gz",
+        "digest": "sha256:dc630590c953347789d08f8ebf57c7d8094db89100785fcd94b1cddeac791804",
+        "extract": "syft"
+      },
+      "linux/x64": {
+        "url": "https://github.com/anchore/syft/releases/download/v1.42.3/syft_1.42.3_linux_amd64.tar.gz",
+        "digest": "sha256:0d6be741479eddd2c8644a288990c04f3df0d609bbc1599a005532a9dff63509",
+        "extract": "syft"
+      }
+    },
+    "postInstall": [
+      "syft",
+      "--version"
+    ]
+  },
+  "telepresence": {
+    "version": "2.27.3",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.3/telepresence-linux-arm64",
+        "digest": "sha256:08292d0e1b1a23abcd67aa477ddd1e41c9ecad90f77a841f1bc08807110bb67b"
+      },
+      "linux/x64": {
+        "url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.3/telepresence-linux-amd64",
+        "digest": "sha256:2d7f35e51db57f62b2ea41254f58181244b42650d2559ad44b37d9aaa90abfae"
+      }
+    },
+    "postInstall": [
+      "telepresence",
+      "version"
+    ]
+  },
+  "vals": {
+    "version": "0.43.7",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_arm64.tar.gz",
+        "digest": "sha256:1b0b02d05ce9fdfb1c3cd28cf60c574bd691dab506d9a1883780e27b584914d6",
+        "extract": "vals"
+      },
+      "linux/x64": {
+        "url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_amd64.tar.gz",
+        "digest": "sha256:b3a2b55e5312f0ad77cc460773f2e97674556ceba69c8177689b4bc9c46a7cc4",
+        "extract": "vals"
+      }
+    },
+    "postInstall": [
+      "vals",
       "version"
     ]
   }

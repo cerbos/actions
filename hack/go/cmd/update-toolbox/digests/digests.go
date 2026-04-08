@@ -8,13 +8,46 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/internal/github"
 )
 
-func Parse(contents []byte) (map[string]string, error) {
+func Verify(release *github.Release, installations toolbox.Installations, digestsAssetName string) error {
+	digestsAsset, err := release.Asset(digestsAssetName)
+	if err != nil {
+		return err
+	}
+
+	digests, err := parseFile(digestsAsset.Contents)
+	if err != nil {
+		return err
+	}
+
+	for _, installation := range installations {
+		asset, err := release.Asset(installation.Asset)
+		if err != nil {
+			return err
+		}
+
+		digest, ok := digests[asset.Name]
+		if !ok {
+			return fmt.Errorf("missing digest for %s", asset.Name)
+		}
+
+		if digest != asset.Digest {
+			return fmt.Errorf("digest mismatch for %s", asset.Name)
+		}
+	}
+
+	return nil
+}
+
+func parseFile(contents []byte) (map[string]string, error) {
 	digests := make(map[string]string)
 
 	for line := range bytes.Lines(contents) {
-		file, digest, err := parse(line)
+		file, digest, err := parseLine(line)
 		if err != nil {
 			return nil, fmt.Errorf("failed to parse digest %q", line)
 		}
@@ -24,7 +57,7 @@ func Parse(contents []byte) (map[string]string, error) {
 	return digests, nil
 }
 
-func parse(line []byte) (string, string, error) {
+func parseLine(line []byte) (string, string, error) {
 	digest, file, ok := bytes.Cut(bytes.TrimSpace(line), []byte("  "))
 	if !ok {
 		return "", "", errors.New("missing separator")

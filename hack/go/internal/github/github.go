@@ -66,6 +66,7 @@ func (r Repository) String() string {
 type Release struct {
 	Assets  map[string]*Asset
 	Repo    Repository
+	Tag     string
 	Version semver.Version
 }
 
@@ -98,7 +99,14 @@ type Asset struct {
 type FindNewerReleaseOption func(*findNewerReleaseOptions)
 
 type findNewerReleaseOptions struct {
-	versionFromTag func(string) semver.Version
+	versionConstraint func(semver.Version) bool
+	versionFromTag    func(string) semver.Version
+}
+
+func VersionConstraint(versionConstraint func(semver.Version) bool) FindNewerReleaseOption {
+	return func(options *findNewerReleaseOptions) {
+		options.versionConstraint = versionConstraint
+	}
 }
 
 func VersionFromTag(versionFromTag func(string) semver.Version) FindNewerReleaseOption {
@@ -111,6 +119,9 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 	ctx = log.With(ctx, "repo", repo)
 
 	opts := findNewerReleaseOptions{
+		versionConstraint: func(semver.Version) bool {
+			return true
+		},
 		versionFromTag: func(tag string) semver.Version {
 			return semver.Version(tag)
 		},
@@ -153,14 +164,20 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 			continue
 		}
 
-		age := time.Since(createdAt)
-		if age < minReleaseAge {
-			log.Debug(ctx, "Skipped", "reason", "too recent", "age", age)
-			continue
+		if repo.Owner != "cerbos" {
+			if age := time.Since(createdAt); age < minReleaseAge {
+				log.Debug(ctx, "Skipped", "reason", "too recent", "age", age)
+				continue
+			}
 		}
 
 		if semver.Compare(version, oldVersion) <= 0 {
 			log.Debug(ctx, "Skipped", "reason", "not newer")
+			continue
+		}
+
+		if !opts.versionConstraint(version) {
+			log.Debug(ctx, "Skipped", "reason", "constraint not satisfied")
 			continue
 		}
 
@@ -176,6 +193,7 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 
 	release := &Release{
 		Repo:    repo,
+		Tag:     newer.GetTagName(),
 		Version: oldVersion,
 		Assets:  make(map[string]*Asset, len(newer.Assets)),
 	}
