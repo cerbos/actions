@@ -36,6 +36,7 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 	}
 
 	source := &Source{
+		Tag:         release.Tag,
 		Version:     release.Version,
 		Downloads:   make(map[Platform]Download, len(installations)),
 		PostInstall: tool.PostInstall,

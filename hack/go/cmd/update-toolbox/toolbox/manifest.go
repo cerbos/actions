@@ -15,6 +15,7 @@ import (
 const manifestPath = "../../toolbox.json"
 
 type Source struct {
+	Tag         string                `json:"-"`
 	Version     semver.Version        `json:"version"`
 	Downloads   map[Platform]Download `json:"downloads"`
 	PostInstall []string              `json:"postInstall"`
