@@ -166,6 +166,23 @@
       "--version"
     ]
   },
+  "skaffold": {
+    "version": "2.18.2",
+    "downloads": {
+      "linux/arm64": {
+        "url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.2/skaffold-linux-arm64",
+        "digest": "sha256:bbc32d0bedf230c3f43f2895de0574acf251b16dfaca1821c1f9fe56551ea573"
+      },
+      "linux/x64": {
+        "url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.2/skaffold-linux-amd64",
+        "digest": "sha256:f8d7fa6b1a2e973452365b64b47126d0b120b7dca385df059357a7106e8a420e"
+      }
+    },
+    "postInstall": [
+      "skaffold",
+      "version"
+    ]
+  },
   "syft": {
     "version": "1.42.3",
     "downloads": {
