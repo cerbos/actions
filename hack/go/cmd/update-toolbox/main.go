@@ -22,6 +22,7 @@ import (
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/reimage"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/rmz"
+	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/skaffold"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/syft"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/telepresence"
 	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/vals"
@@ -39,6 +40,7 @@ var tools = map[string]toolbox.Tool{
 	"just":          just.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
+	"skaffold":      skaffold.Tool,
 	"syft":          syft.Tool,
 	"telepresence":  telepresence.Tool,
 	"vals":          vals.Tool,
