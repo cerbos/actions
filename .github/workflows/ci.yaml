@@ -33,8 +33,22 @@ jobs:
         with:
           tools: ${{ steps.toolbox.outputs.tools }}
 
-  go:
-    name: Lint and test Go code
+  go-lint:
+    name: Lint Go code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Lint
+        uses: ./golangci-lint
+        with:
+          working-directory: hack/go
+
+  go-test:
+    name: Test Go code
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -51,10 +65,10 @@ jobs:
       - name: Tidy
         run: go -C hack/go mod tidy
 
-      - name: Lint
-        uses: ./golangci-lint
-        with:
-          working-directory: hack/go
+      - name: Run update-internal-actions
+        run: go -C hack/go run ./cmd/update-internal-actions
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run update-toolbox
         run: go -C hack/go run ./cmd/update-toolbox
