@@ -67,7 +67,7 @@ func main() {
 
 func wrapActions(ctx context.Context) error {
 	client := github.NewClient(ctx)
-	tasks := pool.New().WithContext(ctx).WithCancelOnError().WithFirstError()
+	tasks := pool.New().WithContext(ctx).WithFailFast()
 
 	for _, action := range actions {
 		tasks.Go(func(ctx context.Context) error {

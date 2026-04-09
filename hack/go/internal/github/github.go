@@ -11,6 +11,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/google/go-github/v84/github"
@@ -218,7 +219,7 @@ func (c *Client) DownloadAssets(ctx context.Context, release *Release, names ...
 		return err
 	}
 
-	downloads := pool.New().WithContext(ctx).WithCancelOnError().WithFirstError()
+	downloads := pool.New().WithContext(ctx).WithFailFast()
 
 	for _, name := range names {
 		downloads.Go(func(ctx context.Context) error {
@@ -267,6 +268,39 @@ func (c *Client) DownloadAsset(ctx context.Context, release *Release, name strin
 func (c *Client) DownloadFile(ctx context.Context, repo Repository, ref, path string) (io.ReadCloser, error) {
 	file, _, err := c.github.Repositories.DownloadContents(ctx, repo.Owner, repo.Name, path, &github.RepositoryContentGetOptions{Ref: ref})
 	return file, err
+}
+
+type Commit struct {
+	SHA     string
+	Message string
+}
+
+func (c Commit) LogValue() slog.Value {
+	return slog.GroupValue(
+		slog.Any("sha", c.SHA),
+		slog.Any("message", c.Message),
+	)
+}
+
+func (c *Client) FindLatestCommitForPath(ctx context.Context, repo Repository, path string) (*Commit, error) {
+	commits, _, err := c.github.Repositories.ListCommits(ctx, repo.Owner, repo.Name, &github.CommitsListOptions{
+		Path:        path,
+		ListOptions: github.ListOptions{PerPage: 1},
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	if len(commits) == 0 {
+		return nil, fmt.Errorf("%s not found in %s", path, repo)
+	}
+
+	message, _, _ := strings.Cut(commits[0].GetCommit().GetMessage(), "\n")
+
+	return &Commit{
+		SHA:     commits[0].GetSHA(),
+		Message: message,
+	}, nil
 }
 
 func (c *Client) acquire(ctx context.Context) error {
