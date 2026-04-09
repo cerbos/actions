@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"os"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -68,13 +69,13 @@ func updateToolbox(ctx context.Context) error {
 		}
 	}
 
-	updates := pool.New().WithContext(ctx)
+	updates := pool.NewWithResults[string]().WithContext(ctx)
 	start := time.Now()
 	var mutex sync.RWMutex
 	var updated, notUpdated, failed atomic.Int32
 
 	for name, tool := range tools {
-		updates.Go(func(ctx context.Context) error {
+		updates.Go(func(ctx context.Context) (string, error) {
 			ctx = log.With(ctx, "tool", name)
 
 			mutex.RLock()
@@ -87,13 +88,13 @@ func updateToolbox(ctx context.Context) error {
 			if err != nil {
 				failed.Add(1)
 				log.Error(ctx, "Update failed", "err", err)
-				return err
+				return "", err
 			}
 
 			if source == nil {
 				notUpdated.Add(1)
 				log.Info(ctx, "No update available")
-				return nil
+				return "", nil
 			}
 
 			mutex.Lock()
@@ -102,11 +103,11 @@ func updateToolbox(ctx context.Context) error {
 
 			updated.Add(1)
 			log.Info(ctx, "Updated", "version", source.Version)
-			return nil
+			return fmt.Sprintf("%s | %s | [%s](https://github.com/%s/releases/tag/%s)", name, oldVersion, source.Version, tool.Repo, source.Tag), nil
 		})
 	}
 
-	err = updates.Wait()
+	rows, err := updates.Wait()
 	log.Info(ctx, "Completed", "duration", time.Since(start), "updated", updated.Load(), "notUpdated", notUpdated.Load(), "failed", failed.Load())
 	if err != nil {
 		switch n := failed.Load(); n {
@@ -116,6 +117,15 @@ func updateToolbox(ctx context.Context) error {
 			return errors.New("1 update failed")
 		default:
 			return fmt.Errorf("%d updates failed", n)
+		}
+	}
+
+	if os.Getenv("CI") == "true" && updated.Load() > 0 {
+		fmt.Fprintln(os.Stdout, "Update | from | to\n---|---|---")
+		for _, row := range rows {
+			if row != "" {
+				fmt.Fprintln(os.Stdout, row)
+			}
 		}
 	}
 
