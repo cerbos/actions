@@ -1,0 +1,22 @@
+name: Set up Node.js
+description: Install Node.js and dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Set up pnpm
+      uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+      with:
+        package_json_file: hack/js/package.json
+
+    - name: Set up Node.js
+      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      with:
+        cache: pnpm
+        cache-dependency-path: hack/js/pnpm-lock.yaml
+        node-version-file: hack/js/.node-version
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      shell: bash
+      working-directory: hack/js
