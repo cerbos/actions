@@ -66,6 +66,7 @@ jobs:
         run: go -C hack/go mod tidy
 
       - name: Run update-internal-actions
+        if: github.event_name != 'push'
         run: go -C hack/go run ./cmd/update-internal-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}

@@ -18231,6 +18231,8 @@ function _getCacheDirectory() {
 var toolbox_default = {
 	buf: {
 		"version": "1.67.0",
+		"released": "2026-04-01T16:35:39Z",
+		"updated": "2026-04-10T10:03:21Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Linux-aarch64",
@@ -18245,6 +18247,8 @@ var toolbox_default = {
 	},
 	flipt: {
 		"version": "1.61.1",
+		"released": "2026-03-06T18:45:00Z",
+		"updated": "2026-04-10T10:03:23Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_arm64.tar.gz",
@@ -18261,6 +18265,8 @@ var toolbox_default = {
 	},
 	"golangci-lint": {
 		"version": "2.11.4",
+		"released": "2026-03-22T17:29:46Z",
+		"updated": "2026-04-10T10:03:22Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-linux-arm64.tar.gz",
@@ -18277,6 +18283,8 @@ var toolbox_default = {
 	},
 	goreleaser: {
 		"version": "2.15.2",
+		"released": "2026-03-31T16:57:22Z",
+		"updated": "2026-04-10T10:03:24Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
@@ -18293,6 +18301,8 @@ var toolbox_default = {
 	},
 	grype: {
 		"version": "0.110.0",
+		"released": "2026-03-19T18:01:55Z",
+		"updated": "2026-04-10T10:03:21Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/anchore/grype/releases/download/v0.110.0/grype_0.110.0_linux_arm64.tar.gz",
@@ -18309,6 +18319,8 @@ var toolbox_default = {
 	},
 	helmfile: {
 		"version": "1.4.3",
+		"released": "2026-03-24T13:01:44Z",
+		"updated": "2026-04-10T10:03:18Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_arm64.tar.gz",
@@ -18325,6 +18337,8 @@ var toolbox_default = {
 	},
 	just: {
 		"version": "1.49.0",
+		"released": "2026-04-05T05:40:47Z",
+		"updated": "2026-04-10T10:03:19Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-unknown-linux-musl.tar.gz",
@@ -18341,6 +18355,8 @@ var toolbox_default = {
 	},
 	reimage: {
 		"version": "0.12.1",
+		"released": "2026-04-08T09:21:07Z",
+		"updated": "2026-04-10T10:03:19Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
@@ -18357,6 +18373,8 @@ var toolbox_default = {
 	},
 	rmz: {
 		"version": "3.1.1",
+		"released": "2025-07-24T01:12:28Z",
+		"updated": "2026-04-10T10:03:16Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/aarch64-unknown-linux-gnu-rmz",
@@ -18371,6 +18389,8 @@ var toolbox_default = {
 	},
 	skaffold: {
 		"version": "2.18.2",
+		"released": "2026-03-26T16:32:00Z",
+		"updated": "2026-04-10T10:03:23Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.2/skaffold-linux-arm64",
@@ -18385,6 +18405,8 @@ var toolbox_default = {
 	},
 	syft: {
 		"version": "1.42.3",
+		"released": "2026-03-19T17:00:52Z",
+		"updated": "2026-04-10T10:03:23Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/anchore/syft/releases/download/v1.42.3/syft_1.42.3_linux_arm64.tar.gz",
@@ -18401,6 +18423,8 @@ var toolbox_default = {
 	},
 	telepresence: {
 		"version": "2.27.3",
+		"released": "2026-03-29T21:31:16Z",
+		"updated": "2026-04-10T10:03:16Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.3/telepresence-linux-arm64",
@@ -18415,6 +18439,8 @@ var toolbox_default = {
 	},
 	vals: {
 		"version": "0.43.7",
+		"released": "2026-03-11T13:18:48Z",
+		"updated": "2026-04-10T10:03:19Z",
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_arm64.tar.gz",

@@ -5,6 +5,7 @@ package toolbox
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/cerbos/actions/internal/github"
 	"github.com/cerbos/actions/internal/semver"
@@ -38,6 +39,8 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 	source := &Source{
 		Tag:         release.Tag,
 		Version:     release.Version,
+		Released:    normalizeTimestamp(release.Created),
+		Updated:     normalizeTimestamp(time.Now()),
 		Downloads:   make(map[Platform]Download, len(installations)),
 		PostInstall: tool.PostInstall,
 	}
@@ -56,4 +59,8 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 	}
 
 	return source, nil
+}
+
+func normalizeTimestamp(timestamp time.Time) time.Time {
+	return timestamp.UTC().Truncate(time.Second)
 }

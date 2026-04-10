@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"time"
 
 	"go.uber.org/multierr"
 
@@ -17,6 +18,8 @@ const manifestPath = "../../toolbox.json"
 type Source struct {
 	Tag         string                `json:"-"`
 	Version     semver.Version        `json:"version"`
+	Released    time.Time             `json:"released"`
+	Updated     time.Time             `json:"updated"`
 	Downloads   map[Platform]Download `json:"downloads"`
 	PostInstall []string              `json:"postInstall"`
 }
