@@ -57,7 +57,7 @@ var actions = []Action{
 			Repo: github.Repository{Owner: "golangci", Name: "golangci-lint-action"},
 			Path: "action.yml",
 		},
-		ExcludeInputs: []string{"install-mode", "version", "version-file"},
+		ExcludeInputs: []string{"install-mode", "install-only", "version", "version-file"},
 	},
 }
 

@@ -2,6 +2,13 @@ name: golangci-lint
 description: Lint Go code
 
 inputs:
+  action:
+    description: |
+      `default`: Install and run golangci-lint
+      `install`: Install golangci-lint (without running it)
+      `run`: Run golangci-lint (without installing it)
+    required: false
+    default: default
   # wrap:inputs:start
   args:
     description: golangci-lint command line arguments.
@@ -25,10 +32,6 @@ inputs:
     description: The token is used for fetching the patch of a pull request to show only new issues.
     required: false
     default: ${{ github.token }}
-  install-only:
-    description: Only install golangci-lint. It does not run golangci-lint.
-    required: false
-    default: "false"
   only-new-issues:
     description: If set to true and the action runs on a pull request, the action outputs only newly found issues.
     required: false
@@ -63,12 +66,13 @@ runs:
 
   steps:
     - name: Install golangci-lint
+      if: inputs.action != 'run'
       uses: cerbos/actions/install-tools@6f358f8418276207f5125a5f7f880ac4f0d5f415
       with:
         tools: golangci-lint
 
     - name: Run golangci-lint
-      if: inputs.install-only != 'true'
+      if: inputs.action != 'install'
       uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
       with:
         install-mode: none
@@ -78,7 +82,6 @@ runs:
         debug: ${{ inputs.debug }}
         experimental: ${{ inputs.experimental }}
         github-token: ${{ inputs.github-token }}
-        install-only: ${{ inputs.install-only }}
         only-new-issues: ${{ inputs.only-new-issues }}
         problem-matchers: ${{ inputs.problem-matchers }}
         skip-cache: ${{ inputs.skip-cache }}
