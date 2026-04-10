@@ -1,4 +1,4 @@
-// Copyright 2021-2026 Zenauth Ltd.
+// Copyright 2026 Zenauth Ltd.
 
 package grype
 

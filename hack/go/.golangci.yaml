@@ -59,7 +59,7 @@ linters:
         const:
           COMPANY: Zenauth Ltd.
       template: |-
-        Copyright 2021-{{ YEAR }} {{ COMPANY }}
+        Copyright {{ YEAR }} {{ COMPANY }}
 
     govet:
       disable:
