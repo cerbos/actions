@@ -5,8 +5,8 @@ package telepresence
 import (
 	"context"
 
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
-	"github.com/cerbos/actions/internal/github"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/pkg/github"
 )
 
 var (

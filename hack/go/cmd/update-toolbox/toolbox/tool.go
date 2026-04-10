@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cerbos/actions/internal/github"
-	"github.com/cerbos/actions/internal/semver"
+	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
 type Tool struct {

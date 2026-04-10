@@ -11,7 +11,7 @@ import (
 
 	"github.com/lmittmann/tint"
 
-	"github.com/cerbos/actions/internal/log"
+	"github.com/cerbos/actions/hack/go/pkg/log"
 )
 
 func Run(command func(context.Context) error) {

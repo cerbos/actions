@@ -19,8 +19,8 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/cerbos/actions/internal/log"
-	"github.com/cerbos/actions/internal/semver"
+	"github.com/cerbos/actions/hack/go/pkg/log"
+	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
 const (

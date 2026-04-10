@@ -44,8 +44,6 @@ jobs:
 
       - name: Lint
         uses: ./golangci-lint
-        with:
-          working-directory: hack/go
 
   go-test:
     name: Test Go code
@@ -60,21 +58,21 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Tidy
-        run: go -C hack/go mod tidy
+        run: go mod tidy
 
       - name: Run update-internal-actions
         if: github.event_name != 'push'
-        run: go -C hack/go run ./cmd/update-internal-actions
+        run: go run ./hack/go/cmd/update-internal-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run update-toolbox
-        run: go -C hack/go run ./cmd/update-toolbox
+        run: go run ./hack/go/cmd/update-toolbox
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run wrap-actions
-        run: go -C hack/go run ./cmd/wrap-actions
+        run: go run ./hack/go/cmd/wrap-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 

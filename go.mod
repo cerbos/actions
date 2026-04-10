@@ -1,6 +1,8 @@
 module github.com/cerbos/actions
 
-go 1.26.1
+go 1.26
+
+toolchain go1.26.1
 
 require (
 	aead.dev/minisign v0.3.0

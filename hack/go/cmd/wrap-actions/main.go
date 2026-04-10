@@ -19,9 +19,9 @@ import (
 	"github.com/sourcegraph/conc/pool"
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/internal/command"
-	"github.com/cerbos/actions/internal/github"
-	"github.com/cerbos/actions/internal/log"
+	"github.com/cerbos/actions/hack/go/pkg/command"
+	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/log"
 )
 
 type Action struct {
@@ -79,7 +79,7 @@ func wrapActions(ctx context.Context) error {
 }
 
 func wrapAction(ctx context.Context, client *github.Client, action Action) error {
-	path := filepath.Join("..", "..", action.Target, "action.yaml")
+	path := filepath.Join(action.Target, "action.yaml")
 
 	contents, err := os.ReadFile(path)
 	if err != nil {

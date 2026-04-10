@@ -29,7 +29,7 @@ jobs:
         run: |
           {
             echo "summary<<EOF"
-            go -C hack/go run ./cmd/update-toolbox
+            go run ./hack/go/cmd/update-toolbox
             echo "EOF"
           } >> "${GITHUB_OUTPUT}"
         env:

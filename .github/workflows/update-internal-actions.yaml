@@ -25,7 +25,7 @@ jobs:
         uses: ./.github/actions/setup-go
 
       - name: Run update-internal-actions
-        run: go -C hack/go run ./cmd/update-internal-actions
+        run: go run ./hack/go/cmd/update-internal-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 

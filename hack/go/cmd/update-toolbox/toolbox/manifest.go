@@ -10,10 +10,10 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/internal/semver"
+	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
-const manifestPath = "../../toolbox.json"
+const manifestPath = "toolbox.json"
 
 type Source struct {
 	Tag         string                `json:"-"`

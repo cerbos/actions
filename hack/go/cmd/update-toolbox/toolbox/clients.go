@@ -6,8 +6,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cerbos/actions/internal/github"
-	"github.com/cerbos/actions/internal/sigstore"
+	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/sigstore"
 )
 
 type Clients struct {

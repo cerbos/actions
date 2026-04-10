@@ -5,9 +5,9 @@ package rmz
 import (
 	"context"
 
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
-	"github.com/cerbos/actions/internal/github"
-	"github.com/cerbos/actions/internal/semver"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
 var (

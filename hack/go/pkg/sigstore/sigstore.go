@@ -10,7 +10,7 @@ import (
 	"github.com/sigstore/sigstore-go/pkg/root"
 	"github.com/sigstore/sigstore-go/pkg/verify"
 
-	"github.com/cerbos/actions/internal/github"
+	"github.com/cerbos/actions/hack/go/pkg/github"
 )
 
 const issuer = "https://token.actions.githubusercontent.com"

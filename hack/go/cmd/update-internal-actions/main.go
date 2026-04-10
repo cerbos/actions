@@ -14,9 +14,9 @@ import (
 
 	"github.com/sourcegraph/conc/pool"
 
-	"github.com/cerbos/actions/internal/command"
-	"github.com/cerbos/actions/internal/github"
-	"github.com/cerbos/actions/internal/log"
+	"github.com/cerbos/actions/hack/go/pkg/command"
+	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/log"
 )
 
 var (
