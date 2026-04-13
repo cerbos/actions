@@ -103,18 +103,18 @@
     ]
   },
   "helmfile": {
-    "version": "1.4.3",
-    "released": "2026-03-24T13:01:44Z",
-    "updated": "2026-04-10T10:03:18Z",
+    "version": "1.4.4",
+    "released": "2026-04-08T00:25:11Z",
+    "updated": "2026-04-13T08:48:48Z",
     "downloads": {
       "linux/arm64": {
-        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_arm64.tar.gz",
-        "digest": "sha256:071d0ae7557f8a01aedc6865d9d2da17ab989ff6e3766466162f6c4c958d8636",
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_arm64.tar.gz",
+        "digest": "sha256:9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2",
         "extract": "helmfile"
       },
       "linux/x64": {
-        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.3/helmfile_1.4.3_linux_amd64.tar.gz",
-        "digest": "sha256:08e1926f248031e3dc553bdadb17c44fc8efecdc0ac50c07fa194a293ddefc59",
+        "url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_amd64.tar.gz",
+        "digest": "sha256:3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91",
         "extract": "helmfile"
       }
     },
@@ -244,18 +244,18 @@
     ]
   },
   "vals": {
-    "version": "0.43.7",
-    "released": "2026-03-11T13:18:48Z",
-    "updated": "2026-04-10T10:03:19Z",
+    "version": "0.43.8",
+    "released": "2026-04-07T23:44:54Z",
+    "updated": "2026-04-13T08:48:48Z",
     "downloads": {
       "linux/arm64": {
-        "url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_arm64.tar.gz",
-        "digest": "sha256:1b0b02d05ce9fdfb1c3cd28cf60c574bd691dab506d9a1883780e27b584914d6",
+        "url": "https://github.com/helmfile/vals/releases/download/v0.43.8/vals_0.43.8_linux_arm64.tar.gz",
+        "digest": "sha256:a879cc52b7c4055de8efe2ba7cfc84ed3d4107dab3166ad8d536bf5f5977e7d4",
         "extract": "vals"
       },
       "linux/x64": {
-        "url": "https://github.com/helmfile/vals/releases/download/v0.43.7/vals_0.43.7_linux_amd64.tar.gz",
-        "digest": "sha256:b3a2b55e5312f0ad77cc460773f2e97674556ceba69c8177689b4bc9c46a7cc4",
+        "url": "https://github.com/helmfile/vals/releases/download/v0.43.8/vals_0.43.8_linux_amd64.tar.gz",
+        "digest": "sha256:77e400d6f48de56efabcb7858a79a555d0b9c771c2281b9ee70deda63527f29e",
         "extract": "vals"
       }
     },
