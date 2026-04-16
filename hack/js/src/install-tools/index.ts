@@ -36,7 +36,10 @@ interface Source {
   tool: Tool;
   version: string;
   url: string;
-  digest: string;
+  digests: {
+    asset: string;
+    binary: string;
+  };
   extract?: string;
   postInstall: string[];
 }
@@ -158,7 +161,7 @@ async function downloadTool(
 
     const digest = `sha256:${hash.digest("hex")}`;
 
-    if (digest !== source.digest) {
+    if (digest !== source.digests.asset) {
       throw new Error("Digest mismatch");
     }
 

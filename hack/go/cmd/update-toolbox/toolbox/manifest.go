@@ -17,12 +17,12 @@ import (
 const manifestPath = "toolbox.json"
 
 type Source struct {
-	Tag         string                `json:"-"`
-	Version     semver.Version        `json:"version"`
-	Released    time.Time             `json:"released"`
-	Updated     time.Time             `json:"updated"`
-	Downloads   map[Platform]Download `json:"downloads"`
-	PostInstall []string              `json:"postInstall"`
+	Tag         string                 `json:"-"`
+	Version     semver.Version         `json:"version"`
+	Released    time.Time              `json:"released"`
+	Updated     time.Time              `json:"updated"`
+	Downloads   map[Platform]*Download `json:"downloads"`
+	PostInstall []string               `json:"postInstall"`
 }
 
 type Platform string
@@ -33,9 +33,14 @@ const (
 )
 
 type Download struct {
-	URL     string        `json:"url"`
-	Extract string        `json:"extract,omitempty"`
-	Digest  digest.SHA256 `json:"digest"`
+	URL     string  `json:"url"`
+	Extract string  `json:"extract,omitempty"`
+	Digests Digests `json:"digests"`
+}
+
+type Digests struct {
+	Asset  digest.SHA256 `json:"asset"`
+	Binary digest.SHA256 `json:"binary"`
 }
 
 func Read() (manifest map[string]Source, err error) {
