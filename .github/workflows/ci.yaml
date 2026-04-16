@@ -44,8 +44,6 @@ jobs:
 
       - name: Lint
         uses: ./golangci-lint
-        with:
-          working-directory: hack/go
 
   go-test:
     name: Test Go code
@@ -57,27 +55,32 @@ jobs:
           persist-credentials: false
 
       - name: Set up Go
-        uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version-file: hack/go/go.mod
-          cache-dependency-path: hack/go/go.sum
+        uses: ./.github/actions/setup-go
 
       - name: Tidy
-        run: go -C hack/go mod tidy
+        run: go mod tidy
+
+      - name: Run install-tools
+        run: |
+          workdir=$(mktemp -d)
+          go build -o "${workdir}/install-tools" ./cmd/install-tools
+          jq --raw-output keys[] < toolbox.json | (cd "${workdir}"; xargs ./install-tools)
+          export PATH="${workdir}:${PATH}"
+          jq --raw-output '.[] | (.postInstall | join(" "))' < toolbox.json | bash -ex
 
       - name: Run update-internal-actions
         if: github.event_name != 'push'
-        run: go -C hack/go run ./cmd/update-internal-actions
+        run: go run ./hack/go/cmd/update-internal-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run update-toolbox
-        run: go -C hack/go run ./cmd/update-toolbox
+        run: go run ./hack/go/cmd/update-toolbox
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run wrap-actions
-        run: go -C hack/go run ./cmd/wrap-actions
+        run: go run ./hack/go/cmd/wrap-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -93,21 +96,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
-        with:
-          package_json_file: hack/js/package.json
-
       - name: Set up Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
-        with:
-          cache: pnpm
-          cache-dependency-path: hack/js/pnpm-lock.yaml
-          node-version-file: hack/js/.node-version
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        working-directory: hack/js
+        uses: ./.github/actions/setup-node
 
       - name: Lint
         run: pnpm run lint

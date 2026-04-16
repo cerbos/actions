@@ -1,0 +1,94 @@
+version: "2"
+
+issues:
+  max-same-issues: 30
+
+linters:
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - copyloopvar
+    - dupl
+    - durationcheck
+    - errchkjson
+    - errname
+    - errorlint
+    - exhaustive
+    - forbidigo
+    - forcetypeassert
+    - gocheckcompilerdirectives
+    - goconst
+    - gocritic
+    - godot
+    - goheader
+    - gomoddirectives
+    - gosec
+    - importas
+    - makezero
+    - misspell
+    - mnd
+    - nakedret
+    - nestif
+    - nilerr
+    - noctx
+    - nolintlint
+    - perfsprint
+    - prealloc
+    - predeclared
+    - reassign
+    - revive
+    - sloglint
+    - staticcheck
+    - unconvert
+    - unparam
+    - wastedassign
+    - whitespace
+
+  exclusions:
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+
+  settings:
+    goheader:
+      values:
+        const:
+          COMPANY: Zenauth Ltd.
+      template: |-
+        Copyright {{ YEAR }} {{ COMPANY }}
+
+    govet:
+      disable:
+        - shadow
+      enable-all: true
+
+    nolintlint:
+      require-specific: true
+      allow-unused: false
+
+    sloglint:
+      context: all
+      no-global: all
+
+formatters:
+  enable:
+    - gci
+    - gofumpt
+    - goimports
+
+  settings:
+    gci:
+      custom-order: true
+      sections:
+        - standard
+        - default
+        - prefix(github.com/cerbos/actions)
+        - blank
+        - dot
+
+    gofumpt:
+      extra-rules: true

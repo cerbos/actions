@@ -18232,15 +18232,28 @@ var toolbox_default = {
 	buf: {
 		"version": "1.67.0",
 		"released": "2026-04-01T16:35:39Z",
-		"updated": "2026-04-10T10:03:21Z",
+		"updated": "2026-04-16T10:11:12Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Darwin-arm64",
+				"digests": {
+					"asset": "sha256:7b561964f8238e2acadae666c3e2a11b0a6d4dd716f12882dfedcd93c2a28e1e",
+					"binary": "sha256:7b561964f8238e2acadae666c3e2a11b0a6d4dd716f12882dfedcd93c2a28e1e"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Linux-aarch64",
-				"digest": "sha256:a4bbbb9f299bf7f313bb997d449e262ef29f2f4e001de5d682504d772da1c154"
+				"digests": {
+					"asset": "sha256:a4bbbb9f299bf7f313bb997d449e262ef29f2f4e001de5d682504d772da1c154",
+					"binary": "sha256:a4bbbb9f299bf7f313bb997d449e262ef29f2f4e001de5d682504d772da1c154"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Linux-x86_64",
-				"digest": "sha256:590b67b0cbde29b287e9772a71f46b569c2204e09a42c1c50dc425237a485e2a"
+				"digests": {
+					"asset": "sha256:590b67b0cbde29b287e9772a71f46b569c2204e09a42c1c50dc425237a485e2a",
+					"binary": "sha256:590b67b0cbde29b287e9772a71f46b569c2204e09a42c1c50dc425237a485e2a"
+				}
 			}
 		},
 		"postInstall": ["buf", "--version"]
@@ -18248,17 +18261,31 @@ var toolbox_default = {
 	flipt: {
 		"version": "1.61.1",
 		"released": "2026-03-06T18:45:00Z",
-		"updated": "2026-04-10T10:03:23Z",
+		"updated": "2026-04-16T10:11:09Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_darwin_arm64.tar.gz",
+				"extract": "flipt",
+				"digests": {
+					"asset": "sha256:689979a0036c114397d702e55d447a2da88f264ed1baf5f3637bac2451b57825",
+					"binary": "sha256:8b74226771feaaf854ca1547ff9e1383453e0350f3715bcb8c4691fad2a34837"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_arm64.tar.gz",
-				"digest": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46",
-				"extract": "flipt"
+				"extract": "flipt",
+				"digests": {
+					"asset": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46",
+					"binary": "sha256:5955e51c300a68252be071c1938cd3c236a1fb4d966990135de6a75d527f4355"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_x86_64.tar.gz",
-				"digest": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa",
-				"extract": "flipt"
+				"extract": "flipt",
+				"digests": {
+					"asset": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa",
+					"binary": "sha256:cf7d0923901a9314e22f71fddb6f3ead3c70de670a94df7458f7b15ec37c9c8b"
+				}
 			}
 		},
 		"postInstall": ["flipt", "--version"]
@@ -18266,17 +18293,31 @@ var toolbox_default = {
 	"golangci-lint": {
 		"version": "2.11.4",
 		"released": "2026-03-22T17:29:46Z",
-		"updated": "2026-04-10T10:03:22Z",
+		"updated": "2026-04-16T10:11:28Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-darwin-arm64.tar.gz",
+				"extract": "golangci-lint-2.11.4-darwin-arm64/golangci-lint",
+				"digests": {
+					"asset": "sha256:02db2a2dae8b26812e53b0688a6f617e3ef1f489790e829ea22862cf76945675",
+					"binary": "sha256:76b51bb6ca2efc41afea7537a93639bbe1d966bf8b981605ecd2fcad1dcfb8b6"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-linux-arm64.tar.gz",
-				"digest": "sha256:3bcfa2e6f3d32b2bf5cd75eaa876447507025e0303698633f722a05331988db4",
-				"extract": "golangci-lint-2.11.4-linux-arm64/golangci-lint"
+				"extract": "golangci-lint-2.11.4-linux-arm64/golangci-lint",
+				"digests": {
+					"asset": "sha256:3bcfa2e6f3d32b2bf5cd75eaa876447507025e0303698633f722a05331988db4",
+					"binary": "sha256:a90423744a720229035722c2f01fc59e144d223e5c5b2d4ed9113a43613dd2b9"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-linux-amd64.tar.gz",
-				"digest": "sha256:200c5b7503f67b59a6743ccf32133026c174e272b930ee79aa2aa6f37aca7ef1",
-				"extract": "golangci-lint-2.11.4-linux-amd64/golangci-lint"
+				"extract": "golangci-lint-2.11.4-linux-amd64/golangci-lint",
+				"digests": {
+					"asset": "sha256:200c5b7503f67b59a6743ccf32133026c174e272b930ee79aa2aa6f37aca7ef1",
+					"binary": "sha256:51ba72102857e609d290863239d73bf4210be016248fe503a516529a71bc2aad"
+				}
 			}
 		},
 		"postInstall": ["golangci-lint", "version"]
@@ -18284,17 +18325,31 @@ var toolbox_default = {
 	goreleaser: {
 		"version": "2.15.2",
 		"released": "2026-03-31T16:57:22Z",
-		"updated": "2026-04-10T10:03:24Z",
+		"updated": "2026-04-16T10:11:32Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Darwin_arm64.tar.gz",
+				"extract": "goreleaser",
+				"digests": {
+					"asset": "sha256:985c8509c62ccf2f48371868aa478a13ba075ff54457fdbcd2c0ba54eda8ad69",
+					"binary": "sha256:d128e4e16286defbb4be93c7a450bd22076a7354c60332ef38727b1b3370d5f1"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
-				"digest": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
-				"extract": "goreleaser"
+				"extract": "goreleaser",
+				"digests": {
+					"asset": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
+					"binary": "sha256:fdb07b88270ba070a1078a97343eae3e55cb5fb8c410be8239b4ea7933ec3054"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_x86_64.tar.gz",
-				"digest": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
-				"extract": "goreleaser"
+				"extract": "goreleaser",
+				"digests": {
+					"asset": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
+					"binary": "sha256:ca16b95b4a69163ea3c2f061d673d003cc2f7399f6412ef0cbfc182960e36b77"
+				}
 			}
 		},
 		"postInstall": ["goreleaser", "--version"]
@@ -18302,17 +18357,31 @@ var toolbox_default = {
 	grype: {
 		"version": "0.111.0",
 		"released": "2026-04-09T13:14:52Z",
-		"updated": "2026-04-16T09:38:06Z",
+		"updated": "2026-04-16T10:11:08Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_darwin_arm64.tar.gz",
+				"extract": "grype",
+				"digests": {
+					"asset": "sha256:62d005a1e36ac7ec0b7be801ebc8eab0053fd831a227e1dc8ea9c356d38fa361",
+					"binary": "sha256:f52812683329db690e96531d889143f6fa684bf394532a49d57f8054f234d1cf"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_arm64.tar.gz",
-				"digest": "sha256:1a8b9bd691ce274e44056e7572cdf8c6970bdf9ec694001f7b4b17962b121b43",
-				"extract": "grype"
+				"extract": "grype",
+				"digests": {
+					"asset": "sha256:1a8b9bd691ce274e44056e7572cdf8c6970bdf9ec694001f7b4b17962b121b43",
+					"binary": "sha256:ef49e19156b5fea0623f3c0fb46fbbcce9cff65101e4a2d62d3afd68caa2adb5"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_amd64.tar.gz",
-				"digest": "sha256:18ed2048d7a233566b681121d4632364f5f25d72cca86acc4c7ac57210d78a87",
-				"extract": "grype"
+				"extract": "grype",
+				"digests": {
+					"asset": "sha256:18ed2048d7a233566b681121d4632364f5f25d72cca86acc4c7ac57210d78a87",
+					"binary": "sha256:e2ab3d4d7ffad9548d901f15f899cc5a2c4e124041d2b795f1758e8b1dd6a816"
+				}
 			}
 		},
 		"postInstall": ["grype", "--version"]
@@ -18320,17 +18389,31 @@ var toolbox_default = {
 	helmfile: {
 		"version": "1.4.4",
 		"released": "2026-04-08T00:25:11Z",
-		"updated": "2026-04-13T08:48:48Z",
+		"updated": "2026-04-16T10:10:59Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_darwin_arm64.tar.gz",
+				"extract": "helmfile",
+				"digests": {
+					"asset": "sha256:439ba4ee4cd40e20fc97918ccf610321827453c659cae944f5e8784a400aa58e",
+					"binary": "sha256:a13ff2703b9ffdf0c438c7aa2f2728f7e0ff6ee29be3e7c18e471cde94389d58"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_arm64.tar.gz",
-				"digest": "sha256:9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2",
-				"extract": "helmfile"
+				"extract": "helmfile",
+				"digests": {
+					"asset": "sha256:9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2",
+					"binary": "sha256:ca0fa0018f5a46cd778370ef1f2f4bf3b3d936c28810e6171416de52f87d9a27"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_amd64.tar.gz",
-				"digest": "sha256:3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91",
-				"extract": "helmfile"
+				"extract": "helmfile",
+				"digests": {
+					"asset": "sha256:3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91",
+					"binary": "sha256:b4f4a3bbd89ff5825764aac3da734fd4a0f0d5cb48672167399552d05b1a0ff3"
+				}
 			}
 		},
 		"postInstall": ["helmfile", "--version"]
@@ -18338,17 +18421,31 @@ var toolbox_default = {
 	just: {
 		"version": "1.49.0",
 		"released": "2026-04-05T05:40:47Z",
-		"updated": "2026-04-10T10:03:19Z",
+		"updated": "2026-04-16T10:10:58Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-apple-darwin.tar.gz",
+				"extract": "just",
+				"digests": {
+					"asset": "sha256:d21b20df01ec9b9762b0ef08e56ae8dccf3738770edeafa8d2b3a750aee06d78",
+					"binary": "sha256:f6e5b83c7001de6bc6126c3fa3df24943fd84630bcda50685efceae5ec923fd1"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-unknown-linux-musl.tar.gz",
-				"digest": "sha256:993b78f51004248114af22368f69715541542b3c9941c80e02f8ae10eb404ae0",
-				"extract": "just"
+				"extract": "just",
+				"digests": {
+					"asset": "sha256:993b78f51004248114af22368f69715541542b3c9941c80e02f8ae10eb404ae0",
+					"binary": "sha256:87cca548975e9b175b04f5ac9f3ac3667ca34ae29568f15e99871a8fae80c5ee"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-x86_64-unknown-linux-musl.tar.gz",
-				"digest": "sha256:05eb2f068b641b06e5b318796c2e27d4dcca608e65b34329a08c1b9f582611bd",
-				"extract": "just"
+				"extract": "just",
+				"digests": {
+					"asset": "sha256:05eb2f068b641b06e5b318796c2e27d4dcca608e65b34329a08c1b9f582611bd",
+					"binary": "sha256:924300a49b0bca83dca1c3be38f88ae16964ca1925f7fe8da994126e955d2a93"
+				}
 			}
 		},
 		"postInstall": ["just", "--version"]
@@ -18356,17 +18453,31 @@ var toolbox_default = {
 	reimage: {
 		"version": "0.12.1",
 		"released": "2026-04-08T09:21:07Z",
-		"updated": "2026-04-10T10:03:19Z",
+		"updated": "2026-04-16T10:10:58Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Darwin_arm64.tar.gz",
+				"extract": "reimage",
+				"digests": {
+					"asset": "sha256:01b61dac4ad5469d873d6ef2f6ac64e573159f19bc79f08838438dba402bc222",
+					"binary": "sha256:a753d5b22b7a652e2d0153183b5c665f4d009ae0ac1cf2f988d4ed46be41c1aa"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
-				"digest": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
-				"extract": "reimage"
+				"extract": "reimage",
+				"digests": {
+					"asset": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
+					"binary": "sha256:8aa5bc8b0cc8a64dabbb1ca5fb7138bb5d1cc31b56aa33c20f4fd9fd0d748215"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_x86_64.tar.gz",
-				"digest": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
-				"extract": "reimage"
+				"extract": "reimage",
+				"digests": {
+					"asset": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
+					"binary": "sha256:a90c64ee068a149e13fac5234f6141407672493ba1177ecf10c39023a22e4d88"
+				}
 			}
 		},
 		"postInstall": ["reimage", "-V"]
@@ -18374,15 +18485,28 @@ var toolbox_default = {
 	rmz: {
 		"version": "3.1.1",
 		"released": "2025-07-24T01:12:28Z",
-		"updated": "2026-04-10T10:03:16Z",
+		"updated": "2026-04-16T10:10:56Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/aarch64-apple-darwin-rmz",
+				"digests": {
+					"asset": "sha256:db686d35f6faa7b1e46ec5102208c4a588aa8786888d6da4170309e54d71ff00",
+					"binary": "sha256:db686d35f6faa7b1e46ec5102208c4a588aa8786888d6da4170309e54d71ff00"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/aarch64-unknown-linux-gnu-rmz",
-				"digest": "sha256:1ac8e83a0242938b10bd6a37ebd1b96d92896f84547aead32f3608c3e5ff733d"
+				"digests": {
+					"asset": "sha256:1ac8e83a0242938b10bd6a37ebd1b96d92896f84547aead32f3608c3e5ff733d",
+					"binary": "sha256:1ac8e83a0242938b10bd6a37ebd1b96d92896f84547aead32f3608c3e5ff733d"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/SUPERCILEX/fuc/releases/download/3.1.1/x86_64-unknown-linux-gnu-rmz",
-				"digest": "sha256:9017131f24a6a619568316d3cf1aabbf4fb8297d8082b11fd2b6817436876a3b"
+				"digests": {
+					"asset": "sha256:9017131f24a6a619568316d3cf1aabbf4fb8297d8082b11fd2b6817436876a3b",
+					"binary": "sha256:9017131f24a6a619568316d3cf1aabbf4fb8297d8082b11fd2b6817436876a3b"
+				}
 			}
 		},
 		"postInstall": ["rmz", "--version"]
@@ -18390,15 +18514,28 @@ var toolbox_default = {
 	skaffold: {
 		"version": "2.18.3",
 		"released": "2026-04-08T14:44:02Z",
-		"updated": "2026-04-16T09:38:07Z",
+		"updated": "2026-04-16T10:11:26Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-darwin-arm64",
+				"digests": {
+					"asset": "sha256:a47083da351cd2fb2cd4faacc29d8a3af0046593a147111c18a7cc5ec3d5b5e0",
+					"binary": "sha256:a47083da351cd2fb2cd4faacc29d8a3af0046593a147111c18a7cc5ec3d5b5e0"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-linux-arm64",
-				"digest": "sha256:96dc3c6eeb5861c821010ea9d2e0eef14baa48abb613f850070a539be86b7aba"
+				"digests": {
+					"asset": "sha256:96dc3c6eeb5861c821010ea9d2e0eef14baa48abb613f850070a539be86b7aba",
+					"binary": "sha256:96dc3c6eeb5861c821010ea9d2e0eef14baa48abb613f850070a539be86b7aba"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-linux-amd64",
-				"digest": "sha256:d8bfce071e3e3096736f12f0233d24f16d4baedaadd2181e1eaa1865a346ec3f"
+				"digests": {
+					"asset": "sha256:d8bfce071e3e3096736f12f0233d24f16d4baedaadd2181e1eaa1865a346ec3f",
+					"binary": "sha256:d8bfce071e3e3096736f12f0233d24f16d4baedaadd2181e1eaa1865a346ec3f"
+				}
 			}
 		},
 		"postInstall": ["skaffold", "version"]
@@ -18406,17 +18543,31 @@ var toolbox_default = {
 	syft: {
 		"version": "1.42.4",
 		"released": "2026-04-08T20:39:01Z",
-		"updated": "2026-04-16T09:38:08Z",
+		"updated": "2026-04-16T10:11:27Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_darwin_arm64.tar.gz",
+				"extract": "syft",
+				"digests": {
+					"asset": "sha256:0797b64cf8841c904682e6007a695f9cd3e72103f064dd286723c0a56a2273e2",
+					"binary": "sha256:be3f91123ec317c579abaaa6025702b863807bb87e315c9101812267e7572040"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_arm64.tar.gz",
-				"digest": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b",
-				"extract": "syft"
+				"extract": "syft",
+				"digests": {
+					"asset": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b",
+					"binary": "sha256:8cedfeeb2554ba7901410508dfbe0edff240e808feb05a41aef344974c8f6d4c"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_amd64.tar.gz",
-				"digest": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f",
-				"extract": "syft"
+				"extract": "syft",
+				"digests": {
+					"asset": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f",
+					"binary": "sha256:04db0f882928929381ab5503bcb25ea0a062e487481483b8a8a60c9f6c4af353"
+				}
 			}
 		},
 		"postInstall": ["syft", "--version"]
@@ -18424,15 +18575,28 @@ var toolbox_default = {
 	telepresence: {
 		"version": "2.27.4",
 		"released": "2026-04-08T21:58:47Z",
-		"updated": "2026-04-16T09:38:04Z",
+		"updated": "2026-04-16T10:10:56Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.4/telepresence-darwin-arm64",
+				"digests": {
+					"asset": "sha256:589be96ff03bd68dd1b92983d77e191ded3695004ed31ec96e528c515c88022c",
+					"binary": "sha256:589be96ff03bd68dd1b92983d77e191ded3695004ed31ec96e528c515c88022c"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.4/telepresence-linux-arm64",
-				"digest": "sha256:38b10e8f78b5df6eba3341ff38c7703257fdbdb51c65ef503f08dfed81203bda"
+				"digests": {
+					"asset": "sha256:38b10e8f78b5df6eba3341ff38c7703257fdbdb51c65ef503f08dfed81203bda",
+					"binary": "sha256:38b10e8f78b5df6eba3341ff38c7703257fdbdb51c65ef503f08dfed81203bda"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.27.4/telepresence-linux-amd64",
-				"digest": "sha256:7ce9b4858a6e5fca84a26d4e3f4331954978df585c17fc87d7d0e14c1c363f51"
+				"digests": {
+					"asset": "sha256:7ce9b4858a6e5fca84a26d4e3f4331954978df585c17fc87d7d0e14c1c363f51",
+					"binary": "sha256:7ce9b4858a6e5fca84a26d4e3f4331954978df585c17fc87d7d0e14c1c363f51"
+				}
 			}
 		},
 		"postInstall": ["telepresence", "version"]
@@ -18440,17 +18604,31 @@ var toolbox_default = {
 	vals: {
 		"version": "0.43.9",
 		"released": "2026-04-09T22:43:25Z",
-		"updated": "2026-04-16T09:38:05Z",
+		"updated": "2026-04-16T10:10:58Z",
 		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_darwin_arm64.tar.gz",
+				"extract": "vals",
+				"digests": {
+					"asset": "sha256:4cedaa69aeef26698cd3ea38f369faaf2406654bcdd74102595546411c80ee29",
+					"binary": "sha256:6de582326de3027c3f6119b8bdada74c9365be6750e1f82bd07befafd9541a31"
+				}
+			},
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_arm64.tar.gz",
-				"digest": "sha256:a7402bc933875bae97dfd6712284ebc84ef4cb241c5efd8b822cb5571871e4c9",
-				"extract": "vals"
+				"extract": "vals",
+				"digests": {
+					"asset": "sha256:a7402bc933875bae97dfd6712284ebc84ef4cb241c5efd8b822cb5571871e4c9",
+					"binary": "sha256:2301703e3128d45b9e7b179845497257a0a8d2ad890ec2e64e5c6825f3d9facb"
+				}
 			},
 			"linux/x64": {
 				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_amd64.tar.gz",
-				"digest": "sha256:b476ab47302f7611c0a2b8b05095a49e99128f7e664ef8b9fbb302f151b0b860",
-				"extract": "vals"
+				"extract": "vals",
+				"digests": {
+					"asset": "sha256:b476ab47302f7611c0a2b8b05095a49e99128f7e664ef8b9fbb302f151b0b860",
+					"binary": "sha256:f0e78d48b176f0c49447762df8e19e0ecfea76cef6a71708d251afa511f24af8"
+				}
 			}
 		},
 		"postInstall": ["vals", "version"]
@@ -18523,7 +18701,7 @@ async function downloadTool(source, signal) {
 			flags: "wx",
 			mode: 511
 		}), { signal });
-		if (`sha256:${hash.digest("hex")}` !== source.digest) throw new Error("Digest mismatch");
+		if (`sha256:${hash.digest("hex")}` !== source.digests.asset) throw new Error("Digest mismatch");
 		return path;
 	} catch (error) {
 		throw new Error(`Failed to download tool "${source.tool}"`, { cause: error });

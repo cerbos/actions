@@ -1,4 +1,4 @@
-// Copyright 2021-2026 Zenauth Ltd.
+// Copyright 2026 Zenauth Ltd.
 
 package main
 
@@ -13,25 +13,26 @@ import (
 
 	"github.com/sourcegraph/conc/pool"
 
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/buf"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/flipt"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/golangcilint"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/goreleaser"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/grype"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/helmfile"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/just"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/reimage"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/rmz"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/skaffold"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/syft"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/telepresence"
-	"github.com/cerbos/actions/cmd/update-toolbox/toolbox/vals"
-	"github.com/cerbos/actions/internal/command"
-	"github.com/cerbos/actions/internal/log"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/buf"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/flipt"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/golangcilint"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/goreleaser"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/grype"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helmfile"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/just"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/syft"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/telepresence"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/vals"
+	"github.com/cerbos/actions/hack/go/pkg/command"
+	"github.com/cerbos/actions/hack/go/pkg/log"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
-var tools = map[string]toolbox.Tool{
+var tools = map[string]updater.Tool{
 	"buf":           buf.Tool,
 	"flipt":         flipt.Tool,
 	"golangci-lint": golangcilint.Tool,
@@ -52,7 +53,7 @@ func main() {
 }
 
 func updateToolbox(ctx context.Context) error {
-	clients, err := toolbox.NewClients(ctx)
+	clients, err := updater.NewClients(ctx)
 	if err != nil {
 		return err
 	}
@@ -83,7 +84,7 @@ func updateToolbox(ctx context.Context) error {
 			mutex.RUnlock()
 
 			start := time.Now()
-			source, err := toolbox.Update(ctx, clients, tool, oldVersion)
+			source, err := updater.Update(ctx, clients, tool, oldVersion)
 			ctx = log.With(ctx, "duration", time.Since(start))
 			if err != nil {
 				failed.Add(1)
