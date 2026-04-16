@@ -10,6 +10,7 @@ import (
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/sigstore"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 const (
@@ -25,23 +26,23 @@ var (
 		PostInstall: []string{"goreleaser", "--version"},
 	}
 
-	installations = updater.Installations{
+	assets = updater.AssetsToDownload{
 		platform.DarwinARM64: {
-			Asset:   "goreleaser_Darwin_arm64.tar.gz",
+			Name:    "goreleaser_Darwin_arm64.tar.gz",
 			Extract: "goreleaser",
 		},
 		platform.LinuxARM64: {
-			Asset:   "goreleaser_Linux_arm64.tar.gz",
+			Name:    "goreleaser_Linux_arm64.tar.gz",
 			Extract: "goreleaser",
 		},
 		platform.LinuxX64: {
-			Asset:   "goreleaser_Linux_x86_64.tar.gz",
+			Name:    "goreleaser_Linux_x86_64.tar.gz",
 			Extract: "goreleaser",
 		},
 	}
 )
 
-func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (toolbox.Downloads, error) {
 	if err := clients.GitHub.DownloadAssets(ctx, release, digestsAsset, provenanceAsset); err != nil {
 		return nil, err
 	}
@@ -56,5 +57,9 @@ func verify(ctx context.Context, clients *updater.Clients, release *github.Relea
 		return nil, err
 	}
 
-	return installations, digests.Verify(release, installations, digestsAsset)
+	if err := digests.VerifyRelease(release, assets, digestsAsset); err != nil {
+		return nil, err
+	}
+
+	return updater.DownloadsFromRelease(release, assets)
 }

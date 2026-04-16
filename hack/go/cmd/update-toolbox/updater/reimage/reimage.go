@@ -10,6 +10,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 const digestsAsset = "checksums.txt"
@@ -20,20 +21,20 @@ var Tool = updater.Tool{
 	PostInstall: []string{"reimage", "-V"},
 }
 
-func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (toolbox.Downloads, error) {
 	version := release.Version.Number()
 
-	installations := updater.Installations{
+	assets := updater.AssetsToDownload{
 		platform.DarwinARM64: {
-			Asset:   fmt.Sprintf("reimage_%s_Darwin_arm64.tar.gz", version),
+			Name:    fmt.Sprintf("reimage_%s_Darwin_arm64.tar.gz", version),
 			Extract: "reimage",
 		},
 		platform.LinuxARM64: {
-			Asset:   fmt.Sprintf("reimage_%s_Linux_arm64.tar.gz", version),
+			Name:    fmt.Sprintf("reimage_%s_Linux_arm64.tar.gz", version),
 			Extract: "reimage",
 		},
 		platform.LinuxX64: {
-			Asset:   fmt.Sprintf("reimage_%s_Linux_x86_64.tar.gz", version),
+			Name:    fmt.Sprintf("reimage_%s_Linux_x86_64.tar.gz", version),
 			Extract: "reimage",
 		},
 	}
@@ -42,5 +43,9 @@ func verify(ctx context.Context, clients *updater.Clients, release *github.Relea
 		return nil, err
 	}
 
-	return installations, digests.Verify(release, installations, digestsAsset)
+	if err := digests.VerifyRelease(release, assets, digestsAsset); err != nil {
+		return nil, err
+	}
+
+	return updater.DownloadsFromRelease(release, assets)
 }

@@ -23,18 +23,18 @@ func FromAsset(asset *github.Asset) (digest.Digests, error) {
 	return digest.ParseFile(asset.Contents)
 }
 
-func Verify(release *github.Release, installations updater.Installations, digestsAssetName string) error {
+func VerifyRelease(release *github.Release, assets updater.AssetsToDownload, digestsAssetName string) error {
 	digests, err := FromRelease(release, digestsAssetName)
 	if err != nil {
 		return err
 	}
 
-	return VerifyInstallations(release, installations, digests)
+	return VerifyAssets(release, assets, digests)
 }
 
-func VerifyInstallations(release *github.Release, installations updater.Installations, digests digest.Digests) error {
-	for _, installation := range installations {
-		if err := VerifyInstallation(release, installation, digests); err != nil {
+func VerifyAssets(release *github.Release, assets updater.AssetsToDownload, digests digest.Digests) error {
+	for _, asset := range assets {
+		if err := VerifyAsset(release, asset, digests); err != nil {
 			return err
 		}
 	}
@@ -42,8 +42,8 @@ func VerifyInstallations(release *github.Release, installations updater.Installa
 	return nil
 }
 
-func VerifyInstallation(release *github.Release, installation updater.Installation, digests digest.Digests) error {
-	asset, err := release.Asset(installation.Asset)
+func VerifyAsset(release *github.Release, assetToDownload updater.AssetToDownload, digests digest.Digests) error {
+	asset, err := release.Asset(assetToDownload.Name)
 	if err != nil {
 		return err
 	}

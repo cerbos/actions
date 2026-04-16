@@ -21,13 +21,15 @@ const manifestPath = "toolbox.json"
 type Manifest map[string]Source
 
 type Source struct {
-	Tag         string                          `json:"-"`
-	Version     semver.Version                  `json:"version"`
-	Released    time.Time                       `json:"released"`
-	Updated     time.Time                       `json:"updated"`
-	Downloads   map[platform.Platform]*Download `json:"downloads"`
-	PostInstall []string                        `json:"postInstall"`
+	Tag         string         `json:"-"`
+	Version     semver.Version `json:"version"`
+	Released    time.Time      `json:"released"`
+	Updated     time.Time      `json:"updated"`
+	Downloads   Downloads      `json:"downloads"`
+	PostInstall []string       `json:"postInstall"`
 }
+
+type Downloads map[platform.Platform]*Download
 
 type Download struct {
 	URL     string  `json:"url"`
