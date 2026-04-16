@@ -8,6 +8,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 const (
@@ -24,11 +25,15 @@ var (
 	}
 
 	installations = toolbox.Installations{
-		toolbox.LinuxARM64: {
+		platform.DarwinARM64: {
+			Asset:   "goreleaser_Darwin_arm64.tar.gz",
+			Extract: "goreleaser",
+		},
+		platform.LinuxARM64: {
 			Asset:   "goreleaser_Linux_arm64.tar.gz",
 			Extract: "goreleaser",
 		},
-		toolbox.LinuxX64: {
+		platform.LinuxX64: {
 			Asset:   "goreleaser_Linux_x86_64.tar.gz",
 			Extract: "goreleaser",
 		},

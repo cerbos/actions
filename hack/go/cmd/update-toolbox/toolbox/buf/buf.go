@@ -11,6 +11,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 const (
@@ -26,8 +27,9 @@ var (
 	}
 
 	installations = toolbox.Installations{
-		toolbox.LinuxARM64: {Asset: "buf-Linux-aarch64"},
-		toolbox.LinuxX64:   {Asset: "buf-Linux-x86_64"},
+		platform.DarwinARM64: {Asset: "buf-Darwin-arm64"},
+		platform.LinuxARM64:  {Asset: "buf-Linux-aarch64"},
+		platform.LinuxX64:    {Asset: "buf-Linux-x86_64"},
 	}
 
 	publicKey minisign.PublicKey

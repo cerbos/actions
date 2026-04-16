@@ -11,26 +11,20 @@ import (
 	"go.uber.org/multierr"
 
 	"github.com/cerbos/actions/hack/go/pkg/digest"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
 const manifestPath = "toolbox.json"
 
 type Source struct {
-	Tag         string                 `json:"-"`
-	Version     semver.Version         `json:"version"`
-	Released    time.Time              `json:"released"`
-	Updated     time.Time              `json:"updated"`
-	Downloads   map[Platform]*Download `json:"downloads"`
-	PostInstall []string               `json:"postInstall"`
+	Tag         string                          `json:"-"`
+	Version     semver.Version                  `json:"version"`
+	Released    time.Time                       `json:"released"`
+	Updated     time.Time                       `json:"updated"`
+	Downloads   map[platform.Platform]*Download `json:"downloads"`
+	PostInstall []string                        `json:"postInstall"`
 }
-
-type Platform string
-
-const (
-	LinuxARM64 = "linux/arm64"
-	LinuxX64   = "linux/x64"
-)
 
 type Download struct {
 	URL     string  `json:"url"`

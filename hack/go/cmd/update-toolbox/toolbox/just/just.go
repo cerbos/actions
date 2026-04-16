@@ -9,6 +9,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
@@ -29,11 +30,15 @@ func verify(ctx context.Context, clients *toolbox.Clients, release *github.Relea
 	version := release.Version.Number()
 
 	installations := toolbox.Installations{
-		toolbox.LinuxARM64: {
+		platform.DarwinARM64: {
+			Asset:   fmt.Sprintf("just-%s-aarch64-apple-darwin.tar.gz", version),
+			Extract: "just",
+		},
+		platform.LinuxARM64: {
 			Asset:   fmt.Sprintf("just-%s-aarch64-unknown-linux-musl.tar.gz", version),
 			Extract: "just",
 		},
-		toolbox.LinuxX64: {
+		platform.LinuxX64: {
 			Asset:   fmt.Sprintf("just-%s-x86_64-unknown-linux-musl.tar.gz", version),
 			Extract: "just",
 		},

@@ -8,6 +8,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
@@ -26,11 +27,15 @@ var (
 	}
 
 	installations = toolbox.Installations{
-		toolbox.LinuxARM64: {
+		platform.DarwinARM64: {
+			Asset:   "flipt_darwin_arm64.tar.gz",
+			Extract: "flipt",
+		},
+		platform.LinuxARM64: {
 			Asset:   "flipt_linux_arm64.tar.gz",
 			Extract: "flipt",
 		},
-		toolbox.LinuxX64: {
+		platform.LinuxX64: {
 			Asset:   "flipt_linux_x86_64.tar.gz",
 			Extract: "flipt",
 		},

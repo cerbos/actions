@@ -14,6 +14,7 @@ import (
 	"github.com/cerbos/actions/hack/go/pkg/archive"
 	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 	"github.com/cerbos/actions/hack/go/pkg/tempfile"
 )
@@ -25,7 +26,7 @@ type Tool struct {
 	PostInstall             []string
 }
 
-type Installations map[Platform]Installation
+type Installations map[platform.Platform]Installation
 
 type Installation struct {
 	Asset   string
@@ -48,7 +49,7 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 		Version:     release.Version,
 		Released:    normalizeTimestamp(release.Created),
 		Updated:     normalizeTimestamp(time.Now()),
-		Downloads:   make(map[Platform]*Download, len(installations)),
+		Downloads:   make(map[platform.Platform]*Download, len(installations)),
 		PostInstall: tool.PostInstall,
 	}
 

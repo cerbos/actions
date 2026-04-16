@@ -9,6 +9,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 var Tool = toolbox.Tool{
@@ -21,11 +22,15 @@ func verify(ctx context.Context, clients *toolbox.Clients, release *github.Relea
 	version := release.Version.Number()
 
 	installations := toolbox.Installations{
-		toolbox.LinuxARM64: {
+		platform.DarwinARM64: {
+			Asset:   fmt.Sprintf("golangci-lint-%s-darwin-arm64.tar.gz", version),
+			Extract: fmt.Sprintf("golangci-lint-%s-darwin-arm64/golangci-lint", version),
+		},
+		platform.LinuxARM64: {
 			Asset:   fmt.Sprintf("golangci-lint-%s-linux-arm64.tar.gz", version),
 			Extract: fmt.Sprintf("golangci-lint-%s-linux-arm64/golangci-lint", version),
 		},
-		toolbox.LinuxX64: {
+		platform.LinuxX64: {
 			Asset:   fmt.Sprintf("golangci-lint-%s-linux-amd64.tar.gz", version),
 			Extract: fmt.Sprintf("golangci-lint-%s-linux-amd64/golangci-lint", version),
 		},

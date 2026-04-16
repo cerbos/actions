@@ -7,6 +7,7 @@ import (
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 var (
@@ -17,8 +18,9 @@ var (
 	}
 
 	installations = toolbox.Installations{
-		toolbox.LinuxARM64: {Asset: "telepresence-linux-arm64"},
-		toolbox.LinuxX64:   {Asset: "telepresence-linux-amd64"},
+		platform.DarwinARM64: {Asset: "telepresence-darwin-arm64"},
+		platform.LinuxARM64:  {Asset: "telepresence-linux-arm64"},
+		platform.LinuxX64:    {Asset: "telepresence-linux-amd64"},
 	}
 )
 

@@ -9,6 +9,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 const digestsAsset = "checksums.txt"
@@ -23,11 +24,15 @@ func verify(ctx context.Context, clients *toolbox.Clients, release *github.Relea
 	version := release.Version.Number()
 
 	installations := toolbox.Installations{
-		toolbox.LinuxARM64: {
+		platform.DarwinARM64: {
+			Asset:   fmt.Sprintf("reimage_%s_Darwin_arm64.tar.gz", version),
+			Extract: "reimage",
+		},
+		platform.LinuxARM64: {
 			Asset:   fmt.Sprintf("reimage_%s_Linux_arm64.tar.gz", version),
 			Extract: "reimage",
 		},
-		toolbox.LinuxX64: {
+		platform.LinuxX64: {
 			Asset:   fmt.Sprintf("reimage_%s_Linux_x86_64.tar.gz", version),
 			Extract: "reimage",
 		},
