@@ -1,6 +1,6 @@
 // Copyright 2026 Zenauth Ltd.
 
-package goreleaser
+package crane
 
 import (
 	"context"
@@ -14,29 +14,28 @@ import (
 
 const (
 	digestsAsset    = "checksums.txt"
-	provenanceAsset = "checksums.txt.sigstore.json"
-	workflow        = ".github/workflows/release.yml"
+	provenanceAsset = "multiple.intoto.jsonl"
 )
 
 var (
 	Tool = updater.Tool{
-		Repo:        github.Repository{Owner: "goreleaser", Name: "goreleaser"},
+		Repo:        github.Repository{Owner: "google", Name: "go-containerregistry"},
 		Verify:      verify,
-		PostInstall: []string{"goreleaser", "--version"},
+		PostInstall: []string{"crane", "version"},
 	}
 
 	installations = updater.Installations{
 		platform.DarwinARM64: {
-			Asset:   "goreleaser_Darwin_arm64.tar.gz",
-			Extract: "goreleaser",
+			Asset:   "go-containerregistry_Darwin_arm64.tar.gz",
+			Extract: "crane",
 		},
 		platform.LinuxARM64: {
-			Asset:   "goreleaser_Linux_arm64.tar.gz",
-			Extract: "goreleaser",
+			Asset:   "go-containerregistry_Linux_arm64.tar.gz",
+			Extract: "crane",
 		},
 		platform.LinuxX64: {
-			Asset:   "goreleaser_Linux_x86_64.tar.gz",
-			Extract: "goreleaser",
+			Asset:   "go-containerregistry_Linux_x86_64.tar.gz",
+			Extract: "crane",
 		},
 	}
 )
@@ -51,9 +50,10 @@ func verify(ctx context.Context, clients *updater.Clients, release *github.Relea
 		return nil, err
 	}
 
-	ref := "refs/tags/" + release.Tag
-	if err := clients.Sigstore.Verify(release, workflow, ref, digestsAsset, bundle); err != nil {
-		return nil, err
+	for _, installation := range installations {
+		if err := clients.Sigstore.VerifySLSA(release, installation.Asset, bundle); err != nil {
+			return nil, err
+		}
 	}
 
 	return installations, digests.Verify(release, installations, digestsAsset)

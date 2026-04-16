@@ -63,6 +63,10 @@ func (r Repository) String() string {
 	return fmt.Sprintf("%s/%s", r.Owner, r.Name)
 }
 
+func (r Repository) URL() string {
+	return fmt.Sprintf("https://github.com/%s/%s", r.Owner, r.Name)
+}
+
 type Release struct {
 	Created time.Time
 	Assets  map[string]*Asset

@@ -18258,6 +18258,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["buf", "--version"]
 	},
+	crane: {
+		"version": "0.21.5",
+		"released": "2026-04-11T02:19:10Z",
+		"updated": "2026-04-16T14:03:32Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Darwin_arm64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:a41938cdbd8becc59e90f4bb491a557d52dce5681f9812c961854cab706f5f59",
+					"binary": "sha256:04db5793ec1c2a3d7a8d62b35a29c4f673777a7df438dc01dd30c10c3a5d55cc"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_arm64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:3a47c6da5a0ba1ca7a93def41036d8f262a2160799e5d4ca25dba3cfa47dab41",
+					"binary": "sha256:b73f655646f7e9cd396db595e80bd2919f83fd4f34521b9b41fb37782c9bded4"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_x86_64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:9f823ae5ee25803161110f957b5fd4538f714d40cdf25dacb4914fefafd246bf",
+					"binary": "sha256:ef9d94754ad4e2c0d6d66086c14eefc878e242c30a76f902dcb205dda57c0765"
+				}
+			}
+		},
+		"postInstall": ["crane", "version"]
+	},
 	flipt: {
 		"version": "1.61.1",
 		"released": "2026-03-06T18:45:00Z",
