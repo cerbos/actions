@@ -60,6 +60,14 @@ jobs:
       - name: Tidy
         run: go mod tidy
 
+      - name: Run install-tools
+        run: |
+          workdir=$(mktemp -d)
+          go build -o "${workdir}/install-tools" ./cmd/install-tools
+          jq --raw-output keys[] < toolbox.json | (cd "${workdir}"; xargs ./install-tools)
+          export PATH="${workdir}:${PATH}"
+          jq --raw-output '.[] | (.postInstall | join(" "))' < toolbox.json | bash -ex
+
       - name: Run update-internal-actions
         if: github.event_name != 'push'
         run: go run ./hack/go/cmd/update-internal-actions

@@ -8,6 +8,7 @@ require (
 	aead.dev/minisign v0.3.0
 	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v84 v84.0.0
+	github.com/google/renameio/v2 v2.0.2
 	github.com/lmittmann/tint v1.1.3
 	github.com/sigstore/sigstore-go v1.1.4
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
