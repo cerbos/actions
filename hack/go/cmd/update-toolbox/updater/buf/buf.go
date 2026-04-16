@@ -9,7 +9,7 @@ import (
 	"aead.dev/minisign"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
-	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
@@ -20,13 +20,13 @@ const (
 )
 
 var (
-	Tool = toolbox.Tool{
+	Tool = updater.Tool{
 		Repo:        github.Repository{Owner: "bufbuild", Name: "buf"},
 		Verify:      verify,
 		PostInstall: []string{"buf", "--version"},
 	}
 
-	installations = toolbox.Installations{
+	installations = updater.Installations{
 		platform.DarwinARM64: {Asset: "buf-Darwin-arm64"},
 		platform.LinuxARM64:  {Asset: "buf-Linux-aarch64"},
 		platform.LinuxX64:    {Asset: "buf-Linux-x86_64"},
@@ -42,7 +42,7 @@ func init() {
 	}
 }
 
-func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
 	if err := clients.GitHub.DownloadAssets(ctx, release, digestsAsset, signatureAsset); err != nil {
 		return nil, err
 	}

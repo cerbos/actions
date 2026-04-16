@@ -1,6 +1,6 @@
 // Copyright 2026 Zenauth Ltd.
 
-package toolbox
+package updater
 
 import (
 	"context"
@@ -17,6 +17,7 @@ import (
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 	"github.com/cerbos/actions/hack/go/pkg/tempfile"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 type Tool struct {
@@ -33,7 +34,7 @@ type Installation struct {
 	Extract string
 }
 
-func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.Version) (*Source, error) {
+func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.Version) (*toolbox.Source, error) {
 	release, err := clients.GitHub.FindNewerRelease(ctx, tool.Repo, oldVersion, tool.FindNewerReleaseOptions...)
 	if release == nil || err != nil {
 		return nil, err
@@ -44,12 +45,12 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 		return nil, fmt.Errorf("failed to verify %s: %w", release, err)
 	}
 
-	source := &Source{
+	source := &toolbox.Source{
 		Tag:         release.Tag,
 		Version:     release.Version,
 		Released:    normalizeTimestamp(release.Created),
 		Updated:     normalizeTimestamp(time.Now()),
-		Downloads:   make(map[platform.Platform]*Download, len(installations)),
+		Downloads:   make(map[platform.Platform]*toolbox.Download, len(installations)),
 		PostInstall: tool.PostInstall,
 	}
 
@@ -61,10 +62,10 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 			return nil, err
 		}
 
-		download := &Download{
+		download := &toolbox.Download{
 			URL:     asset.URL,
 			Extract: installation.Extract,
-			Digests: Digests{Asset: asset.Digest},
+			Digests: toolbox.Digests{Asset: asset.Digest},
 		}
 
 		if installation.Extract == "" {

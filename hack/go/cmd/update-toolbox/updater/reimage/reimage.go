@@ -7,23 +7,23 @@ import (
 	"fmt"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
-	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 const digestsAsset = "checksums.txt"
 
-var Tool = toolbox.Tool{
+var Tool = updater.Tool{
 	Repo:        github.Repository{Owner: "cerbos", Name: "reimage"},
 	Verify:      verify,
 	PostInstall: []string{"reimage", "-V"},
 }
 
-func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
 	version := release.Version.Number()
 
-	installations := toolbox.Installations{
+	installations := updater.Installations{
 		platform.DarwinARM64: {
 			Asset:   fmt.Sprintf("reimage_%s_Darwin_arm64.tar.gz", version),
 			Extract: "reimage",

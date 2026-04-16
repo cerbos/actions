@@ -5,6 +5,7 @@ package toolbox
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 	"time"
 
@@ -16,6 +17,8 @@ import (
 )
 
 const manifestPath = "toolbox.json"
+
+type Manifest map[string]Source
 
 type Source struct {
 	Tag         string                          `json:"-"`
@@ -37,13 +40,17 @@ type Digests struct {
 	Binary digest.SHA256 `json:"binary"`
 }
 
-func Read() (manifest map[string]Source, err error) {
+func Read() (_ Manifest, err error) {
 	file, err := os.Open(manifestPath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open tools file for reading: %w", err)
 	}
 	defer multierr.AppendInvoke(&err, multierr.Close(file))
 
+	return Parse(file)
+}
+
+func Parse(file io.Reader) (manifest Manifest, _ error) {
 	decoder := json.NewDecoder(file)
 	decoder.DisallowUnknownFields()
 
@@ -54,7 +61,7 @@ func Read() (manifest map[string]Source, err error) {
 	return manifest, nil
 }
 
-func Write(manifest map[string]Source) (err error) {
+func Write(manifest Manifest) (err error) {
 	file, err := os.Create(manifestPath)
 	if err != nil {
 		return fmt.Errorf("failed to open tools file for writing: %w", err)

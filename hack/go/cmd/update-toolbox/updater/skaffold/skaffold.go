@@ -11,19 +11,19 @@ import (
 	"fmt"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
-	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 )
 
 var (
-	Tool = toolbox.Tool{
+	Tool = updater.Tool{
 		Repo:        github.Repository{Owner: "GoogleContainerTools", Name: "skaffold"},
 		Verify:      verify,
 		PostInstall: []string{"skaffold", "version"},
 	}
 
-	installations = toolbox.Installations{
+	installations = updater.Installations{
 		platform.DarwinARM64: {Asset: "skaffold-darwin-arm64"},
 		platform.LinuxARM64:  {Asset: "skaffold-linux-arm64"},
 		platform.LinuxX64:    {Asset: "skaffold-linux-amd64"},
@@ -54,7 +54,7 @@ wQfk16sxprI2gOJ2vFFggdq3ixF2h4qNBt0kI7ciDhgpwS8t+/960IsIgw==
 	}
 }
 
-func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
 	const downloadsPerInstallation = 2
 	downloadAssets := make([]string, 0, downloadsPerInstallation*len(installations))
 	for _, installation := range installations {
@@ -74,7 +74,7 @@ func verify(ctx context.Context, clients *toolbox.Clients, release *github.Relea
 	return installations, nil
 }
 
-func verifyInstallation(release *github.Release, installation toolbox.Installation) error {
+func verifyInstallation(release *github.Release, installation updater.Installation) error {
 	digestAsset, err := release.Asset(digestAssetName(installation))
 	if err != nil {
 		return err
@@ -97,10 +97,10 @@ func verifyInstallation(release *github.Release, installation toolbox.Installati
 	return digests.VerifyInstallation(release, installation, digest)
 }
 
-func digestAssetName(installation toolbox.Installation) string {
+func digestAssetName(installation updater.Installation) string {
 	return installation.Asset + ".sha256"
 }
 
-func signatureAssetName(installation toolbox.Installation) string {
+func signatureAssetName(installation updater.Installation) string {
 	return digestAssetName(installation) + ".sig"
 }

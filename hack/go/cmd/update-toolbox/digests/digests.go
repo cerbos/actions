@@ -5,7 +5,7 @@ package digests
 import (
 	"fmt"
 
-	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 )
@@ -23,7 +23,7 @@ func FromAsset(asset *github.Asset) (digest.Digests, error) {
 	return digest.ParseFile(asset.Contents)
 }
 
-func Verify(release *github.Release, installations toolbox.Installations, digestsAssetName string) error {
+func Verify(release *github.Release, installations updater.Installations, digestsAssetName string) error {
 	digests, err := FromRelease(release, digestsAssetName)
 	if err != nil {
 		return err
@@ -32,7 +32,7 @@ func Verify(release *github.Release, installations toolbox.Installations, digest
 	return VerifyInstallations(release, installations, digests)
 }
 
-func VerifyInstallations(release *github.Release, installations toolbox.Installations, digests digest.Digests) error {
+func VerifyInstallations(release *github.Release, installations updater.Installations, digests digest.Digests) error {
 	for _, installation := range installations {
 		if err := VerifyInstallation(release, installation, digests); err != nil {
 			return err
@@ -42,7 +42,7 @@ func VerifyInstallations(release *github.Release, installations toolbox.Installa
 	return nil
 }
 
-func VerifyInstallation(release *github.Release, installation toolbox.Installation, digests digest.Digests) error {
+func VerifyInstallation(release *github.Release, installation updater.Installation, digests digest.Digests) error {
 	asset, err := release.Asset(installation.Asset)
 	if err != nil {
 		return err

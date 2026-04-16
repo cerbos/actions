@@ -1,6 +1,6 @@
 // Copyright 2026 Zenauth Ltd.
 
-package toolbox
+package updater
 
 import (
 	"context"

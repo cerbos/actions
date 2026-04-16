@@ -6,7 +6,7 @@ import (
 	"context"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
-	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
@@ -15,7 +15,7 @@ import (
 const digestsAsset = "checksums.txt"
 
 var (
-	Tool = toolbox.Tool{
+	Tool = updater.Tool{
 		Repo: github.Repository{Owner: "flipt-io", Name: "flipt"},
 		FindNewerReleaseOptions: []github.FindNewerReleaseOption{
 			github.VersionConstraint(func(version semver.Version) bool {
@@ -26,7 +26,7 @@ var (
 		PostInstall: []string{"flipt", "--version"},
 	}
 
-	installations = toolbox.Installations{
+	installations = updater.Installations{
 		platform.DarwinARM64: {
 			Asset:   "flipt_darwin_arm64.tar.gz",
 			Extract: "flipt",
@@ -42,7 +42,7 @@ var (
 	}
 )
 
-func verify(ctx context.Context, clients *toolbox.Clients, release *github.Release) (toolbox.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
 	if err := clients.GitHub.DownloadAssets(ctx, release, digestsAsset); err != nil {
 		return nil, err
 	}
