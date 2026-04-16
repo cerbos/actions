@@ -10,6 +10,7 @@ import (
 
 	"go.uber.org/multierr"
 
+	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
 
@@ -32,9 +33,9 @@ const (
 )
 
 type Download struct {
-	URL     string `json:"url"`
-	Digest  string `json:"digest"`
-	Extract string `json:"extract,omitempty"`
+	URL     string        `json:"url"`
+	Extract string        `json:"extract,omitempty"`
+	Digest  digest.SHA256 `json:"digest"`
 }
 
 func Read() (manifest map[string]Source, err error) {

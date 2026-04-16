@@ -3,19 +3,14 @@
 package digests
 
 import (
-	"bytes"
-	"crypto/sha256"
-	"encoding/hex"
-	"errors"
 	"fmt"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
+	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 )
 
-type Digests map[string]string
-
-func FromRelease(release *github.Release, assetName string) (Digests, error) {
+func FromRelease(release *github.Release, assetName string) (digest.Digests, error) {
 	asset, err := release.Asset(assetName)
 	if err != nil {
 		return nil, err
@@ -24,44 +19,22 @@ func FromRelease(release *github.Release, assetName string) (Digests, error) {
 	return FromAsset(asset)
 }
 
-func FromAsset(asset *github.Asset) (Digests, error) {
-	return FromFile(asset.Contents)
+func FromAsset(asset *github.Asset) (digest.Digests, error) {
+	return digest.ParseFile(asset.Contents)
 }
 
-func FromFile(contents []byte) (Digests, error) {
-	digests := make(map[string]string)
-
-	for line := range bytes.Lines(contents) {
-		file, digest, err := parseLine(line)
-		if err != nil {
-			return nil, fmt.Errorf("failed to parse digest %q: %w", line, err)
-		}
-		digests[file] = digest
+func Verify(release *github.Release, installations toolbox.Installations, digestsAssetName string) error {
+	digests, err := FromRelease(release, digestsAssetName)
+	if err != nil {
+		return err
 	}
 
-	return digests, nil
+	return VerifyInstallations(release, installations, digests)
 }
 
-func parseLine(line []byte) (string, string, error) {
-	digest, file, ok := bytes.Cut(bytes.TrimSpace(line), []byte("  "))
-	if !ok {
-		return "", "", errors.New("missing separator")
-	}
-
-	if hex.DecodedLen(len(digest)) != sha256.Size {
-		return "", "", errors.New("incorrect digest length")
-	}
-
-	if _, err := hex.Decode(make([]byte, sha256.Size), digest); err != nil {
-		return "", "", errors.New("invalid digest encoding")
-	}
-
-	return string(file), fmt.Sprintf("sha256:%s", digest), nil
-}
-
-func (d Digests) VerifyInstallations(release *github.Release, installations toolbox.Installations) error {
+func VerifyInstallations(release *github.Release, installations toolbox.Installations, digests digest.Digests) error {
 	for _, installation := range installations {
-		if err := d.VerifyInstallation(release, installation); err != nil {
+		if err := VerifyInstallation(release, installation, digests); err != nil {
 			return err
 		}
 	}
@@ -69,13 +42,13 @@ func (d Digests) VerifyInstallations(release *github.Release, installations tool
 	return nil
 }
 
-func (d Digests) VerifyInstallation(release *github.Release, installation toolbox.Installation) error {
+func VerifyInstallation(release *github.Release, installation toolbox.Installation, digests digest.Digests) error {
 	asset, err := release.Asset(installation.Asset)
 	if err != nil {
 		return err
 	}
 
-	digest, ok := d[asset.Name]
+	digest, ok := digests[asset.Name]
 	if !ok {
 		return fmt.Errorf("missing digest for %s", asset.Name)
 	}
@@ -85,13 +58,4 @@ func (d Digests) VerifyInstallation(release *github.Release, installation toolbo
 	}
 
 	return nil
-}
-
-func Verify(release *github.Release, installations toolbox.Installations, digestsAssetName string) error {
-	digests, err := FromRelease(release, digestsAssetName)
-	if err != nil {
-		return err
-	}
-
-	return digests.VerifyInstallations(release, installations)
 }

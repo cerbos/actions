@@ -18252,13 +18252,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_arm64.tar.gz",
-				"digest": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46",
-				"extract": "flipt"
+				"extract": "flipt",
+				"digest": "sha256:c2e61296f9febae865923dc4d8d66a2a0303de3186c4d64a6c9870d2b4c4ac46"
 			},
 			"linux/x64": {
 				"url": "https://github.com/flipt-io/flipt/releases/download/v1.61.1/flipt_linux_x86_64.tar.gz",
-				"digest": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa",
-				"extract": "flipt"
+				"extract": "flipt",
+				"digest": "sha256:1e62b92e6733a4d6960ba24759eb6a38592af8c375958eb2806243f0a51010aa"
 			}
 		},
 		"postInstall": ["flipt", "--version"]
@@ -18270,13 +18270,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-linux-arm64.tar.gz",
-				"digest": "sha256:3bcfa2e6f3d32b2bf5cd75eaa876447507025e0303698633f722a05331988db4",
-				"extract": "golangci-lint-2.11.4-linux-arm64/golangci-lint"
+				"extract": "golangci-lint-2.11.4-linux-arm64/golangci-lint",
+				"digest": "sha256:3bcfa2e6f3d32b2bf5cd75eaa876447507025e0303698633f722a05331988db4"
 			},
 			"linux/x64": {
 				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.11.4/golangci-lint-2.11.4-linux-amd64.tar.gz",
-				"digest": "sha256:200c5b7503f67b59a6743ccf32133026c174e272b930ee79aa2aa6f37aca7ef1",
-				"extract": "golangci-lint-2.11.4-linux-amd64/golangci-lint"
+				"extract": "golangci-lint-2.11.4-linux-amd64/golangci-lint",
+				"digest": "sha256:200c5b7503f67b59a6743ccf32133026c174e272b930ee79aa2aa6f37aca7ef1"
 			}
 		},
 		"postInstall": ["golangci-lint", "version"]
@@ -18288,13 +18288,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
-				"digest": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
-				"extract": "goreleaser"
+				"extract": "goreleaser",
+				"digest": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9"
 			},
 			"linux/x64": {
 				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_x86_64.tar.gz",
-				"digest": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
-				"extract": "goreleaser"
+				"extract": "goreleaser",
+				"digest": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc"
 			}
 		},
 		"postInstall": ["goreleaser", "--version"]
@@ -18306,13 +18306,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_arm64.tar.gz",
-				"digest": "sha256:1a8b9bd691ce274e44056e7572cdf8c6970bdf9ec694001f7b4b17962b121b43",
-				"extract": "grype"
+				"extract": "grype",
+				"digest": "sha256:1a8b9bd691ce274e44056e7572cdf8c6970bdf9ec694001f7b4b17962b121b43"
 			},
 			"linux/x64": {
 				"url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_amd64.tar.gz",
-				"digest": "sha256:18ed2048d7a233566b681121d4632364f5f25d72cca86acc4c7ac57210d78a87",
-				"extract": "grype"
+				"extract": "grype",
+				"digest": "sha256:18ed2048d7a233566b681121d4632364f5f25d72cca86acc4c7ac57210d78a87"
 			}
 		},
 		"postInstall": ["grype", "--version"]
@@ -18324,13 +18324,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_arm64.tar.gz",
-				"digest": "sha256:9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2",
-				"extract": "helmfile"
+				"extract": "helmfile",
+				"digest": "sha256:9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2"
 			},
 			"linux/x64": {
 				"url": "https://github.com/helmfile/helmfile/releases/download/v1.4.4/helmfile_1.4.4_linux_amd64.tar.gz",
-				"digest": "sha256:3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91",
-				"extract": "helmfile"
+				"extract": "helmfile",
+				"digest": "sha256:3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91"
 			}
 		},
 		"postInstall": ["helmfile", "--version"]
@@ -18342,13 +18342,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-unknown-linux-musl.tar.gz",
-				"digest": "sha256:993b78f51004248114af22368f69715541542b3c9941c80e02f8ae10eb404ae0",
-				"extract": "just"
+				"extract": "just",
+				"digest": "sha256:993b78f51004248114af22368f69715541542b3c9941c80e02f8ae10eb404ae0"
 			},
 			"linux/x64": {
 				"url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-x86_64-unknown-linux-musl.tar.gz",
-				"digest": "sha256:05eb2f068b641b06e5b318796c2e27d4dcca608e65b34329a08c1b9f582611bd",
-				"extract": "just"
+				"extract": "just",
+				"digest": "sha256:05eb2f068b641b06e5b318796c2e27d4dcca608e65b34329a08c1b9f582611bd"
 			}
 		},
 		"postInstall": ["just", "--version"]
@@ -18360,13 +18360,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
-				"digest": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
-				"extract": "reimage"
+				"extract": "reimage",
+				"digest": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1"
 			},
 			"linux/x64": {
 				"url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_x86_64.tar.gz",
-				"digest": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
-				"extract": "reimage"
+				"extract": "reimage",
+				"digest": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963"
 			}
 		},
 		"postInstall": ["reimage", "-V"]
@@ -18410,13 +18410,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_arm64.tar.gz",
-				"digest": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b",
-				"extract": "syft"
+				"extract": "syft",
+				"digest": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b"
 			},
 			"linux/x64": {
 				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_amd64.tar.gz",
-				"digest": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f",
-				"extract": "syft"
+				"extract": "syft",
+				"digest": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f"
 			}
 		},
 		"postInstall": ["syft", "--version"]
@@ -18444,13 +18444,13 @@ var toolbox_default = {
 		"downloads": {
 			"linux/arm64": {
 				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_arm64.tar.gz",
-				"digest": "sha256:a7402bc933875bae97dfd6712284ebc84ef4cb241c5efd8b822cb5571871e4c9",
-				"extract": "vals"
+				"extract": "vals",
+				"digest": "sha256:a7402bc933875bae97dfd6712284ebc84ef4cb241c5efd8b822cb5571871e4c9"
 			},
 			"linux/x64": {
 				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_amd64.tar.gz",
-				"digest": "sha256:b476ab47302f7611c0a2b8b05095a49e99128f7e664ef8b9fbb302f151b0b860",
-				"extract": "vals"
+				"extract": "vals",
+				"digest": "sha256:b476ab47302f7611c0a2b8b05095a49e99128f7e664ef8b9fbb302f151b0b860"
 			}
 		},
 		"postInstall": ["vals", "version"]

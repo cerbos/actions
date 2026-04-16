@@ -4,8 +4,6 @@ package github
 
 import (
 	"context"
-	"crypto/sha256"
-	"encoding/hex"
 	"fmt"
 	"io"
 	"log/slog"
@@ -19,6 +17,7 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/sync/semaphore"
 
+	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/log"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
 )
@@ -93,9 +92,9 @@ func (r Release) String() string {
 type Asset struct {
 	Name     string
 	URL      string
-	Digest   string
 	Contents []byte
 	ID       int64
+	Digest   digest.SHA256
 }
 
 type FindNewerReleaseOption func(*findNewerReleaseOptions)
@@ -204,11 +203,16 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 	for _, asset := range newer.Assets {
 		name := asset.GetName()
 
+		digest, err := digest.Parse(asset.GetDigest())
+		if err != nil {
+			return nil, fmt.Errorf("failed to parse digest for asset %s: %w", name, err)
+		}
+
 		release.Assets[name] = &Asset{
 			ID:     asset.GetID(),
 			Name:   name,
 			URL:    asset.GetBrowserDownloadURL(),
-			Digest: asset.GetDigest(),
+			Digest: digest,
 		}
 	}
 
@@ -217,54 +221,84 @@ func (c *Client) FindNewerRelease(ctx context.Context, repo Repository, oldVersi
 
 func (c *Client) DownloadAssets(ctx context.Context, release *Release, names ...string) error {
 	if len(names) == 1 {
-		_, err := c.DownloadAsset(ctx, release, names[0])
-		return err
+		return c.downloadAssetContents(ctx, release, names[0])
 	}
 
 	downloads := pool.New().WithContext(ctx).WithFailFast()
 
 	for _, name := range names {
 		downloads.Go(func(ctx context.Context) error {
-			_, err := c.DownloadAsset(ctx, release, name)
-			return err
+			return c.downloadAssetContents(ctx, release, name)
 		})
 	}
 
 	return downloads.Wait()
 }
 
-func (c *Client) DownloadAsset(ctx context.Context, release *Release, name string) (_ []byte, err error) {
+func (c *Client) downloadAssetContents(ctx context.Context, release *Release, name string) (err error) {
 	asset, err := release.Asset(name)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
+	defer func() {
+		if err != nil {
+			err = fmt.Errorf("failed to download asset %s: %w", name, err)
+		}
+	}()
+
+	reader, err := c.DownloadAsset(ctx, release, asset)
+	if err != nil {
+		return err
+	}
+	defer multierr.AppendInvoke(&err, multierr.Close(reader))
+
+	asset.Contents, err = io.ReadAll(reader)
+	return err
+}
+
+type downloader struct {
+	source io.ReadCloser
+	eof    func(int)
+	close  func() error
+	size   int
+}
+
+func (d *downloader) Read(buffer []byte) (int, error) {
+	n, err := d.source.Read(buffer)
+	d.size += n
+	if err == io.EOF && d.eof != nil {
+		d.eof(d.size)
+	}
+	return n, err
+}
+
+func (d *downloader) Close() error {
+	return multierr.Append(d.source.Close(), d.close())
+}
+
+func (c *Client) DownloadAsset(ctx context.Context, release *Release, asset *Asset) (io.ReadCloser, error) {
 	if err := c.acquire(ctx); err != nil {
 		return nil, err
 	}
-	defer c.release()
 
 	start := time.Now()
 
-	body, _, err := c.github.Repositories.DownloadReleaseAsset(ctx, release.Repo.Owner, release.Repo.Name, asset.ID, http.DefaultClient)
+	contents, _, err := c.github.Repositories.DownloadReleaseAsset(ctx, release.Repo.Owner, release.Repo.Name, asset.ID, http.DefaultClient)
 	if err != nil {
-		return nil, fmt.Errorf("failed to download asset %s: %w", name, err)
-	}
-	defer multierr.AppendInvoke(&err, multierr.Close(body))
-
-	hash := sha256.New()
-	asset.Contents, err = io.ReadAll(io.TeeReader(body, hash))
-	if err != nil {
-		return nil, fmt.Errorf("failed to download asset %s: %w", name, err)
+		return nil, err
 	}
 
-	digest := "sha256:" + hex.EncodeToString(hash.Sum(nil))
-	if digest != asset.Digest {
-		return nil, fmt.Errorf("failed to download asset %s: digest mismatch", name)
-	}
-
-	log.Debug(ctx, "Downloaded asset", "release", release, "asset", name, "size", len(asset.Contents), "duration", time.Since(start))
-	return asset.Contents, nil
+	return &downloader{
+		source: digest.NewReader(contents, asset.Digest),
+		eof: func(size int) {
+			log.Debug(ctx, "Downloaded asset", "release", release, "asset", asset.Name, "size", size, "duration", time.Since(start))
+		},
+		close: func() error {
+			c.release()
+			return contents.Close()
+		},
+	}, nil
 }
 
 func (c *Client) DownloadFile(ctx context.Context, repo Repository, ref, path string) (io.ReadCloser, error) {

@@ -6,11 +6,9 @@ import (
 	"context"
 	"crypto/ecdsa"
 	"crypto/x509"
-	"encoding/hex"
 	"encoding/pem"
 	"errors"
 	"fmt"
-	"strings"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/digests"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/toolbox"
@@ -80,17 +78,12 @@ func verifyInstallation(release *github.Release, installation toolbox.Installati
 		return err
 	}
 
-	digestDigest, err := hex.DecodeString(strings.TrimPrefix(digestAsset.Digest, "sha256:"))
-	if err != nil {
-		return fmt.Errorf("failed to decode digest: %w", err)
-	}
-
 	signatureAsset, err := release.Asset(signatureAssetName(installation))
 	if err != nil {
 		return err
 	}
 
-	if !ecdsa.VerifyASN1(publicKey, digestDigest, signatureAsset.Contents) {
+	if !ecdsa.VerifyASN1(publicKey, digestAsset.Digest[:], signatureAsset.Contents) {
 		return errors.New("invalid signature")
 	}
 
@@ -99,7 +92,7 @@ func verifyInstallation(release *github.Release, installation toolbox.Installati
 		return err
 	}
 
-	return digest.VerifyInstallation(release, installation)
+	return digests.VerifyInstallation(release, installation, digest)
 }
 
 func digestAssetName(installation toolbox.Installation) string {
