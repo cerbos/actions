@@ -20,6 +20,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/golangcilint"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/goreleaser"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/grype"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helm"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helmfile"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/just"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
@@ -40,6 +41,7 @@ var tools = map[string]updater.Tool{
 	"golangci-lint": golangcilint.Tool,
 	"goreleaser":    goreleaser.Tool,
 	"grype":         grype.Tool,
+	"helm":          helm.Tool,
 	"helmfile":      helmfile.Tool,
 	"just":          just.Tool,
 	"reimage":       reimage.Tool,

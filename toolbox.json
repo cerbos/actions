@@ -206,6 +206,41 @@
       "--version"
     ]
   },
+  "helm": {
+    "version": "3.20.2",
+    "released": "2026-04-09T20:35:01Z",
+    "updated": "2026-04-17T13:01:26Z",
+    "downloads": {
+      "darwin/arm64": {
+        "url": "https://get.helm.sh/helm-v3.20.2-darwin-arm64.tar.gz",
+        "extract": "darwin-arm64/helm",
+        "digests": {
+          "asset": "sha256:139c794c22f16b579d08ddd3008c8038b9bb2814f35b5bcca91f50a1f458978d",
+          "binary": "sha256:d5d8d1d8744821cd7da88e508b40edc6b2f3d122a1c53e2919362ff461fcb515"
+        }
+      },
+      "linux/arm64": {
+        "url": "https://get.helm.sh/helm-v3.20.2-linux-arm64.tar.gz",
+        "extract": "linux-arm64/helm",
+        "digests": {
+          "asset": "sha256:5ea2d6bc2cda3f8edf985e028809f5a9278f404fb8ab24044de9b7cb9b79a691",
+          "binary": "sha256:3fdc0b1baf1a616f44ed06a68127ab8406a7a11ad752e7cb0be1f5e57ce28642"
+        }
+      },
+      "linux/x64": {
+        "url": "https://get.helm.sh/helm-v3.20.2-linux-amd64.tar.gz",
+        "extract": "linux-amd64/helm",
+        "digests": {
+          "asset": "sha256:258e830a9e613c8a7a302d6059b4bb3b9758f2f3e1bb8ea0d707ce10a9a72fea",
+          "binary": "sha256:b048cd72b4aadc639bb1eb8d1b0e1aba1c6936c1633e0169420d03f6dfa0340e"
+        }
+      }
+    },
+    "postInstall": [
+      "helm",
+      "version"
+    ]
+  },
   "helmfile": {
     "version": "1.4.4",
     "released": "2026-04-08T00:25:11Z",

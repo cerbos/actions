@@ -10,6 +10,7 @@ import (
 	"fmt"
 
 	"aead.dev/minisign"
+	pgp "github.com/ProtonMail/gopenpgp/v3/crypto"
 
 	"github.com/cerbos/actions/hack/go/pkg/digest"
 )
@@ -59,4 +60,38 @@ func (m Minisign) Verify(message, signature []byte) error {
 	}
 
 	return nil
+}
+
+type PGP struct {
+	verify pgp.PGPVerify
+}
+
+func NewPGP(publicKeys []string) (*PGP, error) {
+	keyRing, err := pgp.NewKeyRing(nil)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, publicKey := range publicKeys {
+		key, err := pgp.NewKeyFromArmored(publicKey)
+		if err != nil {
+			return nil, err
+		}
+
+		if err := keyRing.AddKey(key); err != nil {
+			return nil, err
+		}
+	}
+
+	verify, err := pgp.PGP().Verify().VerificationKeys(keyRing).New()
+	if err != nil {
+		return nil, err
+	}
+
+	return &PGP{verify: verify}, nil
+}
+
+func (p *PGP) Verify(message, signature []byte) error {
+	_, err := p.verify.VerifyDetached(message, signature, pgp.Armor)
+	return err
 }
