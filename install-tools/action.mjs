@@ -1,11 +1,9 @@
 import { createRequire } from "node:module";
-import { spawn } from "node:child_process";
-import { createHash } from "node:crypto";
 import { createWriteStream } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { arch, platform } from "node:os";
 import { resolve } from "node:path";
-import { PassThrough, Readable, Transform } from "node:stream";
+import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import * as os$1 from "os";
 import os, { EOL } from "os";
@@ -15,8 +13,10 @@ import { constants, promises } from "fs";
 import * as path from "path";
 import * as events from "events";
 import { ok } from "assert";
+import { createHash } from "node:crypto";
 import * as child from "child_process";
 import { setTimeout as setTimeout$1 } from "timers";
+import { spawn } from "node:child_process";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -8223,7 +8223,7 @@ var require_abort_signal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region node_modules/.pnpm/undici@6.24.1/node_modules/undici/lib/api/api-stream.js
 var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const assert$11 = __require("node:assert");
-	const { finished: finished$1, PassThrough: PassThrough$2 } = __require("node:stream");
+	const { finished: finished$1, PassThrough: PassThrough$1 } = __require("node:stream");
 	const { InvalidArgumentError, InvalidReturnValueError } = require_errors();
 	const util = require_util$7();
 	const { getResolveErrorBodyCallback } = require_util$5();
@@ -8283,7 +8283,7 @@ var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			let res;
 			if (this.throwOnError && statusCode >= 400) {
 				const contentType = (responseHeaders === "raw" ? util.parseHeaders(rawHeaders) : headers)["content-type"];
-				res = new PassThrough$2();
+				res = new PassThrough$1();
 				this.callback = null;
 				this.runInAsyncScope(getResolveErrorBodyCallback, null, {
 					callback,
@@ -8367,7 +8367,7 @@ var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/undici@6.24.1/node_modules/undici/lib/api/api-pipeline.js
 var require_api_pipeline = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	const { Readable: Readable$2, Duplex, PassThrough: PassThrough$1 } = __require("node:stream");
+	const { Readable: Readable$2, Duplex, PassThrough } = __require("node:stream");
 	const { InvalidArgumentError, InvalidReturnValueError, RequestAbortedError } = require_errors();
 	const util = require_util$7();
 	const { AsyncResource: AsyncResource$2 } = __require("node:async_hooks");
@@ -8527,7 +8527,7 @@ var require_api_pipeline = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			}, pipelineHandler);
 			return pipelineHandler.ret;
 		} catch (err) {
-			return new PassThrough$1().destroy(err);
+			return new PassThrough().destroy(err);
 		}
 	}
 	module.exports = pipeline;
@@ -18731,7 +18731,82 @@ var toolbox_default = {
 	}
 };
 //#endregion
-//#region src/install-tools/index.ts
+//#region src/install-tools/archive.ts
+const formats = [".tar.gz", ".zip"];
+function inferFormat(url) {
+	const format = formats.find((format) => url.endsWith(format));
+	if (!format) throw new Error(`Unknown archive format ${url}`);
+	return format;
+}
+async function* extract({ format, path, extract }, signal) {
+	let command;
+	let args;
+	switch (format) {
+		case ".tar.gz":
+			command = "tar";
+			args = [
+				"--extract",
+				"--gzip",
+				"--file",
+				path,
+				"--to-stdout",
+				extract
+			];
+			break;
+		case ".zip":
+			command = "unzip";
+			args = [
+				"-p",
+				path,
+				extract
+			];
+	}
+	const process = spawn(command, args, {
+		signal,
+		stdio: [
+			"ignore",
+			"pipe",
+			"inherit"
+		]
+	});
+	const exit = new Promise((resolve) => {
+		process.on("close", (code, signal) => {
+			if (code === 0) {
+				resolve(null);
+				return;
+			}
+			const status = code ? `code ${code}` : `signal ${signal}`;
+			resolve(/* @__PURE__ */ new Error(`${command} exited with ${status}`));
+		}).on("error", resolve);
+	});
+	yield* process.stdout;
+	const error = await exit;
+	if (error) throw error;
+}
+//#endregion
+//#region src/install-tools/digest.ts
+function createDigestStream(digest) {
+	return new DigestStream(digest);
+}
+var DigestStream = class extends Transform {
+	hash;
+	constructor(digest) {
+		super();
+		this.digest = digest;
+		this.hash = createHash("sha256");
+	}
+	_transform(chunk, encoding, callback) {
+		this.push(chunk, encoding);
+		this.hash.write(chunk, callback);
+	}
+	_flush(callback) {
+		let error = null;
+		if (this.digest != `sha256:${this.hash.digest("hex")}`) error = /* @__PURE__ */ new Error("digest mismatch");
+		callback(error);
+	}
+};
+//#endregion
+//#region src/install-tools/action.ts
 async function run() {
 	try {
 		await installTools(getMultilineInput("tools").map(sourceFromManifest));
@@ -18787,17 +18862,26 @@ async function downloadTool(source, signal) {
 		const [response, path] = await Promise.all([fetch(source.url, { signal }), createDirectory(source)]);
 		if (!response.ok) throw new Error(`GET ${source.url}: HTTP ${response.status}`);
 		if (!response.body) throw new Error(`GET ${source.url}: missing response body`);
-		const hash = createHash("sha256");
-		await pipeline(Readable.fromWeb(response.body), async function* (source) {
-			for await (const chunk of source) {
-				hash.update(chunk);
-				yield chunk;
-			}
-		}, createExtractStream(source, signal), createWriteStream(resolve(path, source.tool), {
+		const binary = createWriteStream(resolve(path, source.tool), {
 			flags: "wx",
 			mode: 511
-		}), { signal });
-		if (`sha256:${hash.digest("hex")}` !== source.digests.asset) throw new Error("Digest mismatch");
+		});
+		let target = binary;
+		let archive;
+		if (source.extract) {
+			const format = inferFormat(source.url);
+			archive = {
+				format,
+				path: `${binary.path}${format}`,
+				extract: source.extract
+			};
+			target = createWriteStream(archive.path, {
+				flags: "wx",
+				mode: 384
+			});
+		}
+		await pipeline(Readable.fromWeb(response.body), createDigestStream(source.digests.asset), target, { signal });
+		if (archive) await pipeline(extract(archive, signal), createDigestStream(source.digests.binary), binary);
 		return path;
 	} catch (error) {
 		throw new Error(`Failed to download tool "${source.tool}"`, { cause: error });
@@ -18810,54 +18894,14 @@ async function createDirectory({ tool, version }) {
 	await mkdir(path);
 	return path;
 }
-function createExtractStream({ extract }, signal) {
-	return extract ? new ExtractStream(extract, signal) : new PassThrough();
-}
-var ExtractStream = class extends Transform {
-	process;
-	stdoutEnded = false;
-	constructor(extract, signal) {
-		super();
-		const emitError = this.emit.bind(this, "error");
-		this.process = spawn("tar", [
-			"--extract",
-			"--gzip",
-			"--to-stdout",
-			extract
-		], {
-			signal,
-			stdio: [
-				"pipe",
-				"pipe",
-				"inherit"
-			]
-		});
-		this.process.on("close", (code, signal) => {
-			if (code !== 0) {
-				const status = code ? `code ${code}` : `signal ${signal}`;
-				emitError(/* @__PURE__ */ new Error(`tar exited with ${status}`));
-			}
-		}).on("error", emitError);
-		this.process.stdin?.on("error", emitError);
-		this.process.stdout?.on("data", this.push.bind(this)).on("end", () => {
-			this.stdoutEnded = true;
-		}).on("error", emitError);
-	}
-	_transform(chunk, encoding, callback) {
-		this.process.stdin?.write(chunk, encoding, callback);
-	}
-	_flush(callback) {
-		this.process.stdin?.end();
-		if (this.stdoutEnded) callback();
-		else this.process.stdout?.once("end", callback);
-	}
-};
 async function postInstallTool({ tool, postInstall: [command, ...args] }) {
 	if (!command) return;
 	startGroup(`Post-install ${tool}`);
 	await exec(command, args);
 	endGroup();
 }
+//#endregion
+//#region src/install-tools/index.ts
 await run();
 //#endregion
 export {};

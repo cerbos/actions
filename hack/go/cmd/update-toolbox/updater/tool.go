@@ -83,7 +83,7 @@ func setBinaryDigest(ctx context.Context, clients *Clients, download *toolbox.Do
 	}
 	defer multierr.AppendInvoke(&err, multierr.Close(archiveFile))
 
-	binary, err := archive.Extract(archiveFile, download.Extract)
+	binary, err := archive.Extract(download, archiveFile)
 	if err != nil {
 		return err
 	}

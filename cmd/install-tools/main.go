@@ -134,7 +134,7 @@ func downloadTool(ctx context.Context, tool string, download *toolbox.Download) 
 		}
 		defer multierr.AppendInvoke(&err, multierr.Close(archiveFile))
 
-		source, err = archive.Extract(archiveFile, download.Extract)
+		source, err = archive.Extract(download, archiveFile)
 		if err != nil {
 			return err
 		}

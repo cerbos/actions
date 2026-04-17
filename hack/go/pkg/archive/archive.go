@@ -4,19 +4,35 @@ package archive
 
 import (
 	"archive/tar"
+	"archive/zip"
 	"compress/gzip"
 	"fmt"
 	"io"
+	"strings"
 
 	"go.uber.org/multierr"
+
+	"github.com/cerbos/actions/hack/go/pkg/tempfile"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
-type extractor struct {
+func Extract(download *toolbox.Download, archive *tempfile.File) (io.ReadCloser, error) {
+	switch {
+	case strings.HasSuffix(download.URL, ".tar.gz"):
+		return extractTarGz(archive, download.Extract)
+	case strings.HasSuffix(download.URL, ".zip"):
+		return extractZip(archive, download.Extract)
+	default:
+		return nil, fmt.Errorf("unknown archive format %s", download.URL)
+	}
+}
+
+type readCloser struct {
 	io.Reader
 	io.Closer
 }
 
-func Extract(source io.Reader, path string) (_ io.ReadCloser, err error) {
+func extractTarGz(source *tempfile.File, path string) (_ io.ReadCloser, err error) {
 	gzipReader, err := gzip.NewReader(source)
 	if err != nil {
 		return nil, err
@@ -45,6 +61,15 @@ func Extract(source io.Reader, path string) (_ io.ReadCloser, err error) {
 			return nil, fmt.Errorf("%q is not a regular file in archive", path)
 		}
 
-		return extractor{Reader: tarReader, Closer: gzipReader}, nil
+		return readCloser{Reader: tarReader, Closer: gzipReader}, nil
 	}
+}
+
+func extractZip(source *tempfile.File, path string) (io.ReadCloser, error) {
+	zipReader, err := zip.NewReader(source, source.Size)
+	if err != nil {
+		return nil, err
+	}
+
+	return zipReader.Open(path)
 }
