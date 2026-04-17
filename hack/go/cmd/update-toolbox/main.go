@@ -23,6 +23,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helm"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helmfile"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/just"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/oras"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
@@ -44,6 +45,7 @@ var tools = map[string]updater.Tool{
 	"helm":          helm.Tool,
 	"helmfile":      helmfile.Tool,
 	"just":          just.Tool,
+	"oras":          oras.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
 	"skaffold":      skaffold.Tool,
