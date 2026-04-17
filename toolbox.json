@@ -512,6 +512,41 @@
       "version"
     ]
   },
+  "terraform": {
+    "version": "1.14.8",
+    "released": "2026-03-25T07:12:20Z",
+    "updated": "2026-04-17T12:57:39Z",
+    "downloads": {
+      "darwin/arm64": {
+        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_darwin_arm64.zip",
+        "extract": "terraform",
+        "digests": {
+          "asset": "sha256:5593670a2d42323847bfb216db17c73a44df201a62f7587928bae16adeabba23",
+          "binary": "sha256:ef76d2d0f1ee6a7a8460701033d7db8edc141904a3d597832461647b5b3fe862"
+        }
+      },
+      "linux/arm64": {
+        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_arm64.zip",
+        "extract": "terraform",
+        "digests": {
+          "asset": "sha256:c953171cde6b25ca0448c3b29a90d2f46c0310121e18742ec8f89631768e770c",
+          "binary": "sha256:6f359a1071bc5d4fac53fa26d5ba6ecfdfa7b54833fe50255b83555023a24ec4"
+        }
+      },
+      "linux/x64": {
+        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_amd64.zip",
+        "extract": "terraform",
+        "digests": {
+          "asset": "sha256:56a5d12f47cbc1c6bedb8f5426ae7d5df984d1929572c24b56f4c82e9f9bf709",
+          "binary": "sha256:64e4f7b9cec2aaf3ea02b3a3ada27041c9193563a5a0a343ef20ab2486b8e100"
+        }
+      }
+    },
+    "postInstall": [
+      "terraform",
+      "version"
+    ]
+  },
   "vals": {
     "version": "0.43.9",
     "released": "2026-04-09T22:43:25Z",

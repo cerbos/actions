@@ -92,6 +92,6 @@ func NewPGP(publicKeys []string) (*PGP, error) {
 }
 
 func (p *PGP) Verify(message, signature []byte) error {
-	_, err := p.verify.VerifyDetached(message, signature, pgp.Armor)
+	_, err := p.verify.VerifyDetached(message, signature, pgp.Auto)
 	return err
 }

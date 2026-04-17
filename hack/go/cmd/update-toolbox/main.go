@@ -29,6 +29,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/syft"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/telepresence"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/terraform"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/vals"
 	"github.com/cerbos/actions/hack/go/pkg/command"
 	"github.com/cerbos/actions/hack/go/pkg/log"
@@ -51,6 +52,7 @@ var tools = map[string]updater.Tool{
 	"skaffold":      skaffold.Tool,
 	"syft":          syft.Tool,
 	"telepresence":  telepresence.Tool,
+	"terraform":     terraform.Tool,
 	"vals":          vals.Tool,
 }
 
