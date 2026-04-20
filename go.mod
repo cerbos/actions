@@ -2,7 +2,7 @@ module github.com/cerbos/actions
 
 go 1.26
 
-toolchain go1.26.1
+toolchain go1.26.2
 
 require (
 	aead.dev/minisign v0.3.0
@@ -13,7 +13,7 @@ require (
 	github.com/sigstore/sigstore-go v1.1.4
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
 	go.uber.org/multierr v1.11.0
-	golang.org/x/mod v0.34.0
+	golang.org/x/mod v0.35.0
 	golang.org/x/sync v0.20.0
 )
 
