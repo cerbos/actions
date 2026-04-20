@@ -14,6 +14,7 @@ import (
 	"github.com/sourcegraph/conc/pool"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/actionlint"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/buf"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/crane"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/flipt"
@@ -37,6 +38,7 @@ import (
 )
 
 var tools = map[string]updater.Tool{
+	"actionlint":    actionlint.Tool,
 	"buf":           buf.Tool,
 	"crane":         crane.Tool,
 	"flipt":         flipt.Tool,
