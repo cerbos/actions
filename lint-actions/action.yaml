@@ -1,0 +1,19 @@
+name: Lint actions
+description: Lint GitHub Actions workflows and actions
+
+
+runs:
+  using: composite
+
+  steps:
+    - name: Install actionlint
+      uses: cerbos/actions/install-tools@1ad32958fb95e498c7c3a62000de702b1f9570e9
+      with:
+        tools: actionlint
+
+    - name: Run actionlint
+      run: actionlint
+      shell: bash
+
+    - name: Run zizmor
+      uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
