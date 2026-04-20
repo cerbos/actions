@@ -110,7 +110,7 @@ runs:
   steps:
     - name: Install buf
       id: install
-      uses: cerbos/actions/install-tools@445c7cc3d08f9b4e990544e137adc517061de270
+      uses: cerbos/actions/install-tools@fd2e2e9c612ea38111dd18054f6b5b1598e311e0
       with:
         tools: buf
 
