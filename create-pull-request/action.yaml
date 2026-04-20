@@ -1,0 +1,100 @@
+name: Create pull request
+description: Open a pull request with changes from the checked-out repository
+
+inputs:
+  author:
+    description: The author name and email address in the format `Display Name <email@address.com>`
+    required: true
+
+  body:
+    description: The body of the pull request
+    required: true
+
+  branch:
+    description: The name of the branch to create or update
+    required: true
+
+  client-id:
+    description: Client ID of the GitHub App to use to create the pull request
+    required: true
+
+  private-key:
+    description: Private key of the GitHub App to use to create the pull request
+    required: true
+
+  title:
+    description: The title of the pull request (also used as the commit message)
+    required: true
+
+  # wrap:inputs:start
+  add-paths:
+    description: |
+      A comma or newline-separated list of file paths to commit. Paths should follow git's pathspec syntax. Defaults to adding all new and modified files.
+    required: false
+  assignees:
+    description: A comma or newline separated list of assignees (GitHub usernames).
+    required: false
+  base:
+    description: |
+      The pull request base branch. Defaults to the branch checked out in the workflow.
+    required: false
+  draft:
+    description: |
+      Create a draft pull request. Valid values are `true` (only on create), `always-true` (on create and update), and `false`.
+    required: false
+    default: "false"
+  labels:
+    description: A comma or newline separated list of labels.
+    required: false
+  milestone:
+    description: The number of the milestone to associate the pull request with.
+    required: false
+  path:
+    description: |
+      Relative path under $GITHUB_WORKSPACE to the repository. Defaults to $GITHUB_WORKSPACE.
+    required: false
+  reviewers:
+    description: A comma or newline separated list of reviewers (GitHub usernames) to request a review from.
+    required: false
+  team-reviewers:
+    description: |
+      A comma or newline separated list of GitHub teams to request a review from. Note that a `repo` scoped Personal Access Token (PAT) may be required.
+    required: false
+  # wrap:inputs:end
+
+
+runs:
+  using: composite
+
+  steps:
+    - name: Generate bot token
+      uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      id: generate-token
+      with:
+        app-id: ${{ inputs.client-id }}
+        private-key: ${{ inputs.private-key }}
+
+    - name: Create pull request
+      if: steps.update-toolbox.outputs.summary != ''
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+      with:
+        author: ${{ inputs.author }}
+        body: ${{ inputs.body }}
+        branch: ${{ inputs.branch }}
+        commit-message: ${{ inputs.title }}
+        committer: ${{ inputs.author }}
+        delete-branch: true
+        sign-commits: true
+        signoff: true
+        token: ${{ steps.generate-token.outputs.token }}
+        # wrap:uses.with:start
+        add-paths: ${{ inputs.add-paths }}
+        assignees: ${{ inputs.assignees }}
+        base: ${{ inputs.base }}
+        draft: ${{ inputs.draft }}
+        labels: ${{ inputs.labels }}
+        milestone: ${{ inputs.milestone }}
+        path: ${{ inputs.path }}
+        reviewers: ${{ inputs.reviewers }}
+        team-reviewers: ${{ inputs.team-reviewers }}
+        # wrap:uses.with:end

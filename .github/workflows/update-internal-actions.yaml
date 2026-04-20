@@ -29,28 +29,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
-      - name: Generate bot token
-        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
-        id: generate-token
-        with:
-          app-id: ${{ secrets.CERBOS_BOT_CLIENT_ID }}
-          private-key: ${{ secrets.CERBOS_BOT_PRIVATE_KEY }}
-
       - name: Create pull request
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: ./create-pull-request
         with:
-          token: ${{ steps.generate-token.outputs.token }}
-          branch: update-internal-actions
-          delete-branch: true
-          signoff: true
-          sign-commits: true
+          client-id: ${{ secrets.CERBOS_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.CERBOS_BOT_PRIVATE_KEY }}
           author: ${{ vars.CERBOS_BOT_AUTHOR }}
-          committer: ${{ vars.CERBOS_BOT_AUTHOR }}
-          commit-message: |-
-            Update internal actions
-          title: |-
-            Update internal actions
-          body: |-
-            This PR updates references between actions in this repository.
+          branch: update-internal-actions
+          title: Update internal actions
+          body: This PR updates references between actions in this repository.
           add-paths: |-
             */action.yaml

@@ -44,29 +44,15 @@ jobs:
         run: pnpm run build
         working-directory: hack/js
 
-      - name: Generate bot token
-        if: steps.update-toolbox.outputs.summary != ''
-        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
-        id: generate-token
-        with:
-          app-id: ${{ secrets.CERBOS_BOT_CLIENT_ID }}
-          private-key: ${{ secrets.CERBOS_BOT_PRIVATE_KEY }}
-
       - name: Create pull request
         if: steps.update-toolbox.outputs.summary != ''
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: ./create-pull-request
         with:
-          token: ${{ steps.generate-token.outputs.token }}
-          branch: update-toolbox
-          delete-branch: true
-          signoff: true
-          sign-commits: true
+          client-id: ${{ secrets.CERBOS_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.CERBOS_BOT_PRIVATE_KEY }}
           author: ${{ vars.CERBOS_BOT_AUTHOR }}
-          committer: ${{ vars.CERBOS_BOT_AUTHOR }}
-          commit-message: |-
-            Update toolbox
-          title: |-
-            Update toolbox
+          branch: update-toolbox
+          title: Update toolbox
           body: ${{ steps.update-toolbox.outputs.summary }}
           add-paths: |-
             install-tools/action.mjs

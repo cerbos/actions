@@ -49,7 +49,34 @@ var actions = []Action{
 			Repo: github.Repository{Owner: "bufbuild", Name: "buf-action"},
 			Path: "action.yml",
 		},
-		ExcludeInputs: []string{"checksum", "version"},
+		ExcludeInputs: []string{
+			"checksum",
+			"version",
+		},
+	},
+	{
+		Target: "create-pull-request",
+		Source: Source{
+			Repo: github.Repository{Owner: "peter-evans", Name: "create-pull-request"},
+			Path: "action.yml",
+		},
+		ExcludeInputs: []string{
+			"author",
+			"body",
+			"body-path",
+			"branch",
+			"branch-token",
+			"branch-suffix",
+			"commit-message",
+			"committer",
+			"delete-branch",
+			"maintainer-can-modify",
+			"push-to-fork",
+			"sign-commits",
+			"signoff",
+			"title",
+			"token",
+		},
 	},
 	{
 		Target: "golangci-lint",
@@ -57,7 +84,12 @@ var actions = []Action{
 			Repo: github.Repository{Owner: "golangci", Name: "golangci-lint-action"},
 			Path: "action.yml",
 		},
-		ExcludeInputs: []string{"install-mode", "install-only", "version", "version-file"},
+		ExcludeInputs: []string{
+			"install-mode",
+			"install-only",
+			"version",
+			"version-file",
+		},
 	},
 }
 
