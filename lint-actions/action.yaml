@@ -1,6 +1,11 @@
 name: Lint actions
 description: Lint GitHub Actions workflows and actions
 
+inputs:
+  advanced-security:
+    description: Enable GitHub Advanced Security for zizmor's results?
+    required: false
+    default: "true"
 
 runs:
   using: composite
@@ -17,3 +22,6 @@ runs:
 
     - name: Run zizmor
       uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
+      with:
+        advanced-security: ${{ inputs.advanced-security }}
+        annotations: ${{ inputs.advanced-security != 'true' }}
