@@ -1,28 +1,28 @@
 {
   "buf": {
-    "version": "1.67.0",
-    "released": "2026-04-01T16:35:39Z",
-    "updated": "2026-04-16T10:11:12Z",
+    "version": "1.68.1",
+    "released": "2026-04-14T21:19:03Z",
+    "updated": "2026-04-20T08:52:31Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Darwin-arm64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Darwin-arm64",
         "digests": {
-          "asset": "sha256:7b561964f8238e2acadae666c3e2a11b0a6d4dd716f12882dfedcd93c2a28e1e",
-          "binary": "sha256:7b561964f8238e2acadae666c3e2a11b0a6d4dd716f12882dfedcd93c2a28e1e"
+          "asset": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6",
+          "binary": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Linux-aarch64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-aarch64",
         "digests": {
-          "asset": "sha256:a4bbbb9f299bf7f313bb997d449e262ef29f2f4e001de5d682504d772da1c154",
-          "binary": "sha256:a4bbbb9f299bf7f313bb997d449e262ef29f2f4e001de5d682504d772da1c154"
+          "asset": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357",
+          "binary": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.67.0/buf-Linux-x86_64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-x86_64",
         "digests": {
-          "asset": "sha256:590b67b0cbde29b287e9772a71f46b569c2204e09a42c1c50dc425237a485e2a",
-          "binary": "sha256:590b67b0cbde29b287e9772a71f46b569c2204e09a42c1c50dc425237a485e2a"
+          "asset": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5",
+          "binary": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5"
         }
       }
     },
@@ -102,32 +102,32 @@
     ]
   },
   "goreleaser": {
-    "version": "2.15.2",
-    "released": "2026-03-31T16:57:22Z",
-    "updated": "2026-04-16T10:11:32Z",
+    "version": "2.15.3",
+    "released": "2026-04-14T23:35:52Z",
+    "updated": "2026-04-20T08:52:36Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Darwin_arm64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Darwin_arm64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:985c8509c62ccf2f48371868aa478a13ba075ff54457fdbcd2c0ba54eda8ad69",
-          "binary": "sha256:d128e4e16286defbb4be93c7a450bd22076a7354c60332ef38727b1b3370d5f1"
+          "asset": "sha256:a46a3bf44ef8255b78d9eae9a3f4da60b878011e8eba7cf12bb3787ad5110418",
+          "binary": "sha256:50740d553a84f5bad6986f5fdbd58ed1d30bceeace4b1c2b3aae895ed750fb5c"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_arm64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Linux_arm64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:5db66761a98f6693161e49e1a95d28d2673a892ba60cb4a5e16736cafd41c4c9",
-          "binary": "sha256:fdb07b88270ba070a1078a97343eae3e55cb5fb8c410be8239b4ea7933ec3054"
+          "asset": "sha256:646b8f36329cf1ec02af18d40e7096973f62524bdef19c3690414e390a9f757d",
+          "binary": "sha256:0d6d9d55759c0e9ef1aae0937077fda81a551669a5aa765f16b19f963e040295"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.2/goreleaser_Linux_x86_64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Linux_x86_64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:0ebdbf0353aba566b969dde746cc4e4806f96c27aa2f3971b229a9df7611fedc",
-          "binary": "sha256:ca16b95b4a69163ea3c2f061d673d003cc2f7399f6412ef0cbfc182960e36b77"
+          "asset": "sha256:3b24b3a1629be21a9527d2f46f08b9bbf012c52fe33395714fe2c70acee57e0f",
+          "binary": "sha256:d7413af097ed9fe0e1eb76963a3f243d7de460d0dfdbead5c4ca55a01cb4f82f"
         }
       }
     },
