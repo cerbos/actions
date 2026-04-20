@@ -63,6 +63,10 @@ func (r Repository) String() string {
 	return fmt.Sprintf("%s/%s", r.Owner, r.Name)
 }
 
+func (r Repository) URL() string {
+	return fmt.Sprintf("https://github.com/%s/%s", r.Owner, r.Name)
+}
+
 type Release struct {
 	Created time.Time
 	Assets  map[string]*Asset
@@ -259,14 +263,14 @@ func (c *Client) downloadAssetContents(ctx context.Context, release *Release, na
 
 type downloader struct {
 	source io.ReadCloser
-	eof    func(int)
+	eof    func(int64)
 	close  func() error
-	size   int
+	size   int64
 }
 
 func (d *downloader) Read(buffer []byte) (int, error) {
 	n, err := d.source.Read(buffer)
-	d.size += n
+	d.size += int64(n)
 	if err == io.EOF && d.eof != nil {
 		d.eof(d.size)
 	}
@@ -291,7 +295,7 @@ func (c *Client) DownloadAsset(ctx context.Context, release *Release, asset *Ass
 
 	return &downloader{
 		source: digest.NewReader(contents, asset.Digest),
-		eof: func(size int) {
+		eof: func(size int64) {
 			log.Debug(ctx, "Downloaded asset", "release", release, "asset", asset.Name, "size", size, "duration", time.Since(start))
 		},
 		close: func() error {

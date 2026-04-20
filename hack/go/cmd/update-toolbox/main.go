@@ -15,17 +15,21 @@ import (
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/buf"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/crane"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/flipt"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/golangcilint"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/goreleaser"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/grype"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helm"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/helmfile"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/just"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/oras"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/syft"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/telepresence"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/terraform"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/vals"
 	"github.com/cerbos/actions/hack/go/pkg/command"
 	"github.com/cerbos/actions/hack/go/pkg/log"
@@ -34,17 +38,21 @@ import (
 
 var tools = map[string]updater.Tool{
 	"buf":           buf.Tool,
+	"crane":         crane.Tool,
 	"flipt":         flipt.Tool,
 	"golangci-lint": golangcilint.Tool,
 	"goreleaser":    goreleaser.Tool,
 	"grype":         grype.Tool,
+	"helm":          helm.Tool,
 	"helmfile":      helmfile.Tool,
 	"just":          just.Tool,
+	"oras":          oras.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
 	"skaffold":      skaffold.Tool,
 	"syft":          syft.Tool,
 	"telepresence":  telepresence.Tool,
+	"terraform":     terraform.Tool,
 	"vals":          vals.Tool,
 }
 

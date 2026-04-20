@@ -10,6 +10,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 var Tool = updater.Tool{
@@ -18,20 +19,20 @@ var Tool = updater.Tool{
 	PostInstall: []string{"golangci-lint", "version"},
 }
 
-func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (updater.Installations, error) {
+func verify(ctx context.Context, clients *updater.Clients, release *github.Release) (toolbox.Downloads, error) {
 	version := release.Version.Number()
 
-	installations := updater.Installations{
+	assets := updater.AssetsToDownload{
 		platform.DarwinARM64: {
-			Asset:   fmt.Sprintf("golangci-lint-%s-darwin-arm64.tar.gz", version),
+			Name:    fmt.Sprintf("golangci-lint-%s-darwin-arm64.tar.gz", version),
 			Extract: fmt.Sprintf("golangci-lint-%s-darwin-arm64/golangci-lint", version),
 		},
 		platform.LinuxARM64: {
-			Asset:   fmt.Sprintf("golangci-lint-%s-linux-arm64.tar.gz", version),
+			Name:    fmt.Sprintf("golangci-lint-%s-linux-arm64.tar.gz", version),
 			Extract: fmt.Sprintf("golangci-lint-%s-linux-arm64/golangci-lint", version),
 		},
 		platform.LinuxX64: {
-			Asset:   fmt.Sprintf("golangci-lint-%s-linux-amd64.tar.gz", version),
+			Name:    fmt.Sprintf("golangci-lint-%s-linux-amd64.tar.gz", version),
 			Extract: fmt.Sprintf("golangci-lint-%s-linux-amd64/golangci-lint", version),
 		},
 	}
@@ -42,5 +43,9 @@ func verify(ctx context.Context, clients *updater.Clients, release *github.Relea
 		return nil, err
 	}
 
-	return installations, digests.Verify(release, installations, digestsAsset)
+	if err := digests.VerifyRelease(release, assets, digestsAsset); err != nil {
+		return nil, err
+	}
+
+	return updater.DownloadsFromRelease(release, assets)
 }

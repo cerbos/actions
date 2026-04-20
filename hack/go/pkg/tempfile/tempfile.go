@@ -11,18 +11,19 @@ import (
 
 type File struct {
 	*os.File
+	Size int64
 }
 
-func Create() (File, error) {
+func Create() (*File, error) {
 	file, err := os.CreateTemp("", "cerbos-actions-*")
-	return File{File: file}, err
+	return &File{File: file}, err
 }
 
 func (f File) Close() error {
 	return multierr.Append(f.File.Close(), os.Remove(f.Name()))
 }
 
-func Copy(source io.ReadCloser) (file File, err error) {
+func Copy(source io.ReadCloser) (file *File, err error) {
 	defer multierr.AppendInvoke(&err, multierr.Close(source))
 
 	file, err = Create()
@@ -35,7 +36,8 @@ func Copy(source io.ReadCloser) (file File, err error) {
 		}
 	}()
 
-	if _, err := io.Copy(file, source); err != nil {
+	file.Size, err = io.Copy(file, source)
+	if err != nil {
 		return file, err
 	}
 

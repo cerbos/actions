@@ -1,11 +1,9 @@
 import { createRequire } from "node:module";
-import { spawn } from "node:child_process";
-import { createHash } from "node:crypto";
 import { createWriteStream } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { arch, platform } from "node:os";
 import { resolve } from "node:path";
-import { PassThrough, Readable, Transform } from "node:stream";
+import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import * as os$1 from "os";
 import os, { EOL } from "os";
@@ -15,8 +13,10 @@ import { constants, promises } from "fs";
 import * as path from "path";
 import * as events from "events";
 import { ok } from "assert";
+import { createHash } from "node:crypto";
 import * as child from "child_process";
 import { setTimeout as setTimeout$1 } from "timers";
+import { spawn } from "node:child_process";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -8223,7 +8223,7 @@ var require_abort_signal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region node_modules/.pnpm/undici@6.24.1/node_modules/undici/lib/api/api-stream.js
 var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const assert$11 = __require("node:assert");
-	const { finished: finished$1, PassThrough: PassThrough$2 } = __require("node:stream");
+	const { finished: finished$1, PassThrough: PassThrough$1 } = __require("node:stream");
 	const { InvalidArgumentError, InvalidReturnValueError } = require_errors();
 	const util = require_util$7();
 	const { getResolveErrorBodyCallback } = require_util$5();
@@ -8283,7 +8283,7 @@ var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			let res;
 			if (this.throwOnError && statusCode >= 400) {
 				const contentType = (responseHeaders === "raw" ? util.parseHeaders(rawHeaders) : headers)["content-type"];
-				res = new PassThrough$2();
+				res = new PassThrough$1();
 				this.callback = null;
 				this.runInAsyncScope(getResolveErrorBodyCallback, null, {
 					callback,
@@ -8367,7 +8367,7 @@ var require_api_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region node_modules/.pnpm/undici@6.24.1/node_modules/undici/lib/api/api-pipeline.js
 var require_api_pipeline = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	const { Readable: Readable$2, Duplex, PassThrough: PassThrough$1 } = __require("node:stream");
+	const { Readable: Readable$2, Duplex, PassThrough } = __require("node:stream");
 	const { InvalidArgumentError, InvalidReturnValueError, RequestAbortedError } = require_errors();
 	const util = require_util$7();
 	const { AsyncResource: AsyncResource$2 } = __require("node:async_hooks");
@@ -8527,7 +8527,7 @@ var require_api_pipeline = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			}, pipelineHandler);
 			return pipelineHandler.ret;
 		} catch (err) {
-			return new PassThrough$1().destroy(err);
+			return new PassThrough().destroy(err);
 		}
 	}
 	module.exports = pipeline;
@@ -18258,6 +18258,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["buf", "--version"]
 	},
+	crane: {
+		"version": "0.21.5",
+		"released": "2026-04-11T02:19:10Z",
+		"updated": "2026-04-16T14:03:32Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Darwin_arm64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:a41938cdbd8becc59e90f4bb491a557d52dce5681f9812c961854cab706f5f59",
+					"binary": "sha256:04db5793ec1c2a3d7a8d62b35a29c4f673777a7df438dc01dd30c10c3a5d55cc"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_arm64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:3a47c6da5a0ba1ca7a93def41036d8f262a2160799e5d4ca25dba3cfa47dab41",
+					"binary": "sha256:b73f655646f7e9cd396db595e80bd2919f83fd4f34521b9b41fb37782c9bded4"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_x86_64.tar.gz",
+				"extract": "crane",
+				"digests": {
+					"asset": "sha256:9f823ae5ee25803161110f957b5fd4538f714d40cdf25dacb4914fefafd246bf",
+					"binary": "sha256:ef9d94754ad4e2c0d6d66086c14eefc878e242c30a76f902dcb205dda57c0765"
+				}
+			}
+		},
+		"postInstall": ["crane", "version"]
+	},
 	flipt: {
 		"version": "1.61.1",
 		"released": "2026-03-06T18:45:00Z",
@@ -18386,6 +18418,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["grype", "--version"]
 	},
+	helm: {
+		"version": "3.20.2",
+		"released": "2026-04-09T20:35:01Z",
+		"updated": "2026-04-17T13:01:26Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://get.helm.sh/helm-v3.20.2-darwin-arm64.tar.gz",
+				"extract": "darwin-arm64/helm",
+				"digests": {
+					"asset": "sha256:139c794c22f16b579d08ddd3008c8038b9bb2814f35b5bcca91f50a1f458978d",
+					"binary": "sha256:d5d8d1d8744821cd7da88e508b40edc6b2f3d122a1c53e2919362ff461fcb515"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://get.helm.sh/helm-v3.20.2-linux-arm64.tar.gz",
+				"extract": "linux-arm64/helm",
+				"digests": {
+					"asset": "sha256:5ea2d6bc2cda3f8edf985e028809f5a9278f404fb8ab24044de9b7cb9b79a691",
+					"binary": "sha256:3fdc0b1baf1a616f44ed06a68127ab8406a7a11ad752e7cb0be1f5e57ce28642"
+				}
+			},
+			"linux/x64": {
+				"url": "https://get.helm.sh/helm-v3.20.2-linux-amd64.tar.gz",
+				"extract": "linux-amd64/helm",
+				"digests": {
+					"asset": "sha256:258e830a9e613c8a7a302d6059b4bb3b9758f2f3e1bb8ea0d707ce10a9a72fea",
+					"binary": "sha256:b048cd72b4aadc639bb1eb8d1b0e1aba1c6936c1633e0169420d03f6dfa0340e"
+				}
+			}
+		},
+		"postInstall": ["helm", "version"]
+	},
 	helmfile: {
 		"version": "1.4.4",
 		"released": "2026-04-08T00:25:11Z",
@@ -18449,6 +18513,38 @@ var toolbox_default = {
 			}
 		},
 		"postInstall": ["just", "--version"]
+	},
+	oras: {
+		"version": "1.3.1",
+		"released": "2026-03-12T01:26:42Z",
+		"updated": "2026-04-17T11:44:04Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.1/oras_1.3.1_darwin_arm64.tar.gz",
+				"extract": "oras",
+				"digests": {
+					"asset": "sha256:d545a238f4c8be6dfae6c3d0ff5b09720c5588641d4a5180fb87c38a64500cc4",
+					"binary": "sha256:fc9d1cbc8f42a5af157efd59e5a1e2dfe8b73b6b6e6ffd612c748fa2b951c3f9"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.1/oras_1.3.1_linux_arm64.tar.gz",
+				"extract": "oras",
+				"digests": {
+					"asset": "sha256:79946ad57d732836f9242f903f476b6fa484c451d659f121bce54d931ab2a044",
+					"binary": "sha256:91c83ffb0716b0854734158ec599e3b34fef563cf65ee21370505ea562d7c073"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.1/oras_1.3.1_linux_amd64.tar.gz",
+				"extract": "oras",
+				"digests": {
+					"asset": "sha256:d52c4af76ce6a3ceb8579e51fb751a43ac051cca67f965f973a0b0e897a2bb86",
+					"binary": "sha256:5976df62daccc3b2c800f7bca3c8c27f4210a434778cb859762c4d1ffcd31f12"
+				}
+			}
+		},
+		"postInstall": ["oras", "version"]
 	},
 	reimage: {
 		"version": "0.12.1",
@@ -18601,6 +18697,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["telepresence", "version"]
 	},
+	terraform: {
+		"version": "1.14.8",
+		"released": "2026-03-25T07:12:20Z",
+		"updated": "2026-04-17T12:57:39Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_darwin_arm64.zip",
+				"extract": "terraform",
+				"digests": {
+					"asset": "sha256:5593670a2d42323847bfb216db17c73a44df201a62f7587928bae16adeabba23",
+					"binary": "sha256:ef76d2d0f1ee6a7a8460701033d7db8edc141904a3d597832461647b5b3fe862"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_arm64.zip",
+				"extract": "terraform",
+				"digests": {
+					"asset": "sha256:c953171cde6b25ca0448c3b29a90d2f46c0310121e18742ec8f89631768e770c",
+					"binary": "sha256:6f359a1071bc5d4fac53fa26d5ba6ecfdfa7b54833fe50255b83555023a24ec4"
+				}
+			},
+			"linux/x64": {
+				"url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_amd64.zip",
+				"extract": "terraform",
+				"digests": {
+					"asset": "sha256:56a5d12f47cbc1c6bedb8f5426ae7d5df984d1929572c24b56f4c82e9f9bf709",
+					"binary": "sha256:64e4f7b9cec2aaf3ea02b3a3ada27041c9193563a5a0a343ef20ab2486b8e100"
+				}
+			}
+		},
+		"postInstall": ["terraform", "version"]
+	},
 	vals: {
 		"version": "0.43.9",
 		"released": "2026-04-09T22:43:25Z",
@@ -18635,7 +18763,82 @@ var toolbox_default = {
 	}
 };
 //#endregion
-//#region src/install-tools/index.ts
+//#region src/install-tools/archive.ts
+const formats = [".tar.gz", ".zip"];
+function inferFormat(url) {
+	const format = formats.find((format) => url.endsWith(format));
+	if (!format) throw new Error(`Unknown archive format ${url}`);
+	return format;
+}
+async function* extract({ format, path, extract }, signal) {
+	let command;
+	let args;
+	switch (format) {
+		case ".tar.gz":
+			command = "tar";
+			args = [
+				"--extract",
+				"--gzip",
+				"--file",
+				path,
+				"--to-stdout",
+				extract
+			];
+			break;
+		case ".zip":
+			command = "unzip";
+			args = [
+				"-p",
+				path,
+				extract
+			];
+	}
+	const process = spawn(command, args, {
+		signal,
+		stdio: [
+			"ignore",
+			"pipe",
+			"inherit"
+		]
+	});
+	const exit = new Promise((resolve) => {
+		process.on("close", (code, signal) => {
+			if (code === 0) {
+				resolve(null);
+				return;
+			}
+			const status = code ? `code ${code}` : `signal ${signal}`;
+			resolve(/* @__PURE__ */ new Error(`${command} exited with ${status}`));
+		}).on("error", resolve);
+	});
+	yield* process.stdout;
+	const error = await exit;
+	if (error) throw error;
+}
+//#endregion
+//#region src/install-tools/digest.ts
+function createDigestStream(digest) {
+	return new DigestStream(digest);
+}
+var DigestStream = class extends Transform {
+	hash;
+	constructor(digest) {
+		super();
+		this.digest = digest;
+		this.hash = createHash("sha256");
+	}
+	_transform(chunk, encoding, callback) {
+		this.push(chunk, encoding);
+		this.hash.write(chunk, callback);
+	}
+	_flush(callback) {
+		let error = null;
+		if (this.digest != `sha256:${this.hash.digest("hex")}`) error = /* @__PURE__ */ new Error("digest mismatch");
+		callback(error);
+	}
+};
+//#endregion
+//#region src/install-tools/action.ts
 async function run() {
 	try {
 		await installTools(getMultilineInput("tools").map(sourceFromManifest));
@@ -18691,17 +18894,26 @@ async function downloadTool(source, signal) {
 		const [response, path] = await Promise.all([fetch(source.url, { signal }), createDirectory(source)]);
 		if (!response.ok) throw new Error(`GET ${source.url}: HTTP ${response.status}`);
 		if (!response.body) throw new Error(`GET ${source.url}: missing response body`);
-		const hash = createHash("sha256");
-		await pipeline(Readable.fromWeb(response.body), async function* (source) {
-			for await (const chunk of source) {
-				hash.update(chunk);
-				yield chunk;
-			}
-		}, createExtractStream(source, signal), createWriteStream(resolve(path, source.tool), {
+		const binary = createWriteStream(resolve(path, source.tool), {
 			flags: "wx",
 			mode: 511
-		}), { signal });
-		if (`sha256:${hash.digest("hex")}` !== source.digests.asset) throw new Error("Digest mismatch");
+		});
+		let target = binary;
+		let archive;
+		if (source.extract) {
+			const format = inferFormat(source.url);
+			archive = {
+				format,
+				path: `${binary.path}${format}`,
+				extract: source.extract
+			};
+			target = createWriteStream(archive.path, {
+				flags: "wx",
+				mode: 384
+			});
+		}
+		await pipeline(Readable.fromWeb(response.body), createDigestStream(source.digests.asset), target, { signal });
+		if (archive) await pipeline(extract(archive, signal), createDigestStream(source.digests.binary), binary);
 		return path;
 	} catch (error) {
 		throw new Error(`Failed to download tool "${source.tool}"`, { cause: error });
@@ -18714,54 +18926,14 @@ async function createDirectory({ tool, version }) {
 	await mkdir(path);
 	return path;
 }
-function createExtractStream({ extract }, signal) {
-	return extract ? new ExtractStream(extract, signal) : new PassThrough();
-}
-var ExtractStream = class extends Transform {
-	process;
-	stdoutEnded = false;
-	constructor(extract, signal) {
-		super();
-		const emitError = this.emit.bind(this, "error");
-		this.process = spawn("tar", [
-			"--extract",
-			"--gzip",
-			"--to-stdout",
-			extract
-		], {
-			signal,
-			stdio: [
-				"pipe",
-				"pipe",
-				"inherit"
-			]
-		});
-		this.process.on("close", (code, signal) => {
-			if (code !== 0) {
-				const status = code ? `code ${code}` : `signal ${signal}`;
-				emitError(/* @__PURE__ */ new Error(`tar exited with ${status}`));
-			}
-		}).on("error", emitError);
-		this.process.stdin?.on("error", emitError);
-		this.process.stdout?.on("data", this.push.bind(this)).on("end", () => {
-			this.stdoutEnded = true;
-		}).on("error", emitError);
-	}
-	_transform(chunk, encoding, callback) {
-		this.process.stdin?.write(chunk, encoding, callback);
-	}
-	_flush(callback) {
-		this.process.stdin?.end();
-		if (this.stdoutEnded) callback();
-		else this.process.stdout?.once("end", callback);
-	}
-};
 async function postInstallTool({ tool, postInstall: [command, ...args] }) {
 	if (!command) return;
 	startGroup(`Post-install ${tool}`);
 	await exec(command, args);
 	endGroup();
 }
+//#endregion
+//#region src/install-tools/index.ts
 await run();
 //#endregion
 export {};

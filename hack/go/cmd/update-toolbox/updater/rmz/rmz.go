@@ -9,6 +9,7 @@ import (
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 var (
@@ -23,13 +24,13 @@ var (
 		PostInstall: []string{"rmz", "--version"},
 	}
 
-	installations = updater.Installations{
-		platform.DarwinARM64: {Asset: "aarch64-apple-darwin-rmz"},
-		platform.LinuxARM64:  {Asset: "aarch64-unknown-linux-gnu-rmz"},
-		platform.LinuxX64:    {Asset: "x86_64-unknown-linux-gnu-rmz"},
+	assets = updater.AssetsToDownload{
+		platform.DarwinARM64: {Name: "aarch64-apple-darwin-rmz"},
+		platform.LinuxARM64:  {Name: "aarch64-unknown-linux-gnu-rmz"},
+		platform.LinuxX64:    {Name: "x86_64-unknown-linux-gnu-rmz"},
 	}
 )
 
-func verify(context.Context, *updater.Clients, *github.Release) (updater.Installations, error) {
-	return installations, nil
+func verify(_ context.Context, _ *updater.Clients, release *github.Release) (toolbox.Downloads, error) {
+	return updater.DownloadsFromRelease(release, assets)
 }

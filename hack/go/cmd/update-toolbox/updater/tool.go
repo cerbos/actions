@@ -23,15 +23,8 @@ import (
 type Tool struct {
 	Repo                    github.Repository
 	FindNewerReleaseOptions []github.FindNewerReleaseOption
-	Verify                  func(context.Context, *Clients, *github.Release) (Installations, error)
+	Verify                  func(context.Context, *Clients, *github.Release) (toolbox.Downloads, error)
 	PostInstall             []string
-}
-
-type Installations map[platform.Platform]Installation
-
-type Installation struct {
-	Asset   string
-	Extract string
 }
 
 func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.Version) (*toolbox.Source, error) {
@@ -40,7 +33,7 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 		return nil, err
 	}
 
-	installations, err := tool.Verify(ctx, clients, release)
+	downloads, err := tool.Verify(ctx, clients, release)
 	if err != nil {
 		return nil, fmt.Errorf("failed to verify %s: %w", release, err)
 	}
@@ -50,68 +43,83 @@ func Update(ctx context.Context, clients *Clients, tool Tool, oldVersion semver.
 		Version:     release.Version,
 		Released:    normalizeTimestamp(release.Created),
 		Updated:     normalizeTimestamp(time.Now()),
-		Downloads:   make(map[platform.Platform]*toolbox.Download, len(installations)),
+		Downloads:   downloads,
 		PostInstall: tool.PostInstall,
 	}
 
-	downloads := pool.New().WithContext(ctx).WithFailFast()
-
-	for platform, installation := range installations {
-		asset, err := release.Asset(installation.Asset)
-		if err != nil {
-			return nil, err
-		}
-
-		download := &toolbox.Download{
-			URL:     asset.URL,
-			Extract: installation.Extract,
-			Digests: toolbox.Digests{Asset: asset.Digest},
-		}
-
-		if installation.Extract == "" {
-			download.Digests.Binary = asset.Digest
-		} else {
-			downloads.Go(func(ctx context.Context) error {
-				download.Digests.Binary, err = binaryDigestFromArchive(ctx, clients.GitHub, release, asset, download.Extract)
-				if err != nil {
-					return fmt.Errorf("failed to download and extract %s from %s: %w", asset.Name, release, err)
-				}
-				return nil
-			})
-		}
-
-		source.Downloads[platform] = download
-	}
-
-	return source, downloads.Wait()
+	return source, setBinaryDigests(ctx, clients, source)
 }
 
 func normalizeTimestamp(timestamp time.Time) time.Time {
 	return timestamp.UTC().Truncate(time.Second)
 }
 
-func binaryDigestFromArchive(ctx context.Context, client *github.Client, release *github.Release, asset *github.Asset, path string) (_ digest.SHA256, err error) {
-	contents, err := client.DownloadAsset(ctx, release, asset)
-	if err != nil {
-		return digest.SHA256{}, err
+func setBinaryDigests(ctx context.Context, clients *Clients, source *toolbox.Source) error {
+	downloads := pool.New().WithContext(ctx).WithFailFast()
+
+	for _, download := range source.Downloads {
+		if download.Extract == "" {
+			download.Digests.Binary = download.Digests.Asset
+		} else {
+			downloads.Go(func(ctx context.Context) (err error) {
+				return setBinaryDigest(ctx, clients, download)
+			})
+		}
 	}
 
-	archiveFile, err := tempfile.Copy(contents)
+	return downloads.Wait()
+}
+
+func setBinaryDigest(ctx context.Context, clients *Clients, download *toolbox.Download) (err error) {
+	responseBody, err := clients.HTTP.Get(ctx, download.URL)
 	if err != nil {
-		return digest.SHA256{}, err
+		return err
+	}
+	defer multierr.AppendInvoke(&err, multierr.Close(responseBody))
+
+	archiveFile, err := tempfile.Copy(digest.NewReader(responseBody, download.Digests.Asset))
+	if err != nil {
+		return err
 	}
 	defer multierr.AppendInvoke(&err, multierr.Close(archiveFile))
 
-	binary, err := archive.Extract(archiveFile, path)
+	binary, err := archive.Extract(download, archiveFile)
 	if err != nil {
-		return digest.SHA256{}, err
+		return err
 	}
 	defer multierr.AppendInvoke(&err, multierr.Close(binary))
 
 	hash := digest.NewHash()
 	if _, err := io.Copy(hash, binary); err != nil {
-		return digest.SHA256{}, err
+		return err
 	}
 
-	return hash.Digest(), nil
+	download.Digests.Binary = hash.Digest()
+	return nil
+}
+
+type AssetsToDownload map[platform.Platform]AssetToDownload
+
+type AssetToDownload struct {
+	Name    string
+	Extract string
+}
+
+func DownloadsFromRelease(release *github.Release, assets AssetsToDownload) (toolbox.Downloads, error) {
+	downloads := make(toolbox.Downloads, len(assets))
+
+	for platform, download := range assets {
+		asset, err := release.Asset(download.Name)
+		if err != nil {
+			return nil, err
+		}
+
+		downloads[platform] = &toolbox.Download{
+			URL:     asset.URL,
+			Extract: download.Extract,
+			Digests: toolbox.Digests{Asset: asset.Digest},
+		}
+	}
+
+	return downloads, nil
 }

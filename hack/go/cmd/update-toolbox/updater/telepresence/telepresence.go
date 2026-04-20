@@ -8,6 +8,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
+	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
 var (
@@ -17,13 +18,13 @@ var (
 		PostInstall: []string{"telepresence", "version"},
 	}
 
-	installations = updater.Installations{
-		platform.DarwinARM64: {Asset: "telepresence-darwin-arm64"},
-		platform.LinuxARM64:  {Asset: "telepresence-linux-arm64"},
-		platform.LinuxX64:    {Asset: "telepresence-linux-amd64"},
+	assets = updater.AssetsToDownload{
+		platform.DarwinARM64: {Name: "telepresence-darwin-arm64"},
+		platform.LinuxARM64:  {Name: "telepresence-linux-arm64"},
+		platform.LinuxX64:    {Name: "telepresence-linux-amd64"},
 	}
 )
 
-func verify(context.Context, *updater.Clients, *github.Release) (updater.Installations, error) {
-	return installations, nil
+func verify(_ context.Context, _ *updater.Clients, release *github.Release) (toolbox.Downloads, error) {
+	return updater.DownloadsFromRelease(release, assets)
 }
