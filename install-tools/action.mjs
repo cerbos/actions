@@ -18668,6 +18668,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["skaffold", "version"]
 	},
+	stern: {
+		"version": "1.33.1",
+		"released": "2025-11-04T11:16:01Z",
+		"updated": "2026-04-22T15:37:14Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/stern/stern/releases/download/v1.33.1/stern_1.33.1_darwin_arm64.tar.gz",
+				"extract": "stern",
+				"digests": {
+					"asset": "sha256:bdca897b9bd5a0ee8b4d1f4e00c8e63cf503d2f85abceab4ae6a276a7d232d95",
+					"binary": "sha256:946eca8f5a00efe0b6f2cd33fecad48550cb930ee73c55ab297e2f544d10cac6"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/stern/stern/releases/download/v1.33.1/stern_1.33.1_linux_arm64.tar.gz",
+				"extract": "stern",
+				"digests": {
+					"asset": "sha256:41ff85d85aeaf6f61b1cfb7aeccad64d7f66051b51f955f55b49ce20b5822374",
+					"binary": "sha256:f7dfaf6ca881f636845233c6e4014b5ed742d96fe7b76f07b6b4f93d871e47fb"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/stern/stern/releases/download/v1.33.1/stern_1.33.1_linux_amd64.tar.gz",
+				"extract": "stern",
+				"digests": {
+					"asset": "sha256:185be29c6a22bd07c0791ec697900943c0cc27292e5a5640a07a543886f1bfc9",
+					"binary": "sha256:147b6b8bc89f8a6980267e3ff66023877a5a7ad2a158d6328bf94a94cd3c0c3f"
+				}
+			}
+		},
+		"postInstall": ["stern", "--version"]
+	},
 	syft: {
 		"version": "1.42.4",
 		"released": "2026-04-08T20:39:01Z",
