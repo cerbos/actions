@@ -28,6 +28,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/stern"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/syft"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/telepresence"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/terraform"
@@ -52,6 +53,7 @@ var tools = map[string]updater.Tool{
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
 	"skaffold":      skaffold.Tool,
+	"stern":         stern.Tool,
 	"syft":          syft.Tool,
 	"telepresence":  telepresence.Tool,
 	"terraform":     terraform.Tool,
