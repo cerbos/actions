@@ -1,7 +1,7 @@
-import { createWriteStream } from "node:fs";
+import { createReadStream, createWriteStream } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { arch, platform as os } from "node:os";
-import { resolve } from "node:path";
+import { join, resolve } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
@@ -108,7 +108,12 @@ async function installTool(source: Source, signal: AbortSignal): Promise<void> {
   const key = `cerbos-toolbox-${source.tool}`;
   let path = findInCache(key, source.version);
 
-  if (!path) {
+  if (path) {
+    await pipeline(
+      createReadStream(join(path, source.tool)),
+      createDigestStream(source.digests.binary),
+    );
+  } else {
     path = await addToCache(
       await downloadTool(source, signal),
       key,
