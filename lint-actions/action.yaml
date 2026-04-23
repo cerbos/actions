@@ -11,10 +11,12 @@ runs:
   using: composite
 
   steps:
-    - name: Install actionlint
+    - name: Install tools
       uses: cerbos/actions/install-tools@5f40c83cf30f8cfa1d8eaaf5cba1baed6a334ab6
       with:
-        tools: actionlint
+        tools: |-
+          actionlint
+          shellcheck
 
     - name: Run actionlint
       run: actionlint
