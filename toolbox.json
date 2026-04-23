@@ -35,29 +35,29 @@
     ]
   },
   "buf": {
-    "version": "1.68.1",
-    "released": "2026-04-14T21:19:03Z",
-    "updated": "2026-04-20T08:52:31Z",
+    "version": "1.68.2",
+    "released": "2026-04-17T21:29:37Z",
+    "updated": "2026-04-23T11:46:24Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Darwin-arm64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Darwin-arm64",
         "digests": {
-          "asset": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6",
-          "binary": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6"
+          "asset": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639",
+          "binary": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-aarch64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-aarch64",
         "digests": {
-          "asset": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357",
-          "binary": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357"
+          "asset": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c",
+          "binary": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-x86_64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-x86_64",
         "digests": {
-          "asset": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5",
-          "binary": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5"
+          "asset": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b",
+          "binary": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b"
         }
       }
     },
