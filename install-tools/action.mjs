@@ -18639,6 +18639,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["rmz", "--version"]
 	},
+	shellcheck: {
+		"version": "0.11.0",
+		"released": "2025-08-03T23:21:13Z",
+		"updated": "2026-04-23T11:46:19Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.darwin.aarch64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:339b930feb1ea764467013cc1f72d09cd6b869ebf1013296ba9055ab2ffbd26f",
+					"binary": "sha256:61c17246d69f012cd458ae82f244c46023dac75d1b69733ca1cc7d28fb270fd7"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.aarch64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:68a8133197a50beb8803f8d42f9908d1af1c5540d4bb05fdfca8c1fa47decefc",
+					"binary": "sha256:127f13925eadd52c341bca0ebaf9ab0dbd78c6468f30a8f262a528bf8de47546"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:b7af85e41cc99489dcc21d66c6d5f3685138f06d34651e6d34b42ec6d54fe6f6",
+					"binary": "sha256:4da528ddb3a4d1b7b24a59d4e16eb2f5fd960f4bd9a3708a15baddbdf1d5a55b"
+				}
+			}
+		},
+		"postInstall": ["shellcheck", "--version"]
+	},
 	skaffold: {
 		"version": "2.18.3",
 		"released": "2026-04-08T14:44:02Z",

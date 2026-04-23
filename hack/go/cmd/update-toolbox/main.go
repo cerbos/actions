@@ -27,6 +27,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/oras"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/shellcheck"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/skaffold"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/stern"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/syft"
@@ -52,6 +53,7 @@ var tools = map[string]updater.Tool{
 	"oras":          oras.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
+	"shellcheck":    shellcheck.Tool,
 	"skaffold":      skaffold.Tool,
 	"stern":         stern.Tool,
 	"syft":          syft.Tool,
