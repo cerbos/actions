@@ -18262,29 +18262,29 @@ var toolbox_default = {
 		"postInstall": ["actionlint", "--version"]
 	},
 	buf: {
-		"version": "1.68.1",
-		"released": "2026-04-14T21:19:03Z",
-		"updated": "2026-04-20T08:52:31Z",
+		"version": "1.68.2",
+		"released": "2026-04-17T21:29:37Z",
+		"updated": "2026-04-23T11:46:24Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Darwin-arm64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Darwin-arm64",
 				"digests": {
-					"asset": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6",
-					"binary": "sha256:18ad88466050f070f98adc93d1dbbf9442b113cb591725bfff43c8eb1932b2b6"
+					"asset": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639",
+					"binary": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-aarch64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-aarch64",
 				"digests": {
-					"asset": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357",
-					"binary": "sha256:03e34b04680820b76d2d43e3437288ddd9fccfe10dbc772461f136fbf962c357"
+					"asset": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c",
+					"binary": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-x86_64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-x86_64",
 				"digests": {
-					"asset": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5",
-					"binary": "sha256:00f409374f7eb695674568955af01f153d28e5b9fd90c76bc504ce9454fb0aa5"
+					"asset": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b",
+					"binary": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b"
 				}
 			}
 		},
@@ -18638,6 +18638,38 @@ var toolbox_default = {
 			}
 		},
 		"postInstall": ["rmz", "--version"]
+	},
+	shellcheck: {
+		"version": "0.11.0",
+		"released": "2025-08-03T23:21:13Z",
+		"updated": "2026-04-23T11:46:19Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.darwin.aarch64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:339b930feb1ea764467013cc1f72d09cd6b869ebf1013296ba9055ab2ffbd26f",
+					"binary": "sha256:61c17246d69f012cd458ae82f244c46023dac75d1b69733ca1cc7d28fb270fd7"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.aarch64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:68a8133197a50beb8803f8d42f9908d1af1c5540d4bb05fdfca8c1fa47decefc",
+					"binary": "sha256:127f13925eadd52c341bca0ebaf9ab0dbd78c6468f30a8f262a528bf8de47546"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.linux.x86_64.tar.gz",
+				"extract": "shellcheck-v0.11.0/shellcheck",
+				"digests": {
+					"asset": "sha256:b7af85e41cc99489dcc21d66c6d5f3685138f06d34651e6d34b42ec6d54fe6f6",
+					"binary": "sha256:4da528ddb3a4d1b7b24a59d4e16eb2f5fd960f4bd9a3708a15baddbdf1d5a55b"
+				}
+			}
+		},
+		"postInstall": ["shellcheck", "--version"]
 	},
 	skaffold: {
 		"version": "2.18.3",
