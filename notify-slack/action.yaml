@@ -1,0 +1,18 @@
+name: Notify Slack
+description: Send a build status notification to Slack
+
+inputs:
+  webhook-url:
+    description: URL of the Slack webhook
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Notify Slack
+      run: ./action.sh
+      env:
+        JOB_STATUS: ${{ job.status }}
+        SLACK_WEBHOOK_URL: ${{ inputs.webhook-url }}
+      shell: bash
+      working-directory: ${{ github.action_path }}

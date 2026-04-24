@@ -15,24 +15,6 @@ defaults:
 permissions: {}
 
 jobs:
-  actions-install-tools:
-    name: Test install-tools action
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-
-      - name: List tools
-        id: toolbox
-        run: jq --raw-output '["tools<<EOF"] + keys + ["EOF"] | .[]' < toolbox.json >> "${GITHUB_OUTPUT}"
-
-      - name: Run
-        uses: ./install-tools
-        with:
-          tools: ${{ steps.toolbox.outputs.tools }}
-
   actions-lint:
     name: Lint GitHub Actions
     runs-on: ubuntu-latest
@@ -46,6 +28,30 @@ jobs:
 
       - name: Lint GitHub Actions
         uses: ./lint-actions
+
+  actions-test:
+    name: Test actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: List tools
+        id: toolbox
+        run: jq --raw-output '["tools<<EOF"] + keys + ["EOF"] | .[]' < toolbox.json >> "${GITHUB_OUTPUT}"
+
+      - name: Test install-tools
+        uses: ./install-tools
+        with:
+          tools: ${{ steps.toolbox.outputs.tools }}
+
+      - name: Test notify-slack
+        if: always() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
+        uses: ./notify-slack
+        with:
+          webhook-url: ${{ secrets.SLACK_TEST_WEBHOOK_URL }}
 
   go-lint:
     name: Lint Go code
