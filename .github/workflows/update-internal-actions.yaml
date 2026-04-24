@@ -40,3 +40,9 @@ jobs:
           body: This PR updates references between actions in this repository.
           add-paths: |-
             */action.yaml
+
+      - name: Notify Slack on failure
+        if: failure()
+        uses: ./notify-slack
+        with:
+          webhook-url: ${{ secrets.SLACK_CI_NOTIFICATIONS_WEBHOOK_URL }}

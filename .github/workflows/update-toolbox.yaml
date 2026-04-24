@@ -57,3 +57,9 @@ jobs:
           add-paths: |-
             install-tools/action.mjs
             toolbox.json
+
+      - name: Notify Slack on failure
+        if: failure()
+        uses: ./notify-slack
+        with:
+          webhook-url: ${{ secrets.SLACK_CI_NOTIFICATIONS_WEBHOOK_URL }}
