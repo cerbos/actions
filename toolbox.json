@@ -378,6 +378,39 @@
       "version"
     ]
   },
+  "kubectl": {
+    "version": "1.36.0",
+    "released": "2026-04-22T13:51:52Z",
+    "updated": "2026-04-27T16:02:01Z",
+    "downloads": {
+      "darwin/arm64": {
+        "url": "https://dl.k8s.io/release/v1.36.0/bin/darwin/arm64/kubectl",
+        "digests": {
+          "asset": "sha256:4bcf268eacdc1d2df74e37d86f639f27ca7dea3ae185b7b452b73b9fb5ddc14e",
+          "binary": "sha256:4bcf268eacdc1d2df74e37d86f639f27ca7dea3ae185b7b452b73b9fb5ddc14e"
+        }
+      },
+      "linux/arm64": {
+        "url": "https://dl.k8s.io/release/v1.36.0/bin/linux/arm64/kubectl",
+        "digests": {
+          "asset": "sha256:9f9d9c44a7b5264515ac9da5991584e2395bd50662e651132337e7b4d0c56f8f",
+          "binary": "sha256:9f9d9c44a7b5264515ac9da5991584e2395bd50662e651132337e7b4d0c56f8f"
+        }
+      },
+      "linux/x64": {
+        "url": "https://dl.k8s.io/release/v1.36.0/bin/linux/amd64/kubectl",
+        "digests": {
+          "asset": "sha256:123d8c8844f46b1244c547fffb3c17180c0c26dac9890589fe7e67763298748e",
+          "binary": "sha256:123d8c8844f46b1244c547fffb3c17180c0c26dac9890589fe7e67763298748e"
+        }
+      }
+    },
+    "postInstall": [
+      "kubectl",
+      "version",
+      "--client"
+    ]
+  },
   "oras": {
     "version": "1.3.2",
     "released": "2026-04-18T12:05:15Z",

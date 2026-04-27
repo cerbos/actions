@@ -6,11 +6,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"io"
 	"path"
 
 	"github.com/sourcegraph/conc/pool"
-	"go.uber.org/multierr"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/digest"
@@ -77,13 +75,7 @@ func verify(ctx context.Context, clients *updater.Clients, release *github.Relea
 
 	for _, metadata := range metadatas {
 		metadataDownloads.Go(func(ctx context.Context) (err error) {
-			responseBody, err := clients.HTTP.Get(ctx, metadata.DigestURL)
-			if err != nil {
-				return err
-			}
-			defer multierr.AppendInvoke(&err, multierr.Close(responseBody))
-
-			metadata.DigestFile, err = io.ReadAll(responseBody)
+			metadata.DigestFile, err = clients.HTTP.GetBytes(ctx, metadata.DigestURL)
 			return err
 		})
 	}
