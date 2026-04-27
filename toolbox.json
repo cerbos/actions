@@ -35,29 +35,29 @@
     ]
   },
   "buf": {
-    "version": "1.68.2",
-    "released": "2026-04-17T21:29:37Z",
-    "updated": "2026-04-23T11:46:24Z",
+    "version": "1.68.3",
+    "released": "2026-04-20T21:26:35Z",
+    "updated": "2026-04-27T08:57:51Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Darwin-arm64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Darwin-arm64",
         "digests": {
-          "asset": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639",
-          "binary": "sha256:8fb7bdf712f4e2bed4bd36101666402db6cce473a49db9f2001f4edc9c0f7639"
+          "asset": "sha256:22f764cf51cbc9a95042ad1f06ca6e3d24fc242b0e480086d94ad33e1d2402c1",
+          "binary": "sha256:22f764cf51cbc9a95042ad1f06ca6e3d24fc242b0e480086d94ad33e1d2402c1"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-aarch64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Linux-aarch64",
         "digests": {
-          "asset": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c",
-          "binary": "sha256:b489cda2308a70f941c27f26a1cb1da31980bb9f9759eaa3e9a89b3a0175f28c"
+          "asset": "sha256:2e331f5a26d6278e15c31b3cf072363caea3ddcf83b2806ad3b5097be71cf4ee",
+          "binary": "sha256:2e331f5a26d6278e15c31b3cf072363caea3ddcf83b2806ad3b5097be71cf4ee"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.2/buf-Linux-x86_64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Linux-x86_64",
         "digests": {
-          "asset": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b",
-          "binary": "sha256:d32c14c1820bd994621b9b8c35cb6fd4acf2554f9e2edcd0db0df1e969bd575b"
+          "asset": "sha256:cb71ee24b76d8f95a3e8e0b348d2bd78f5583b37b9b2d3370aedb82fc81c92bc",
+          "binary": "sha256:cb71ee24b76d8f95a3e8e0b348d2bd78f5583b37b9b2d3370aedb82fc81c92bc"
         }
       }
     },
@@ -172,32 +172,32 @@
     ]
   },
   "goreleaser": {
-    "version": "2.15.3",
-    "released": "2026-04-14T23:35:52Z",
-    "updated": "2026-04-20T08:52:36Z",
+    "version": "2.15.4",
+    "released": "2026-04-21T13:21:37Z",
+    "updated": "2026-04-27T08:57:54Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Darwin_arm64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Darwin_arm64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:a46a3bf44ef8255b78d9eae9a3f4da60b878011e8eba7cf12bb3787ad5110418",
-          "binary": "sha256:50740d553a84f5bad6986f5fdbd58ed1d30bceeace4b1c2b3aae895ed750fb5c"
+          "asset": "sha256:d9cd0978d64686eb54e53e9f08b400edc8b1f9034f98fca43ec7a3f641327081",
+          "binary": "sha256:00bb9830455455e19c2226107d53a9871474e09cdb54c8a816642718144f9cb9"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Linux_arm64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Linux_arm64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:646b8f36329cf1ec02af18d40e7096973f62524bdef19c3690414e390a9f757d",
-          "binary": "sha256:0d6d9d55759c0e9ef1aae0937077fda81a551669a5aa765f16b19f963e040295"
+          "asset": "sha256:de01ca1497571e9b348413cd2e7f74be49b8d57696ae386f7eedd06176544a88",
+          "binary": "sha256:80079de07f90c0d8040423210179755b75e56916d9e32330f625d835e8d671b0"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.3/goreleaser_Linux_x86_64.tar.gz",
+        "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Linux_x86_64.tar.gz",
         "extract": "goreleaser",
         "digests": {
-          "asset": "sha256:3b24b3a1629be21a9527d2f46f08b9bbf012c52fe33395714fe2c70acee57e0f",
-          "binary": "sha256:d7413af097ed9fe0e1eb76963a3f243d7de460d0dfdbead5c4ca55a01cb4f82f"
+          "asset": "sha256:aae00c71a4a6d55e08cce9273a1516bdce33c1e07cffb7e502fa6fec4377dede",
+          "binary": "sha256:1d7e39b5241cd21f09ff0986432f96837834954336dc60b0625e270031991d55"
         }
       }
     },
@@ -312,32 +312,32 @@
     ]
   },
   "just": {
-    "version": "1.49.0",
-    "released": "2026-04-05T05:40:47Z",
-    "updated": "2026-04-16T10:10:58Z",
+    "version": "1.50.0",
+    "released": "2026-04-19T23:54:18Z",
+    "updated": "2026-04-27T08:57:50Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-apple-darwin.tar.gz",
+        "url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-aarch64-apple-darwin.tar.gz",
         "extract": "just",
         "digests": {
-          "asset": "sha256:d21b20df01ec9b9762b0ef08e56ae8dccf3738770edeafa8d2b3a750aee06d78",
-          "binary": "sha256:f6e5b83c7001de6bc6126c3fa3df24943fd84630bcda50685efceae5ec923fd1"
+          "asset": "sha256:891262207663bff1aa422dbe799a76deae4064eaa445f14eb28aef7a388222cd",
+          "binary": "sha256:b94a8f0cecf5378fc2a5de6a51a55a8c4f16e9f81b9deeaf780063a3c493b005"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-aarch64-unknown-linux-musl.tar.gz",
+        "url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-aarch64-unknown-linux-musl.tar.gz",
         "extract": "just",
         "digests": {
-          "asset": "sha256:993b78f51004248114af22368f69715541542b3c9941c80e02f8ae10eb404ae0",
-          "binary": "sha256:87cca548975e9b175b04f5ac9f3ac3667ca34ae29568f15e99871a8fae80c5ee"
+          "asset": "sha256:3beb4967ce05883cf09ac12d6d128166eb4c6d0b03eff74b61018a6880655d7d",
+          "binary": "sha256:a2fbe2cd5a463bd13e4382c331966eb7b499aff8c50c86ab768a9d8dad0adf9c"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/casey/just/releases/download/1.49.0/just-1.49.0-x86_64-unknown-linux-musl.tar.gz",
+        "url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-x86_64-unknown-linux-musl.tar.gz",
         "extract": "just",
         "digests": {
-          "asset": "sha256:05eb2f068b641b06e5b318796c2e27d4dcca608e65b34329a08c1b9f582611bd",
-          "binary": "sha256:924300a49b0bca83dca1c3be38f88ae16964ca1925f7fe8da994126e955d2a93"
+          "asset": "sha256:27e011cd6328fadd632e59233d2cf5f18460b8a8c4269acd324c1a8669f34db0",
+          "binary": "sha256:3aec6080e6eac69c15d0ee48d86fc60e80b3faf06365b0815ad7b638949fe798"
         }
       }
     },
@@ -618,32 +618,32 @@
     ]
   },
   "terraform": {
-    "version": "1.14.8",
-    "released": "2026-03-25T07:12:20Z",
-    "updated": "2026-04-17T12:57:39Z",
+    "version": "1.14.9",
+    "released": "2026-04-20T17:54:01Z",
+    "updated": "2026-04-27T08:57:48Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_darwin_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_darwin_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:5593670a2d42323847bfb216db17c73a44df201a62f7587928bae16adeabba23",
-          "binary": "sha256:ef76d2d0f1ee6a7a8460701033d7db8edc141904a3d597832461647b5b3fe862"
+          "asset": "sha256:5bc0b11b7a63c8984a41d82523356df46f7833c2e9651a39a7f8919422de5cde",
+          "binary": "sha256:e6c2079a84ab7b336a9f8466d58d20fa1adf8a9c9a3bd826917a0c177e85cfaa"
         }
       },
       "linux/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_linux_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:c953171cde6b25ca0448c3b29a90d2f46c0310121e18742ec8f89631768e770c",
-          "binary": "sha256:6f359a1071bc5d4fac53fa26d5ba6ecfdfa7b54833fe50255b83555023a24ec4"
+          "asset": "sha256:863002085b886453795d9ff4b8989b8468784478150b70ba8a1df3e3ad66da99",
+          "binary": "sha256:dd24b6372198e388bd72f71d035167a97b8a387c2c010afcc84e19919c5f634f"
         }
       },
       "linux/x64": {
-        "url": "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_linux_amd64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_linux_amd64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:56a5d12f47cbc1c6bedb8f5426ae7d5df984d1929572c24b56f4c82e9f9bf709",
-          "binary": "sha256:64e4f7b9cec2aaf3ea02b3a3ada27041c9193563a5a0a343ef20ab2486b8e100"
+          "asset": "sha256:2e5cffc20a0b48a67a76268723bd5a10b8666f69b2aa4f04906e206726bedd63",
+          "binary": "sha256:40d90a3a6a72d330d55a7547d5e1d37ed36e487d0767124d81cbad73ff41e304"
         }
       }
     },
