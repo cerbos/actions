@@ -24,7 +24,7 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJSMin = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
 var __copyProps = (to, from, except, desc) => {
 	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
 		key = keys[i];
@@ -41,7 +41,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 }) : target, mod));
 var __require = /* @__PURE__ */ createRequire(import.meta.url);
 //#endregion
-//#region node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/utils.js
+//#region node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/utils.js
 /**
 * Sanitizes an input into a string so it can be passed into issueCommand safely
 * @param input input to sanitize into a string
@@ -69,7 +69,7 @@ function toCommandProperties(annotationProperties) {
 	};
 }
 //#endregion
-//#region node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/command.js
+//#region node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/command.js
 /**
 * Issues a command to the GitHub Actions runner
 *
@@ -143,7 +143,7 @@ function escapeProperty(s) {
 	return toCommandValue(s).replace(/%/g, "%25").replace(/\r/g, "%0D").replace(/\n/g, "%0A").replace(/:/g, "%3A").replace(/,/g, "%2C");
 }
 //#endregion
-//#region node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/file-command.js
+//#region node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/file-command.js
 function issueFileCommand(command, message) {
 	const filePath = process.env[`GITHUB_${command}`];
 	if (!filePath) throw new Error(`Unable to find environment variable for file command ${command}`);
@@ -2150,9 +2150,26 @@ var require_timers = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	* used as a drop-in replacement for the native functions.
 	*/
 	module.exports = {
+		/**
+		* The setTimeout() method sets a timer which executes a function once the
+		* timer expires.
+		* @param {Function} callback A function to be executed after the timer
+		* expires.
+		* @param {number} delay The time, in milliseconds that the timer should
+		* wait before the specified function or code is executed.
+		* @param {*} [arg] An optional argument to be passed to the callback function
+		* when the timer expires.
+		* @returns {NodeJS.Timeout|FastTimer}
+		*/
 		setTimeout(callback, delay, arg) {
 			return delay <= RESOLUTION_MS ? setTimeout(callback, delay, arg) : new FastTimer(callback, delay, arg);
 		},
+		/**
+		* The clearTimeout method cancels an instantiated Timer previously created
+		* by calling setTimeout.
+		*
+		* @param {NodeJS.Timeout|FastTimer} timeout
+		*/
 		clearTimeout(timeout) {
 			if (timeout[kFastTimer])
  /**
@@ -2161,26 +2178,66 @@ var require_timers = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			timeout.clear();
 			else clearTimeout(timeout);
 		},
+		/**
+		* The setFastTimeout() method sets a fastTimer which executes a function once
+		* the timer expires.
+		* @param {Function} callback A function to be executed after the timer
+		* expires.
+		* @param {number} delay The time, in milliseconds that the timer should
+		* wait before the specified function or code is executed.
+		* @param {*} [arg] An optional argument to be passed to the callback function
+		* when the timer expires.
+		* @returns {FastTimer}
+		*/
 		setFastTimeout(callback, delay, arg) {
 			return new FastTimer(callback, delay, arg);
 		},
+		/**
+		* The clearTimeout method cancels an instantiated FastTimer previously
+		* created by calling setFastTimeout.
+		*
+		* @param {FastTimer} timeout
+		*/
 		clearFastTimeout(timeout) {
 			timeout.clear();
 		},
+		/**
+		* The now method returns the value of the internal fast timer clock.
+		*
+		* @returns {number}
+		*/
 		now() {
 			return fastNow;
 		},
+		/**
+		* Trigger the onTick function to process the fastTimers array.
+		* Exported for testing purposes only.
+		* Marking as deprecated to discourage any use outside of testing.
+		* @deprecated
+		* @param {number} [delay=0] The delay in milliseconds to add to the now value.
+		*/
 		tick(delay = 0) {
 			fastNow += delay - RESOLUTION_MS + 1;
 			onTick();
 			onTick();
 		},
+		/**
+		* Reset FastTimers.
+		* Exported for testing purposes only.
+		* Marking as deprecated to discourage any use outside of testing.
+		* @deprecated
+		*/
 		reset() {
 			fastNow = 0;
 			fastTimers.length = 0;
 			clearTimeout(fastNowTimeout);
 			fastNowTimeout = null;
 		},
+		/**
+		* Exporting for testing purposes only.
+		* Marking as deprecated to discourage any use outside of testing.
+		* @deprecated
+		*/
 		kFastTimer
 	};
 }));
@@ -3095,6 +3152,7 @@ var require_data_url = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		const mimeType = {
 			type: typeLowercase,
 			subtype: subtypeLowercase,
+			/** @type {Map<string, string>} */
 			parameters: /* @__PURE__ */ new Map(),
 			essence: `${typeLowercase}/${subtypeLowercase}`
 		};
@@ -4445,11 +4503,14 @@ var require_file = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const { webidl } = require_webidl();
 	var FileLike = class FileLike {
 		constructor(blobLike, fileName, options = {}) {
+			const n = fileName;
+			const t = options.type;
+			const d = options.lastModified ?? Date.now();
 			this[kState] = {
 				blobLike,
-				name: fileName,
-				type: options.type,
-				lastModified: options.lastModified ?? Date.now()
+				name: n,
+				type: t,
+				lastModified: d
 			};
 		}
 		stream(...args) {
@@ -15628,7 +15689,7 @@ var MediaTypes;
 HttpCodes.MovedPermanently, HttpCodes.ResourceMoved, HttpCodes.SeeOther, HttpCodes.TemporaryRedirect, HttpCodes.PermanentRedirect;
 HttpCodes.BadGateway, HttpCodes.ServiceUnavailable, HttpCodes.GatewayTimeout;
 //#endregion
-//#region node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/summary.js
+//#region node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/summary.js
 var __awaiter$9 = function(thisArg, _arguments, P, generator) {
 	function adopt(value) {
 		return value instanceof P ? value : new P(function(resolve) {
