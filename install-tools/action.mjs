@@ -18607,6 +18607,68 @@ var toolbox_default = {
 		},
 		"postInstall": ["just", "--version"]
 	},
+	kind: {
+		"version": "0.31.0",
+		"released": "2025-12-18T00:51:55Z",
+		"updated": "2026-04-27T14:54:17Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-darwin-arm64",
+				"digests": {
+					"asset": "sha256:88bf554fe9da6311c9f8c2d082613c002911a476f6b5090e9420b35d84e70c5c",
+					"binary": "sha256:88bf554fe9da6311c9f8c2d082613c002911a476f6b5090e9420b35d84e70c5c"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-linux-arm64",
+				"digests": {
+					"asset": "sha256:8e1014e87c34901cc422a1445866835d1e666f2a61301c27e722bdeab5a1f7e4",
+					"binary": "sha256:8e1014e87c34901cc422a1445866835d1e666f2a61301c27e722bdeab5a1f7e4"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-linux-amd64",
+				"digests": {
+					"asset": "sha256:eb244cbafcc157dff60cf68693c14c9a75c4e6e6fedaf9cd71c58117cb93e3fa",
+					"binary": "sha256:eb244cbafcc157dff60cf68693c14c9a75c4e6e6fedaf9cd71c58117cb93e3fa"
+				}
+			}
+		},
+		"postInstall": ["kind", "version"]
+	},
+	kubectl: {
+		"version": "1.36.0",
+		"released": "2026-04-22T13:51:52Z",
+		"updated": "2026-04-27T16:02:01Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://dl.k8s.io/release/v1.36.0/bin/darwin/arm64/kubectl",
+				"digests": {
+					"asset": "sha256:4bcf268eacdc1d2df74e37d86f639f27ca7dea3ae185b7b452b73b9fb5ddc14e",
+					"binary": "sha256:4bcf268eacdc1d2df74e37d86f639f27ca7dea3ae185b7b452b73b9fb5ddc14e"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://dl.k8s.io/release/v1.36.0/bin/linux/arm64/kubectl",
+				"digests": {
+					"asset": "sha256:9f9d9c44a7b5264515ac9da5991584e2395bd50662e651132337e7b4d0c56f8f",
+					"binary": "sha256:9f9d9c44a7b5264515ac9da5991584e2395bd50662e651132337e7b4d0c56f8f"
+				}
+			},
+			"linux/x64": {
+				"url": "https://dl.k8s.io/release/v1.36.0/bin/linux/amd64/kubectl",
+				"digests": {
+					"asset": "sha256:123d8c8844f46b1244c547fffb3c17180c0c26dac9890589fe7e67763298748e",
+					"binary": "sha256:123d8c8844f46b1244c547fffb3c17180c0c26dac9890589fe7e67763298748e"
+				}
+			}
+		},
+		"postInstall": [
+			"kubectl",
+			"version",
+			"--client"
+		]
+	},
 	oras: {
 		"version": "1.3.2",
 		"released": "2026-04-18T12:05:15Z",
@@ -18794,32 +18856,32 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.42.4",
-		"released": "2026-04-08T20:39:01Z",
-		"updated": "2026-04-16T10:11:27Z",
+		"version": "1.43.0",
+		"released": "2026-04-22T15:55:06Z",
+		"updated": "2026-04-27T15:55:41Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:0797b64cf8841c904682e6007a695f9cd3e72103f064dd286723c0a56a2273e2",
-					"binary": "sha256:be3f91123ec317c579abaaa6025702b863807bb87e315c9101812267e7572040"
+					"asset": "sha256:3640e2181c8be7a56377f3c96e520d5380c924dbafd115ee3c8d45fcbc89cac2",
+					"binary": "sha256:b24ce4149ae045246934349f6814c962babebfd914c715fc4b6e8e432e2397b2"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b",
-					"binary": "sha256:8cedfeeb2554ba7901410508dfbe0edff240e808feb05a41aef344974c8f6d4c"
+					"asset": "sha256:afe92510c467f952a009b994f2d998ff8f9dd266dc26eca55d14a0dd46fec7f2",
+					"binary": "sha256:8575f02f1c778190cda3d14853f46b8b3366944d2976e28b4ca1d0a7566e24b0"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f",
-					"binary": "sha256:04db0f882928929381ab5503bcb25ea0a062e487481483b8a8a60c9f6c4af353"
+					"asset": "sha256:7b98251d2d08926bb5d4639b56b1f0996a58ef6667c5830e3fe3cd3ad5f4214a",
+					"binary": "sha256:84a5402489c94b0f0bd6f4ba3892acd7fa32e8abe54047044e1a10c9ff1d7e4e"
 				}
 			}
 		},

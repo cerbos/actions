@@ -70,6 +70,16 @@ func (c *Client) Get(ctx context.Context, url string) (io.ReadCloser, error) {
 	}, nil
 }
 
+func (c *Client) GetBytes(ctx context.Context, url string) ([]byte, error) {
+	responseBody, err := c.Get(ctx, url)
+	if err != nil {
+		return nil, err
+	}
+	defer multierr.AppendInvoke(&err, multierr.Close(responseBody))
+
+	return io.ReadAll(responseBody)
+}
+
 type responseBody struct {
 	io.ReadCloser
 	release func()
