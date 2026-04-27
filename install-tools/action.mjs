@@ -18856,32 +18856,32 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.42.4",
-		"released": "2026-04-08T20:39:01Z",
-		"updated": "2026-04-16T10:11:27Z",
+		"version": "1.43.0",
+		"released": "2026-04-22T15:55:06Z",
+		"updated": "2026-04-27T15:55:41Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:0797b64cf8841c904682e6007a695f9cd3e72103f064dd286723c0a56a2273e2",
-					"binary": "sha256:be3f91123ec317c579abaaa6025702b863807bb87e315c9101812267e7572040"
+					"asset": "sha256:3640e2181c8be7a56377f3c96e520d5380c924dbafd115ee3c8d45fcbc89cac2",
+					"binary": "sha256:b24ce4149ae045246934349f6814c962babebfd914c715fc4b6e8e432e2397b2"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:5029bad1ed372649527b1e443cbceef7f5d6ae1cfe52c16e721559f94267128b",
-					"binary": "sha256:8cedfeeb2554ba7901410508dfbe0edff240e808feb05a41aef344974c8f6d4c"
+					"asset": "sha256:afe92510c467f952a009b994f2d998ff8f9dd266dc26eca55d14a0dd46fec7f2",
+					"binary": "sha256:8575f02f1c778190cda3d14853f46b8b3366944d2976e28b4ca1d0a7566e24b0"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.42.4/syft_1.42.4_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.43.0/syft_1.43.0_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:590650c2743b83f327d1bf9bec64f6f83b7fec504187bb84f500c862bf8f2a0f",
-					"binary": "sha256:04db0f882928929381ab5503bcb25ea0a062e487481483b8a8a60c9f6c4af353"
+					"asset": "sha256:7b98251d2d08926bb5d4639b56b1f0996a58ef6667c5830e3fe3cd3ad5f4214a",
+					"binary": "sha256:84a5402489c94b0f0bd6f4ba3892acd7fa32e8abe54047044e1a10c9ff1d7e4e"
 				}
 			}
 		},
