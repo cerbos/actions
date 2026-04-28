@@ -12,7 +12,7 @@ runs:
 
   steps:
     - name: Install tools
-      uses: cerbos/actions/install-tools@e3b5b2c0e311406ae4eed90447a6b1b686682b2d
+      uses: cerbos/actions/install-tools@42547e135ad6c4f79378cd27567f15c794bc9ed3
       with:
         tools: |-
           actionlint
