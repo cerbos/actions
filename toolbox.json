@@ -35,29 +35,29 @@
     ]
   },
   "buf": {
-    "version": "1.68.3",
-    "released": "2026-04-20T21:26:35Z",
-    "updated": "2026-04-27T08:57:51Z",
+    "version": "1.68.4",
+    "released": "2026-04-22T17:36:16Z",
+    "updated": "2026-04-28T10:59:32Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Darwin-arm64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Darwin-arm64",
         "digests": {
-          "asset": "sha256:22f764cf51cbc9a95042ad1f06ca6e3d24fc242b0e480086d94ad33e1d2402c1",
-          "binary": "sha256:22f764cf51cbc9a95042ad1f06ca6e3d24fc242b0e480086d94ad33e1d2402c1"
+          "asset": "sha256:024d7618f3de3d2cffd2287f07bdf975b79ca14c9d028dc494cc42edaf7b64f8",
+          "binary": "sha256:024d7618f3de3d2cffd2287f07bdf975b79ca14c9d028dc494cc42edaf7b64f8"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Linux-aarch64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Linux-aarch64",
         "digests": {
-          "asset": "sha256:2e331f5a26d6278e15c31b3cf072363caea3ddcf83b2806ad3b5097be71cf4ee",
-          "binary": "sha256:2e331f5a26d6278e15c31b3cf072363caea3ddcf83b2806ad3b5097be71cf4ee"
+          "asset": "sha256:9a238f57d75b5afb1278413105813b86a7c2718d4ddc0183e3ec0942a54c1c14",
+          "binary": "sha256:9a238f57d75b5afb1278413105813b86a7c2718d4ddc0183e3ec0942a54c1c14"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.3/buf-Linux-x86_64",
+        "url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Linux-x86_64",
         "digests": {
-          "asset": "sha256:cb71ee24b76d8f95a3e8e0b348d2bd78f5583b37b9b2d3370aedb82fc81c92bc",
-          "binary": "sha256:cb71ee24b76d8f95a3e8e0b348d2bd78f5583b37b9b2d3370aedb82fc81c92bc"
+          "asset": "sha256:0c12ca1ca1a5741c122eb74f3556ae7fa66277a7d563223ca01fc6f52e9d47e1",
+          "binary": "sha256:0c12ca1ca1a5741c122eb74f3556ae7fa66277a7d563223ca01fc6f52e9d47e1"
         }
       }
     },
@@ -207,32 +207,32 @@
     ]
   },
   "grype": {
-    "version": "0.111.0",
-    "released": "2026-04-09T13:14:52Z",
-    "updated": "2026-04-16T10:11:08Z",
+    "version": "0.111.1",
+    "released": "2026-04-22T17:16:02Z",
+    "updated": "2026-04-28T10:59:32Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_darwin_arm64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.111.1/grype_0.111.1_darwin_arm64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:62d005a1e36ac7ec0b7be801ebc8eab0053fd831a227e1dc8ea9c356d38fa361",
-          "binary": "sha256:f52812683329db690e96531d889143f6fa684bf394532a49d57f8054f234d1cf"
+          "asset": "sha256:87b71207a657818adcd1aa65073ad854e516f5dfd91c0a66c333064c7312f355",
+          "binary": "sha256:5b17dad953e8fd31070a1980e303bfaeec62964b1c5b95fb28713b824086eebc"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_arm64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.111.1/grype_0.111.1_linux_arm64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:1a8b9bd691ce274e44056e7572cdf8c6970bdf9ec694001f7b4b17962b121b43",
-          "binary": "sha256:ef49e19156b5fea0623f3c0fb46fbbcce9cff65101e4a2d62d3afd68caa2adb5"
+          "asset": "sha256:ba126117fbe14ad9797a3080812f4398742dfad91208c87ce8d44717f6e1fbc5",
+          "binary": "sha256:d38b722faa85e6ad5630fafade98a149ec34d7aa574a4628e48e152944e991ad"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.111.0/grype_0.111.0_linux_amd64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.111.1/grype_0.111.1_linux_amd64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:18ed2048d7a233566b681121d4632364f5f25d72cca86acc4c7ac57210d78a87",
-          "binary": "sha256:e2ab3d4d7ffad9548d901f15f899cc5a2c4e124041d2b795f1758e8b1dd6a816"
+          "asset": "sha256:2bc0bc60f1f4e10b0429f5e84517ec4cf0d769d2ef66875c64fc6640e136fd8f",
+          "binary": "sha256:5d81ee071a0cee1c81fa91c88de076a96b41f4b305554fbceb26eaa0fe2aab30"
         }
       }
     },
