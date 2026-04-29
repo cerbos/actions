@@ -18795,29 +18795,29 @@ var toolbox_default = {
 		"postInstall": ["shellcheck", "--version"]
 	},
 	skaffold: {
-		"version": "2.18.3",
-		"released": "2026-04-08T14:44:02Z",
-		"updated": "2026-04-16T10:11:26Z",
+		"version": "2.19.0",
+		"released": "2026-04-23T17:36:24Z",
+		"updated": "2026-04-29T14:37:38Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-darwin-arm64",
+				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-darwin-arm64",
 				"digests": {
-					"asset": "sha256:a47083da351cd2fb2cd4faacc29d8a3af0046593a147111c18a7cc5ec3d5b5e0",
-					"binary": "sha256:a47083da351cd2fb2cd4faacc29d8a3af0046593a147111c18a7cc5ec3d5b5e0"
+					"asset": "sha256:0bda095e143475aba2a689f286affed5873d381b4cdacc2b49ee8571cfb01655",
+					"binary": "sha256:0bda095e143475aba2a689f286affed5873d381b4cdacc2b49ee8571cfb01655"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-linux-arm64",
+				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-linux-arm64",
 				"digests": {
-					"asset": "sha256:96dc3c6eeb5861c821010ea9d2e0eef14baa48abb613f850070a539be86b7aba",
-					"binary": "sha256:96dc3c6eeb5861c821010ea9d2e0eef14baa48abb613f850070a539be86b7aba"
+					"asset": "sha256:206b35b063aa327966048c1637e5380c11db38cf30019e01cc93f2aa8097c049",
+					"binary": "sha256:206b35b063aa327966048c1637e5380c11db38cf30019e01cc93f2aa8097c049"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.18.3/skaffold-linux-amd64",
+				"url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-linux-amd64",
 				"digests": {
-					"asset": "sha256:d8bfce071e3e3096736f12f0233d24f16d4baedaadd2181e1eaa1865a346ec3f",
-					"binary": "sha256:d8bfce071e3e3096736f12f0233d24f16d4baedaadd2181e1eaa1865a346ec3f"
+					"asset": "sha256:8794026e7f0c2fb04c44ebc6a8f4f446a7a68dde8f8868ac5b701903b7973e19",
+					"binary": "sha256:8794026e7f0c2fb04c44ebc6a8f4f446a7a68dde8f8868ac5b701903b7973e19"
 				}
 			}
 		},
