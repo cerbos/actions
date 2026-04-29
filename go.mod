@@ -1,6 +1,6 @@
 module github.com/cerbos/actions
 
-go 1.26
+go 1.25.5
 
 toolchain go1.26.2
 
