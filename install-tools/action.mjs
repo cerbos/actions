@@ -18701,6 +18701,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["oras", "version"]
 	},
+	protoc: {
+		"version": "34.1",
+		"released": "2026-03-19T19:43:33Z",
+		"updated": "2026-04-30T12:50:34Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-osx-aarch_64.zip",
+				"extract": "bin/protoc",
+				"digests": {
+					"asset": "sha256:2c7e92b8b578916937df132b3032e2e8e6c170862ecf7a8333094a6f3d03650c",
+					"binary": "sha256:5c51efe5d53bb87ffb4de8beb43611757b13c98361ce1008ae590e5261f02ee2"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-aarch_64.zip",
+				"extract": "bin/protoc",
+				"digests": {
+					"asset": "sha256:31c5e9e3c7bf013cf41fb97765ee255c140024a6b175b6cc9b64beddd7c23ba7",
+					"binary": "sha256:89f21634e7de36c483b54abeee5f23e5060b6c34e070d6add0e825a72776108c"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-x86_64.zip",
+				"extract": "bin/protoc",
+				"digests": {
+					"asset": "sha256:af27ea66cd26938fe48587804ca7d4817457a08350021a1c6e23a27ccc8c6904",
+					"binary": "sha256:3d6aef252f3851bdee5a7e7a2c8c927d4980e014d8ac0f18c8ba2d6f084a0504"
+				}
+			}
+		},
+		"postInstall": ["protoc", "--version"]
+	},
 	reimage: {
 		"version": "0.12.1",
 		"released": "2026-04-08T09:21:07Z",
