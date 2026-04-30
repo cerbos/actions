@@ -64,6 +64,8 @@ jobs:
 
       - name: Lint
         uses: ./golangci-lint
+        with:
+          problem-matchers: true
 
   go-test-external:
     name: Test external Go code (Go ${{ matrix.go-version }})
