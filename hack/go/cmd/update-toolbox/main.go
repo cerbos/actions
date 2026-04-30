@@ -27,6 +27,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/kind"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/kubectl"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/oras"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/protoc"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/reimage"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/rmz"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/shellcheck"
@@ -55,6 +56,7 @@ var tools = map[string]updater.Tool{
 	"kind":          kind.Tool,
 	"kubectl":       kubectl.Tool,
 	"oras":          oras.Tool,
+	"protoc":        protoc.Tool,
 	"reimage":       reimage.Tool,
 	"rmz":           rmz.Tool,
 	"shellcheck":    shellcheck.Tool,
