@@ -18323,29 +18323,29 @@ var toolbox_default = {
 		"postInstall": ["actionlint", "--version"]
 	},
 	buf: {
-		"version": "1.68.4",
-		"released": "2026-04-22T17:36:16Z",
-		"updated": "2026-04-28T10:59:32Z",
+		"version": "1.69.0",
+		"released": "2026-04-29T19:18:51Z",
+		"updated": "2026-05-05T05:46:42Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Darwin-arm64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Darwin-arm64",
 				"digests": {
-					"asset": "sha256:024d7618f3de3d2cffd2287f07bdf975b79ca14c9d028dc494cc42edaf7b64f8",
-					"binary": "sha256:024d7618f3de3d2cffd2287f07bdf975b79ca14c9d028dc494cc42edaf7b64f8"
+					"asset": "sha256:721093cd6322f776cd361bab5ec25383749bc83690dd02768d56983e49184282",
+					"binary": "sha256:721093cd6322f776cd361bab5ec25383749bc83690dd02768d56983e49184282"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Linux-aarch64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Linux-aarch64",
 				"digests": {
-					"asset": "sha256:9a238f57d75b5afb1278413105813b86a7c2718d4ddc0183e3ec0942a54c1c14",
-					"binary": "sha256:9a238f57d75b5afb1278413105813b86a7c2718d4ddc0183e3ec0942a54c1c14"
+					"asset": "sha256:8acd7161665ce25933a7cb2c982b3137bbcaa6e70ad58ea2cc311dba4f4f2f5c",
+					"binary": "sha256:8acd7161665ce25933a7cb2c982b3137bbcaa6e70ad58ea2cc311dba4f4f2f5c"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.68.4/buf-Linux-x86_64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Linux-x86_64",
 				"digests": {
-					"asset": "sha256:0c12ca1ca1a5741c122eb74f3556ae7fa66277a7d563223ca01fc6f52e9d47e1",
-					"binary": "sha256:0c12ca1ca1a5741c122eb74f3556ae7fa66277a7d563223ca01fc6f52e9d47e1"
+					"asset": "sha256:c1989e0f23143c044cc4f3e1d5c0d3453fa5f83f8330aed6bab76080192740b2",
+					"binary": "sha256:c1989e0f23143c044cc4f3e1d5c0d3453fa5f83f8330aed6bab76080192740b2"
 				}
 			}
 		},
@@ -18949,64 +18949,64 @@ var toolbox_default = {
 		"postInstall": ["telepresence", "version"]
 	},
 	terraform: {
-		"version": "1.14.9",
-		"released": "2026-04-20T17:54:01Z",
-		"updated": "2026-04-27T08:57:48Z",
+		"version": "1.15.0",
+		"released": "2026-04-29T13:18:56Z",
+		"updated": "2026-05-05T05:46:40Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_darwin_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.0/terraform_1.15.0_darwin_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:5bc0b11b7a63c8984a41d82523356df46f7833c2e9651a39a7f8919422de5cde",
-					"binary": "sha256:e6c2079a84ab7b336a9f8466d58d20fa1adf8a9c9a3bd826917a0c177e85cfaa"
+					"asset": "sha256:f2e52766a58f1e26e83200b4b4e5fe813c827786d20fa7aa01d9bcc1e9918b26",
+					"binary": "sha256:d8902dd5cf889e96e5d7d6fb6fb181e654ce0494f68e172444c841aa671c898c"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_linux_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.0/terraform_1.15.0_linux_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:863002085b886453795d9ff4b8989b8468784478150b70ba8a1df3e3ad66da99",
-					"binary": "sha256:dd24b6372198e388bd72f71d035167a97b8a387c2c010afcc84e19919c5f634f"
+					"asset": "sha256:7d9b8ab81790771b5c872c06a8982bc25b66971928dccb244fe0a41e2451770a",
+					"binary": "sha256:41cb42c5ee71801c689d3e1399ebff51608256de42e490afdc1fae9bae93eb5a"
 				}
 			},
 			"linux/x64": {
-				"url": "https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_linux_amd64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.0/terraform_1.15.0_linux_amd64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:2e5cffc20a0b48a67a76268723bd5a10b8666f69b2aa4f04906e206726bedd63",
-					"binary": "sha256:40d90a3a6a72d330d55a7547d5e1d37ed36e487d0767124d81cbad73ff41e304"
+					"asset": "sha256:dcd4b31225dd960404f744315c0c3823a7deeda43bca0256a17fc762092d7e1b",
+					"binary": "sha256:794a4a78c5a7c2c2de0b1267d0f08dbad06bfbe9ecb7e1e17bcb7d61ee26fee3"
 				}
 			}
 		},
 		"postInstall": ["terraform", "version"]
 	},
 	vals: {
-		"version": "0.43.9",
-		"released": "2026-04-09T22:43:25Z",
-		"updated": "2026-04-16T10:10:58Z",
+		"version": "0.44.0",
+		"released": "2026-04-29T23:32:07Z",
+		"updated": "2026-05-05T05:46:40Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_darwin_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.44.0/vals_0.44.0_darwin_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:4cedaa69aeef26698cd3ea38f369faaf2406654bcdd74102595546411c80ee29",
-					"binary": "sha256:6de582326de3027c3f6119b8bdada74c9365be6750e1f82bd07befafd9541a31"
+					"asset": "sha256:2d9b995d2b6325c7a6a1e124937293eec0dc56fd4a5bab785c69c2e48b52393e",
+					"binary": "sha256:ccfae2b6a1ac65d6f669ee7ced8fad10cb8f31c7fb38bd2acf95825a3fb12f71"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.44.0/vals_0.44.0_linux_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:a7402bc933875bae97dfd6712284ebc84ef4cb241c5efd8b822cb5571871e4c9",
-					"binary": "sha256:2301703e3128d45b9e7b179845497257a0a8d2ad890ec2e64e5c6825f3d9facb"
+					"asset": "sha256:18d55294e92452f61cf6fcf6cca53bb51a66d8b860696666f44635964b3e5e40",
+					"binary": "sha256:1ce3ae016bed2d5ee68236e190fc36714c35ac4ae076af79cef12cff51e7e9c7"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.43.9/vals_0.43.9_linux_amd64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.44.0/vals_0.44.0_linux_amd64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:b476ab47302f7611c0a2b8b05095a49e99128f7e664ef8b9fbb302f151b0b860",
-					"binary": "sha256:f0e78d48b176f0c49447762df8e19e0ecfea76cef6a71708d251afa511f24af8"
+					"asset": "sha256:728e9195fa2170e1e5c7ed7ca0e2e41fe1e910507a812f23fb579c68d6ef3678",
+					"binary": "sha256:b0b73ffa6cfb7fecd5ac1366bcfc4019fe19052d1ea75c0f2254087c307d1c2b"
 				}
 			}
 		},
