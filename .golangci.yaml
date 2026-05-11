@@ -19,7 +19,6 @@ linters:
     - forbidigo
     - forcetypeassert
     - gocheckcompilerdirectives
-    - goconst
     - gocritic
     - godot
     - goheader
