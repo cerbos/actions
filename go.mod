@@ -6,7 +6,7 @@ toolchain go1.26.2
 
 require (
 	aead.dev/minisign v0.3.0
-	github.com/ProtonMail/gopenpgp/v3 v3.4.0
+	github.com/ProtonMail/gopenpgp/v3 v3.4.1
 	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v85 v85.0.0
 	github.com/google/renameio/v2 v2.0.2
