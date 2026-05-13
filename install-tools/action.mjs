@@ -19104,6 +19104,7 @@ function createDigestStream(digest) {
 	return new DigestStream(digest);
 }
 var DigestStream = class extends Transform {
+	digest;
 	hash;
 	constructor(digest) {
 		super();

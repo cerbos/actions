@@ -19,9 +19,9 @@
   "devDependencies": {
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "24.12.2",
+    "@types/node": "24.12.3",
     "prettier": "3.8.3",
-    "rolldown": "1.0.0-rc.18",
+    "rolldown": "1.0.0",
     "typescript": "6.0.3"
   }
 }
