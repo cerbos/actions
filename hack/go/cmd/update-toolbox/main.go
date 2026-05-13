@@ -18,6 +18,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/buf"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/crane"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/flipt"
+	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/ghz"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/golangcilint"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/goreleaser"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/grype"
@@ -47,6 +48,7 @@ var tools = map[string]updater.Tool{
 	"buf":           buf.Tool,
 	"crane":         crane.Tool,
 	"flipt":         flipt.Tool,
+	"ghz":           ghz.Tool,
 	"golangci-lint": golangcilint.Tool,
 	"goreleaser":    goreleaser.Tool,
 	"grype":         grype.Tool,

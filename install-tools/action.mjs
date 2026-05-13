@@ -18415,6 +18415,38 @@ var toolbox_default = {
 		},
 		"postInstall": ["flipt", "--version"]
 	},
+	ghz: {
+		"version": "0.121.0",
+		"released": "2025-12-07T02:23:41Z",
+		"updated": "2026-05-13T09:08:20Z",
+		"downloads": {
+			"darwin/arm64": {
+				"url": "https://github.com/bojand/ghz/releases/download/v0.121.0/ghz-darwin-arm64.tar.gz",
+				"extract": "ghz",
+				"digests": {
+					"asset": "sha256:7fb423cacf60f581b0f0f88f9360e1ad73af514251cf3b32ca2b9d390a7bfb94",
+					"binary": "sha256:7b77e2d743e2d89af4141c019947d65cf5f3583f320349693482080a1348ba7a"
+				}
+			},
+			"linux/arm64": {
+				"url": "https://github.com/bojand/ghz/releases/download/v0.121.0/ghz-linux-arm64.tar.gz",
+				"extract": "ghz",
+				"digests": {
+					"asset": "sha256:02a40abcfc10b98eab5b693511abe044f5a3410d77bcc86c9a3a0eeb615eb77a",
+					"binary": "sha256:4a7f95dec3441eace15e042bd799399f693022c68b7e8d711d9b793cb609b016"
+				}
+			},
+			"linux/x64": {
+				"url": "https://github.com/bojand/ghz/releases/download/v0.121.0/ghz-linux-x86_64.tar.gz",
+				"extract": "ghz",
+				"digests": {
+					"asset": "sha256:9ae3b93f2c46dac9136e29e81b4a1de8d4e56f092a6fe46884a25c9c83cb2324",
+					"binary": "sha256:0055032ca8511551909013166b831a3bbf06219093a63b7bbbf3822147afab4f"
+				}
+			}
+		},
+		"postInstall": ["ghz", "--version"]
+	},
 	"golangci-lint": {
 		"version": "2.12.2",
 		"released": "2026-05-06T11:01:25Z",
