@@ -5,6 +5,7 @@ import { arch, platform } from "node:os";
 import { join, resolve } from "node:path";
 import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { setTimeout as setTimeout$1 } from "node:timers/promises";
 import * as os$1 from "os";
 import os, { EOL } from "os";
 import * as crypto from "crypto";
@@ -15,7 +16,7 @@ import * as events from "events";
 import { ok } from "assert";
 import { createHash } from "node:crypto";
 import * as child from "child_process";
-import { setTimeout as setTimeout$1 } from "timers";
+import { setTimeout as setTimeout$2 } from "timers";
 import { spawn } from "node:child_process";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
@@ -16637,7 +16638,7 @@ var ExecState = class ExecState extends events.EventEmitter {
 	CheckComplete() {
 		if (this.done) return;
 		if (this.processClosed) this._setResult();
-		else if (this.processExited) this.timeout = setTimeout$1(ExecState.HandleTimeout, this.delay, this);
+		else if (this.processExited) this.timeout = setTimeout$2(ExecState.HandleTimeout, this.delay, this);
 	}
 	_debug(message) {
 		this.emit("debug", message);
@@ -18638,32 +18639,32 @@ var toolbox_default = {
 		"postInstall": ["helmfile", "--version"]
 	},
 	just: {
-		"version": "1.50.0",
-		"released": "2026-04-19T23:54:18Z",
-		"updated": "2026-04-27T08:57:50Z",
+		"version": "1.51.0",
+		"released": "2026-05-10T05:46:39Z",
+		"updated": "2026-05-15T09:19:00Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-aarch64-apple-darwin.tar.gz",
+				"url": "https://github.com/casey/just/releases/download/1.51.0/just-1.51.0-aarch64-apple-darwin.tar.gz",
 				"extract": "just",
 				"digests": {
-					"asset": "sha256:891262207663bff1aa422dbe799a76deae4064eaa445f14eb28aef7a388222cd",
-					"binary": "sha256:b94a8f0cecf5378fc2a5de6a51a55a8c4f16e9f81b9deeaf780063a3c493b005"
+					"asset": "sha256:61e3f1b8a545ff064b091eab4b6e14f8cc743ff15549be293b1e92f5b1467002",
+					"binary": "sha256:880bd72c84e0a79c48ebbf9c50285deedec2f39bb9a29e0092ac02860702801d"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-aarch64-unknown-linux-musl.tar.gz",
+				"url": "https://github.com/casey/just/releases/download/1.51.0/just-1.51.0-aarch64-unknown-linux-musl.tar.gz",
 				"extract": "just",
 				"digests": {
-					"asset": "sha256:3beb4967ce05883cf09ac12d6d128166eb4c6d0b03eff74b61018a6880655d7d",
-					"binary": "sha256:a2fbe2cd5a463bd13e4382c331966eb7b499aff8c50c86ab768a9d8dad0adf9c"
+					"asset": "sha256:ed7ec466b77709198fd4afed253dba0270203ba5eb1c006bee2b0139090284f5",
+					"binary": "sha256:3437a086b9a51b4a8baef33fbca83e78f6ffd0bb774e0d0fbe950e4a9e136531"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/casey/just/releases/download/1.50.0/just-1.50.0-x86_64-unknown-linux-musl.tar.gz",
+				"url": "https://github.com/casey/just/releases/download/1.51.0/just-1.51.0-x86_64-unknown-linux-musl.tar.gz",
 				"extract": "just",
 				"digests": {
-					"asset": "sha256:27e011cd6328fadd632e59233d2cf5f18460b8a8c4269acd324c1a8669f34db0",
-					"binary": "sha256:3aec6080e6eac69c15d0ee48d86fc60e80b3faf06365b0815ad7b638949fe798"
+					"asset": "sha256:c8f085ca3e885723c341d06243fc291b5abfdc8bbe3b2c076b117de490387b59",
+					"binary": "sha256:4f864ee6df9b9f351c8b5f95bc9fe589c92080237c2a87c048218a635c3604f7"
 				}
 			}
 		},
@@ -19157,13 +19158,15 @@ async function run() {
 	try {
 		await installTools(getMultilineInput("tools").map(sourceFromManifest));
 	} catch (error) {
-		let message = "Failed to install tools";
-		while (error instanceof Error) {
-			message += `:\n${error.message}`;
-			error = error.cause;
-		}
-		setFailed(message);
+		setFailed(errorMessage("Failed to install tools", error));
 	}
+}
+function errorMessage(message, error) {
+	while (error instanceof Error) {
+		message += `:\n\t${error.message || error.toString()}`;
+		error = error.cause;
+	}
+	return message;
 }
 const platform$1 = `${platform()}/${arch()}`;
 function sourceFromManifest(tool) {
@@ -19183,9 +19186,10 @@ function validateTool(tool) {
 }
 async function installTools(sources) {
 	const controller = new AbortController();
+	const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(6e4)]);
 	await Promise.all(sources.map(async (source) => {
 		try {
-			await installTool(source, controller.signal);
+			await installTool(source, signal);
 		} catch (error) {
 			controller.abort(error);
 			throw error;
@@ -19206,9 +19210,7 @@ async function installTool(source, signal) {
 }
 async function downloadTool(source, signal) {
 	try {
-		const [response, path] = await Promise.all([fetch(source.url, { signal }), createDirectory(source)]);
-		if (!response.ok) throw new Error(`GET ${source.url}: HTTP ${response.status}`);
-		if (!response.body) throw new Error(`GET ${source.url}: missing response body`);
+		const [responseBody, path] = await Promise.all([downloadWithRetries(source, signal), createDirectory(source)]);
 		const binary = createWriteStream(resolve(path, source.tool), {
 			flags: "wx",
 			mode: 511
@@ -19227,11 +19229,38 @@ async function downloadTool(source, signal) {
 				mode: 384
 			});
 		}
-		await pipeline(Readable.fromWeb(response.body), createDigestStream(source.digests.asset), target, { signal });
+		await pipeline(responseBody, createDigestStream(source.digests.asset), target, { signal });
 		if (archive) await pipeline(extract(archive, signal), createDigestStream(source.digests.binary), binary);
 		return path;
 	} catch (error) {
 		throw new Error(`Failed to download tool "${source.tool}"`, { cause: error });
+	}
+}
+async function downloadWithRetries(source, signal) {
+	for (let attempt = 1;; attempt++) {
+		signal.throwIfAborted();
+		try {
+			return await download(source.url, signal);
+		} catch (error) {
+			console.error(errorMessage(`Failed to download tool "${source.tool}" (attempt ${attempt})`, error));
+		}
+		await backoff(attempt, signal);
+	}
+}
+async function backoff(attempt, signal) {
+	const initial = 500;
+	const multiplier = 1.5;
+	const jitter = .5 + Math.random();
+	await setTimeout$1(initial * multiplier ** attempt * jitter, void 0, { signal });
+}
+async function download(url, signal) {
+	try {
+		const response = await fetch(url, { signal });
+		if (!response.ok) throw new Error(`HTTP ${response.status}`);
+		if (!response.body) throw new Error(`Missing response body`);
+		return Readable.fromWeb(response.body);
+	} catch (error) {
+		throw new Error(`GET ${url} failed`, { cause: error });
 	}
 }
 async function createDirectory({ tool, version }) {
