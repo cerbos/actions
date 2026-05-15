@@ -5,6 +5,7 @@ import { arch, platform } from "node:os";
 import { join, resolve } from "node:path";
 import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { setTimeout as setTimeout$1 } from "node:timers/promises";
 import * as os$1 from "os";
 import os, { EOL } from "os";
 import * as crypto from "crypto";
@@ -15,7 +16,7 @@ import * as events from "events";
 import { ok } from "assert";
 import { createHash } from "node:crypto";
 import * as child from "child_process";
-import { setTimeout as setTimeout$1 } from "timers";
+import { setTimeout as setTimeout$2 } from "timers";
 import { spawn } from "node:child_process";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
@@ -16637,7 +16638,7 @@ var ExecState = class ExecState extends events.EventEmitter {
 	CheckComplete() {
 		if (this.done) return;
 		if (this.processClosed) this._setResult();
-		else if (this.processExited) this.timeout = setTimeout$1(ExecState.HandleTimeout, this.delay, this);
+		else if (this.processExited) this.timeout = setTimeout$2(ExecState.HandleTimeout, this.delay, this);
 	}
 	_debug(message) {
 		this.emit("debug", message);
@@ -19157,13 +19158,15 @@ async function run() {
 	try {
 		await installTools(getMultilineInput("tools").map(sourceFromManifest));
 	} catch (error) {
-		let message = "Failed to install tools";
-		while (error instanceof Error) {
-			message += `:\n${error.message}`;
-			error = error.cause;
-		}
-		setFailed(message);
+		setFailed(errorMessage("Failed to install tools", error));
 	}
+}
+function errorMessage(message, error) {
+	while (error instanceof Error) {
+		message += `:\n\t${error.message || error.toString()}`;
+		error = error.cause;
+	}
+	return message;
 }
 const platform$1 = `${platform()}/${arch()}`;
 function sourceFromManifest(tool) {
@@ -19183,9 +19186,10 @@ function validateTool(tool) {
 }
 async function installTools(sources) {
 	const controller = new AbortController();
+	const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(6e4)]);
 	await Promise.all(sources.map(async (source) => {
 		try {
-			await installTool(source, controller.signal);
+			await installTool(source, signal);
 		} catch (error) {
 			controller.abort(error);
 			throw error;
@@ -19206,9 +19210,7 @@ async function installTool(source, signal) {
 }
 async function downloadTool(source, signal) {
 	try {
-		const [response, path] = await Promise.all([fetch(source.url, { signal }), createDirectory(source)]);
-		if (!response.ok) throw new Error(`GET ${source.url}: HTTP ${response.status}`);
-		if (!response.body) throw new Error(`GET ${source.url}: missing response body`);
+		const [responseBody, path] = await Promise.all([downloadWithRetries(source, signal), createDirectory(source)]);
 		const binary = createWriteStream(resolve(path, source.tool), {
 			flags: "wx",
 			mode: 511
@@ -19227,11 +19229,38 @@ async function downloadTool(source, signal) {
 				mode: 384
 			});
 		}
-		await pipeline(Readable.fromWeb(response.body), createDigestStream(source.digests.asset), target, { signal });
+		await pipeline(responseBody, createDigestStream(source.digests.asset), target, { signal });
 		if (archive) await pipeline(extract(archive, signal), createDigestStream(source.digests.binary), binary);
 		return path;
 	} catch (error) {
 		throw new Error(`Failed to download tool "${source.tool}"`, { cause: error });
+	}
+}
+async function downloadWithRetries(source, signal) {
+	for (let attempt = 1;; attempt++) {
+		signal.throwIfAborted();
+		try {
+			return await download(source.url, signal);
+		} catch (error) {
+			console.error(errorMessage(`Failed to download tool "${source.tool}" (attempt ${attempt})`, error));
+		}
+		await backoff(attempt, signal);
+	}
+}
+async function backoff(attempt, signal) {
+	const initial = 500;
+	const multiplier = 1.5;
+	const jitter = .5 + Math.random();
+	await setTimeout$1(initial * multiplier ** attempt * jitter, void 0, { signal });
+}
+async function download(url, signal) {
+	try {
+		const response = await fetch(url, { signal });
+		if (!response.ok) throw new Error(`HTTP ${response.status}`);
+		if (!response.body) throw new Error(`Missing response body`);
+		return Readable.fromWeb(response.body);
+	} catch (error) {
+		throw new Error(`GET ${url} failed`, { cause: error });
 	}
 }
 async function createDirectory({ tool, version }) {

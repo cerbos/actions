@@ -4,6 +4,7 @@ import { arch, platform as os } from "node:os";
 import { join, resolve } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { setTimeout } from "node:timers/promises";
 
 import {
   addPath,
@@ -44,15 +45,17 @@ export async function run(): Promise<void> {
   try {
     await installTools(getMultilineInput("tools").map(sourceFromManifest));
   } catch (error) {
-    let message = "Failed to install tools";
-
-    while (error instanceof Error) {
-      message += `:\n${error.message}`;
-      error = error.cause;
-    }
-
-    setFailed(message);
+    setFailed(errorMessage("Failed to install tools", error));
   }
+}
+
+function errorMessage(message: string, error: unknown): string {
+  while (error instanceof Error) {
+    message += `:\n\t${error.message || error.toString()}`;
+    error = error.cause;
+  }
+
+  return message;
 }
 
 const platform = `${os()}/${arch()}`;
@@ -86,10 +89,15 @@ function validateTool(tool: string): asserts tool is Tool {
 async function installTools(sources: Source[]): Promise<void> {
   const controller = new AbortController();
 
+  const signal = AbortSignal.any([
+    controller.signal,
+    AbortSignal.timeout(60_000),
+  ]);
+
   await Promise.all(
     sources.map(async (source) => {
       try {
-        await installTool(source, controller.signal);
+        await installTool(source, signal);
       } catch (error) {
         controller.abort(error);
         throw error;
@@ -129,18 +137,10 @@ async function downloadTool(
   signal: AbortSignal,
 ): Promise<string> {
   try {
-    const [response, path] = await Promise.all([
-      fetch(source.url, { signal }),
+    const [responseBody, path] = await Promise.all([
+      downloadWithRetries(source, signal),
       createDirectory(source),
     ]);
-
-    if (!response.ok) {
-      throw new Error(`GET ${source.url}: HTTP ${response.status}`);
-    }
-
-    if (!response.body) {
-      throw new Error(`GET ${source.url}: missing response body`);
-    }
 
     const binary = createWriteStream(resolve(path, source.tool), {
       flags: "wx",
@@ -165,7 +165,7 @@ async function downloadTool(
     }
 
     await pipeline(
-      Readable.fromWeb(response.body),
+      responseBody,
       createDigestStream(source.digests.asset),
       target,
       { signal },
@@ -184,6 +184,56 @@ async function downloadTool(
     throw new Error(`Failed to download tool "${source.tool}"`, {
       cause: error,
     });
+  }
+}
+
+async function downloadWithRetries(
+  source: Source,
+  signal: AbortSignal,
+): Promise<Readable> {
+  for (let attempt = 1; ; attempt++) {
+    signal.throwIfAborted();
+
+    try {
+      return await download(source.url, signal);
+    } catch (error) {
+      console.error(
+        errorMessage(
+          `Failed to download tool "${source.tool}" (attempt ${attempt})`,
+          error,
+        ),
+      );
+    }
+
+    await backoff(attempt, signal);
+  }
+}
+
+async function backoff(attempt: number, signal: AbortSignal): Promise<void> {
+  const initial = 500;
+  const multiplier = 1.5;
+  const jitter = 0.5 + Math.random();
+
+  const delay = initial * multiplier ** attempt * jitter;
+
+  await setTimeout(delay, undefined, { signal });
+}
+
+async function download(url: string, signal: AbortSignal): Promise<Readable> {
+  try {
+    const response = await fetch(url, { signal });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    if (!response.body) {
+      throw new Error(`Missing response body`);
+    }
+
+    return Readable.fromWeb(response.body);
+  } catch (error) {
+    throw new Error(`GET ${url} failed`, { cause: error });
   }
 }
 
