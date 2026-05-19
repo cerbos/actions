@@ -277,32 +277,32 @@
     ]
   },
   "helm": {
-    "version": "3.20.2",
-    "released": "2026-04-09T20:35:01Z",
-    "updated": "2026-04-17T13:01:26Z",
+    "version": "3.21.0",
+    "released": "2026-05-14T00:33:33Z",
+    "updated": "2026-05-19T15:14:34Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://get.helm.sh/helm-v3.20.2-darwin-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v3.21.0-darwin-arm64.tar.gz",
         "extract": "darwin-arm64/helm",
         "digests": {
-          "asset": "sha256:139c794c22f16b579d08ddd3008c8038b9bb2814f35b5bcca91f50a1f458978d",
-          "binary": "sha256:d5d8d1d8744821cd7da88e508b40edc6b2f3d122a1c53e2919362ff461fcb515"
+          "asset": "sha256:68bfbdc022c543a2a022597b20298216877e98abe6e4a345d3ecf114d79cae5f",
+          "binary": "sha256:e450b850796249dda11f801f8c88787ee9922dc1f198a80536d9e4ecb4411a74"
         }
       },
       "linux/arm64": {
-        "url": "https://get.helm.sh/helm-v3.20.2-linux-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v3.21.0-linux-arm64.tar.gz",
         "extract": "linux-arm64/helm",
         "digests": {
-          "asset": "sha256:5ea2d6bc2cda3f8edf985e028809f5a9278f404fb8ab24044de9b7cb9b79a691",
-          "binary": "sha256:3fdc0b1baf1a616f44ed06a68127ab8406a7a11ad752e7cb0be1f5e57ce28642"
+          "asset": "sha256:8de5a0c9a47431e59fd560e91e0779c8cf9316c383da7efb84128a4c339ecb2d",
+          "binary": "sha256:b85b13d3dbf70a7c8d037d9222b761d3bf7aab874e8dac3454c707f8467f6311"
         }
       },
       "linux/x64": {
-        "url": "https://get.helm.sh/helm-v3.20.2-linux-amd64.tar.gz",
+        "url": "https://get.helm.sh/helm-v3.21.0-linux-amd64.tar.gz",
         "extract": "linux-amd64/helm",
         "digests": {
-          "asset": "sha256:258e830a9e613c8a7a302d6059b4bb3b9758f2f3e1bb8ea0d707ce10a9a72fea",
-          "binary": "sha256:b048cd72b4aadc639bb1eb8d1b0e1aba1c6936c1633e0169420d03f6dfa0340e"
+          "asset": "sha256:0093eb572e3d2380f094df162ddb525e219249de88957afe24cfbb19632acd36",
+          "binary": "sha256:0e3c20f221b74285e0db235e1837af340dd0957528dc701cffc26b2f8cc42fdd"
         }
       }
     },
