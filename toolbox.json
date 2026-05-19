@@ -277,32 +277,32 @@
     ]
   },
   "helm": {
-    "version": "3.21.0",
-    "released": "2026-05-14T00:33:33Z",
-    "updated": "2026-05-19T15:14:34Z",
+    "version": "4.2.0",
+    "released": "2026-05-14T00:31:27Z",
+    "updated": "2026-05-19T15:34:21Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://get.helm.sh/helm-v3.21.0-darwin-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.0-darwin-arm64.tar.gz",
         "extract": "darwin-arm64/helm",
         "digests": {
-          "asset": "sha256:68bfbdc022c543a2a022597b20298216877e98abe6e4a345d3ecf114d79cae5f",
-          "binary": "sha256:e450b850796249dda11f801f8c88787ee9922dc1f198a80536d9e4ecb4411a74"
+          "asset": "sha256:f13f959015447b6bc309f9fd506509926543988a39035c088b52522ec95e2acb",
+          "binary": "sha256:fdafd9a22b25ff1a674116acb5a35af0420563cc87049a089aaf42222d27930e"
         }
       },
       "linux/arm64": {
-        "url": "https://get.helm.sh/helm-v3.21.0-linux-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.0-linux-arm64.tar.gz",
         "extract": "linux-arm64/helm",
         "digests": {
-          "asset": "sha256:8de5a0c9a47431e59fd560e91e0779c8cf9316c383da7efb84128a4c339ecb2d",
-          "binary": "sha256:b85b13d3dbf70a7c8d037d9222b761d3bf7aab874e8dac3454c707f8467f6311"
+          "asset": "sha256:1f8de130dfbd04de64978e7b852a7a547be1404956a366608276d2520b678670",
+          "binary": "sha256:c1f29d55f81004fb7670b9527ad0c037e9c815c0f7460bdf31f0253b277f17da"
         }
       },
       "linux/x64": {
-        "url": "https://get.helm.sh/helm-v3.21.0-linux-amd64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.0-linux-amd64.tar.gz",
         "extract": "linux-amd64/helm",
         "digests": {
-          "asset": "sha256:0093eb572e3d2380f094df162ddb525e219249de88957afe24cfbb19632acd36",
-          "binary": "sha256:0e3c20f221b74285e0db235e1837af340dd0957528dc701cffc26b2f8cc42fdd"
+          "asset": "sha256:97dbeb971be4ac4b27e3839976d9564c0fb35c6f3b1da89dd1e292d236af4096",
+          "binary": "sha256:bf1e2f933afaaab981b4dce6f0caea951635539336f463780ad479de5408f869"
         }
       }
     },

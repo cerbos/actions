@@ -23,7 +23,7 @@ var Tool = updater.Tool{
 	Repo: github.Repository{Owner: "helm", Name: "helm"},
 	FindNewerReleaseOptions: []github.FindNewerReleaseOption{
 		github.VersionConstraint(func(version semver.Version) bool {
-			return semver.Compare(version, "v4") < 0
+			return semver.Compare(version, "v5") < 0
 		}),
 	},
 	Verify:      verify,
