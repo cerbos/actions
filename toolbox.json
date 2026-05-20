@@ -619,29 +619,29 @@
     ]
   },
   "skaffold": {
-    "version": "2.19.0",
-    "released": "2026-04-23T17:36:24Z",
-    "updated": "2026-04-29T14:37:38Z",
+    "version": "2.20.0",
+    "released": "2026-05-14T20:57:52Z",
+    "updated": "2026-05-20T12:53:15Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-darwin-arm64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-darwin-arm64",
         "digests": {
-          "asset": "sha256:0bda095e143475aba2a689f286affed5873d381b4cdacc2b49ee8571cfb01655",
-          "binary": "sha256:0bda095e143475aba2a689f286affed5873d381b4cdacc2b49ee8571cfb01655"
+          "asset": "sha256:73478a431c17674d2f75d2c6e2fcbf35aa019de4ad6027e5573cc0f581767fbc",
+          "binary": "sha256:73478a431c17674d2f75d2c6e2fcbf35aa019de4ad6027e5573cc0f581767fbc"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-linux-arm64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-linux-arm64",
         "digests": {
-          "asset": "sha256:206b35b063aa327966048c1637e5380c11db38cf30019e01cc93f2aa8097c049",
-          "binary": "sha256:206b35b063aa327966048c1637e5380c11db38cf30019e01cc93f2aa8097c049"
+          "asset": "sha256:0062e1ff61f35200168454fa5a836306dd30b51acf30999d5d8836770d70ad2f",
+          "binary": "sha256:0062e1ff61f35200168454fa5a836306dd30b51acf30999d5d8836770d70ad2f"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/GoogleContainerTools/skaffold/releases/download/v2.19.0/skaffold-linux-amd64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-linux-amd64",
         "digests": {
-          "asset": "sha256:8794026e7f0c2fb04c44ebc6a8f4f446a7a68dde8f8868ac5b701903b7973e19",
-          "binary": "sha256:8794026e7f0c2fb04c44ebc6a8f4f446a7a68dde8f8868ac5b701903b7973e19"
+          "asset": "sha256:de75d5697d4a14d6a5e87105671ef9a30990270ab14ad301913f8f8d41a1ecca",
+          "binary": "sha256:de75d5697d4a14d6a5e87105671ef9a30990270ab14ad301913f8f8d41a1ecca"
         }
       }
     },
