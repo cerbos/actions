@@ -37,6 +37,10 @@ func (d *SHA256) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
+func Bytes(data []byte) SHA256 {
+	return sha256.Sum256(data)
+}
+
 func Parse(encoded string) (digest SHA256, _ error) {
 	hexEncoded := strings.TrimPrefix(encoded, prefix)
 
