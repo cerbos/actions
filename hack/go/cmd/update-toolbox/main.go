@@ -9,7 +9,6 @@ import (
 	"os"
 	"sync"
 	"sync/atomic"
-	"time"
 
 	"github.com/sourcegraph/conc/pool"
 
@@ -40,6 +39,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/vals"
 	"github.com/cerbos/actions/hack/go/pkg/command"
 	"github.com/cerbos/actions/hack/go/pkg/log"
+	"github.com/cerbos/actions/hack/go/pkg/timer"
 	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
 
@@ -93,7 +93,7 @@ func updateToolbox(ctx context.Context) error {
 	}
 
 	updates := pool.NewWithResults[string]().WithContext(ctx)
-	start := time.Now()
+	duration := timer.Start()
 	var mutex sync.RWMutex
 	var updated, notUpdated, failed atomic.Int32
 
@@ -105,9 +105,9 @@ func updateToolbox(ctx context.Context) error {
 			oldVersion := manifest[name].Version
 			mutex.RUnlock()
 
-			start := time.Now()
+			duration := timer.Start()
 			source, err := updater.Update(ctx, clients, tool, oldVersion)
-			ctx = log.With(ctx, "duration", time.Since(start))
+			ctx = log.With(ctx, "duration", duration)
 			if err != nil {
 				failed.Add(1)
 				log.Error(ctx, "Update failed", "err", err)
@@ -131,7 +131,7 @@ func updateToolbox(ctx context.Context) error {
 	}
 
 	rows, err := updates.Wait()
-	log.Info(ctx, "Completed", "duration", time.Since(start), "updated", updated.Load(), "notUpdated", notUpdated.Load(), "failed", failed.Load())
+	log.Info(ctx, "Completed", "duration", duration, "updated", updated.Load(), "notUpdated", notUpdated.Load(), "failed", failed.Load())
 	if err != nil {
 		switch n := failed.Load(); n {
 		case 0:

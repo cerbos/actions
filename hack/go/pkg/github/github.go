@@ -20,6 +20,7 @@ import (
 	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/log"
 	"github.com/cerbos/actions/hack/go/pkg/semver"
+	"github.com/cerbos/actions/hack/go/pkg/timer"
 )
 
 const (
@@ -286,7 +287,7 @@ func (c *Client) DownloadAsset(ctx context.Context, release *Release, asset *Ass
 		return nil, err
 	}
 
-	start := time.Now()
+	duration := timer.Start()
 
 	contents, _, err := c.github.Repositories.DownloadReleaseAsset(ctx, release.Repo.Owner, release.Repo.Name, asset.ID, http.DefaultClient)
 	if err != nil {
@@ -296,7 +297,7 @@ func (c *Client) DownloadAsset(ctx context.Context, release *Release, asset *Ass
 	return &downloader{
 		source: digest.NewReader(contents, asset.Digest),
 		eof: func(size int64) {
-			log.Debug(ctx, "Downloaded asset", "release", release, "asset", asset.Name, "size", size, "duration", time.Since(start))
+			log.Debug(ctx, "Downloaded asset", "release", release, "asset", asset.Name, "size", size, "duration", duration)
 		},
 		close: func() error {
 			c.release()
