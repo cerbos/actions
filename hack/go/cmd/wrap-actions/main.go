@@ -98,7 +98,11 @@ func main() {
 }
 
 func wrapActions(ctx context.Context) error {
-	client := github.NewClient(ctx)
+	client, err := github.NewClient(ctx)
+	if err != nil {
+		return err
+	}
+
 	tasks := pool.New().WithContext(ctx).WithFailFast()
 
 	for _, action := range actions {
