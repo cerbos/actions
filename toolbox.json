@@ -67,32 +67,32 @@
     ]
   },
   "crane": {
-    "version": "0.21.5",
-    "released": "2026-04-11T02:19:10Z",
-    "updated": "2026-04-16T14:03:32Z",
+    "version": "0.21.6",
+    "released": "2026-05-18T19:10:58Z",
+    "updated": "2026-05-25T09:28:21Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Darwin_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Darwin_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:a41938cdbd8becc59e90f4bb491a557d52dce5681f9812c961854cab706f5f59",
-          "binary": "sha256:04db5793ec1c2a3d7a8d62b35a29c4f673777a7df438dc01dd30c10c3a5d55cc"
+          "asset": "sha256:a124f297d1e63e8b6c63c2463e43565290d2fd074c1dadb5ca73d737bc7b2484",
+          "binary": "sha256:a982a0ce9c69730ddaf7b6f33dcc362c5898e5597dea880c0944530bc57f318f"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Linux_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:3a47c6da5a0ba1ca7a93def41036d8f262a2160799e5d4ca25dba3cfa47dab41",
-          "binary": "sha256:b73f655646f7e9cd396db595e80bd2919f83fd4f34521b9b41fb37782c9bded4"
+          "asset": "sha256:6f61571ca0c2a5da27c2927fcb143255ccb2b74b8977dfcb44645b372ab0f951",
+          "binary": "sha256:080335d375b50601c53f4c49953eb1574e0d6d9ae8396be3e1b2d8fddd96a17e"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.5/go-containerregistry_Linux_x86_64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Linux_x86_64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:9f823ae5ee25803161110f957b5fd4538f714d40cdf25dacb4914fefafd246bf",
-          "binary": "sha256:ef9d94754ad4e2c0d6d66086c14eefc878e242c30a76f902dcb205dda57c0765"
+          "asset": "sha256:7ebbdcd05b652345c1f5105f8475e518534b90d66f3bdb50017be63f426ea435",
+          "binary": "sha256:f093582da0ef1130f64b063b66063b57282ba585049de3e32f7e4f2007791b1a"
         }
       }
     },
@@ -482,32 +482,32 @@
     ]
   },
   "protoc": {
-    "version": "34.1",
-    "released": "2026-03-19T19:43:33Z",
-    "updated": "2026-04-30T12:50:34Z",
+    "version": "35.0",
+    "released": "2026-05-19T19:53:03Z",
+    "updated": "2026-05-25T09:28:19Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-osx-aarch_64.zip",
+        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v35.0/protoc-35.0-osx-aarch_64.zip",
         "extract": "bin/protoc",
         "digests": {
-          "asset": "sha256:2c7e92b8b578916937df132b3032e2e8e6c170862ecf7a8333094a6f3d03650c",
-          "binary": "sha256:5c51efe5d53bb87ffb4de8beb43611757b13c98361ce1008ae590e5261f02ee2"
+          "asset": "sha256:45444963204757fd3e2fbe304bc1fdadfb488d8556ff099c4cc06575eab88976",
+          "binary": "sha256:fe67ed7092ca25985f68491c3f697751a498704febd0f6c7cb8d367578147c9f"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-aarch_64.zip",
+        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v35.0/protoc-35.0-linux-aarch_64.zip",
         "extract": "bin/protoc",
         "digests": {
-          "asset": "sha256:31c5e9e3c7bf013cf41fb97765ee255c140024a6b175b6cc9b64beddd7c23ba7",
-          "binary": "sha256:89f21634e7de36c483b54abeee5f23e5060b6c34e070d6add0e825a72776108c"
+          "asset": "sha256:36b518ac14d90351cc6598228ed2bbe5afe4e357b1af470b07e0ec1609875de2",
+          "binary": "sha256:b0d940b938db3248e2b23132d8e61cff84905d2445574cdc0b935f118465c5c7"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-x86_64.zip",
+        "url": "https://github.com/protocolbuffers/protobuf/releases/download/v35.0/protoc-35.0-linux-x86_64.zip",
         "extract": "bin/protoc",
         "digests": {
-          "asset": "sha256:af27ea66cd26938fe48587804ca7d4817457a08350021a1c6e23a27ccc8c6904",
-          "binary": "sha256:3d6aef252f3851bdee5a7e7a2c8c927d4980e014d8ac0f18c8ba2d6f084a0504"
+          "asset": "sha256:a45cda0989c17dd950db55f6fbe1e5814c50fda08e87aa422980ac1f89dddbbc",
+          "binary": "sha256:beb22593b0160fed3ece5ddf5247c64cefd86022d8142be41c9acd4ddc717164"
         }
       }
     },
