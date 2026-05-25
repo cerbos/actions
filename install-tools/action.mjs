@@ -19046,32 +19046,32 @@ var toolbox_default = {
 		"postInstall": ["telepresence", "version"]
 	},
 	terraform: {
-		"version": "1.15.3",
-		"released": "2026-05-13T07:39:28Z",
-		"updated": "2026-05-18T09:20:08Z",
+		"version": "1.15.4",
+		"released": "2026-05-20T10:13:03Z",
+		"updated": "2026-05-25T10:45:50Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.3/terraform_1.15.3_darwin_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_darwin_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:b97101c62c11eebd176e83cd42a313336200d54fdd18ce7770f65a5bfb0ab098",
-					"binary": "sha256:62106b6dd83722f60387fde2f6c2e08ea31c8748beac5e735f49a8a5b11b747d"
+					"asset": "sha256:d6b99521a436bfc0e44b18ca47e2c8fec37a74039bf3b529ecc3c71d3e5a9fbf",
+					"binary": "sha256:c4947a577e0a7fe9aba8aeaae23897bc27e2cfe70c0b040608d39eed877dd6f8"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.3/terraform_1.15.3_linux_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_linux_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:9824eb010b835b2c872440a337a69acfa1782d36c24d3c09fe5defe75defc511",
-					"binary": "sha256:85f75d0f7cf3f4f0336e4cd0e305557860b4a1e0325f48f40131f4a4f5e53166"
+					"asset": "sha256:87da14c6700fee1bdaffedc943c4aca7bb078aad1f3eeccbdaae0484f90e1bec",
+					"binary": "sha256:7d26da1fbc125f007141f747634f04909a2ac4cbe531979570d1d5ef07025586"
 				}
 			},
 			"linux/x64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.3/terraform_1.15.3_linux_amd64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_linux_amd64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:c3d4b579064745a5f7e918125db23b12ba52a8a7287adb9f32c49d637e02e3bf",
-					"binary": "sha256:6f353fd5e68cc717bccbc24650cf340e193ae6979f338c64b9f7c62be118ac39"
+					"asset": "sha256:a71695fa6db9344db02ff1adb69cce891c1b2b4dc31c08df0dd4a12101a33b26",
+					"binary": "sha256:cdc51e91a8681ed1f208da77e9a96e06e50492f7e259fb0007a2c48401453e4d"
 				}
 			}
 		},
