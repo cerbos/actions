@@ -33,19 +33,24 @@ type Client struct {
 	semaphore *semaphore.Weighted
 }
 
-func NewClient(ctx context.Context) *Client {
-	client := github.NewClient(nil)
+func NewClient(ctx context.Context) (*Client, error) {
+	var options []github.ClientOptionsFunc
 
 	if token := os.Getenv("GITHUB_TOKEN"); token != "" {
-		client = client.WithAuthToken(token)
+		options = append(options, github.WithAuthToken(token))
 	} else {
 		log.Warn(ctx, "GITHUB_TOKEN not set; stricter rate limits will apply")
+	}
+
+	client, err := github.NewClient(options...)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create GitHub client: %w", err)
 	}
 
 	return &Client{
 		github:    client,
 		semaphore: semaphore.NewWeighted(maxConcurrency),
-	}
+	}, nil
 }
 
 type Repository struct {

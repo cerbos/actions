@@ -18,13 +18,18 @@ type Clients struct {
 }
 
 func NewClients(ctx context.Context) (*Clients, error) {
+	githubClient, err := github.NewClient(ctx)
+	if err != nil {
+		return nil, err
+	}
+
 	sigstoreClient, err := sigstore.NewClient()
 	if err != nil {
 		return nil, fmt.Errorf("failed to create Sigstore client: %w", err)
 	}
 
 	return &Clients{
-		GitHub:   github.NewClient(ctx),
+		GitHub:   githubClient,
 		HTTP:     http.NewClient(),
 		Sigstore: sigstoreClient,
 	}, nil

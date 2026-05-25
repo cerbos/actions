@@ -46,7 +46,11 @@ func updateInternalActions(ctx context.Context) error {
 		return err
 	}
 
-	client := github.NewClient(ctx)
+	client, err := github.NewClient(ctx)
+	if err != nil {
+		return err
+	}
+
 	versions := make(map[string]*ActionVersion)
 	updates := pool.New().WithContext(ctx).WithFailFast()
 	i := 0
