@@ -619,29 +619,29 @@
     ]
   },
   "skaffold": {
-    "version": "2.20.0",
-    "released": "2026-05-14T20:57:52Z",
-    "updated": "2026-05-20T12:53:15Z",
+    "version": "2.21.0",
+    "released": "2026-05-20T20:49:39Z",
+    "updated": "2026-05-26T13:51:17Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-darwin-arm64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.21.0/skaffold-darwin-arm64",
         "digests": {
-          "asset": "sha256:73478a431c17674d2f75d2c6e2fcbf35aa019de4ad6027e5573cc0f581767fbc",
-          "binary": "sha256:73478a431c17674d2f75d2c6e2fcbf35aa019de4ad6027e5573cc0f581767fbc"
+          "asset": "sha256:6c04f832356f7e840b470485d5a97fc21f4ef73a3cfd3050c067f1c9f68f43df",
+          "binary": "sha256:6c04f832356f7e840b470485d5a97fc21f4ef73a3cfd3050c067f1c9f68f43df"
         }
       },
       "linux/arm64": {
-        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-linux-arm64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.21.0/skaffold-linux-arm64",
         "digests": {
-          "asset": "sha256:0062e1ff61f35200168454fa5a836306dd30b51acf30999d5d8836770d70ad2f",
-          "binary": "sha256:0062e1ff61f35200168454fa5a836306dd30b51acf30999d5d8836770d70ad2f"
+          "asset": "sha256:48edae2fe22b8aad4e5f67ee4e9708bc242f2c3399128eaf1c2b1b506a90df40",
+          "binary": "sha256:48edae2fe22b8aad4e5f67ee4e9708bc242f2c3399128eaf1c2b1b506a90df40"
         }
       },
       "linux/x64": {
-        "url": "https://storage.googleapis.com/skaffold/releases/v2.20.0/skaffold-linux-amd64",
+        "url": "https://storage.googleapis.com/skaffold/releases/v2.21.0/skaffold-linux-amd64",
         "digests": {
-          "asset": "sha256:de75d5697d4a14d6a5e87105671ef9a30990270ab14ad301913f8f8d41a1ecca",
-          "binary": "sha256:de75d5697d4a14d6a5e87105671ef9a30990270ab14ad301913f8f8d41a1ecca"
+          "asset": "sha256:255bc19ec6ccd8bca3fd122996d2cafd1af0abf3c3740a5b554931ce7b17a10e",
+          "binary": "sha256:255bc19ec6ccd8bca3fd122996d2cafd1af0abf3c3740a5b554931ce7b17a10e"
         }
       }
     },
