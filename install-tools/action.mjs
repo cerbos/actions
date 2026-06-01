@@ -18386,29 +18386,29 @@ var toolbox_default = {
 		"postInstall": ["actionlint", "--version"]
 	},
 	buf: {
-		"version": "1.69.0",
-		"released": "2026-04-29T19:18:51Z",
-		"updated": "2026-05-05T05:46:42Z",
+		"version": "1.70.0",
+		"released": "2026-05-25T17:59:29Z",
+		"updated": "2026-06-01T09:08:53Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Darwin-arm64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.70.0/buf-Darwin-arm64",
 				"digests": {
-					"asset": "sha256:721093cd6322f776cd361bab5ec25383749bc83690dd02768d56983e49184282",
-					"binary": "sha256:721093cd6322f776cd361bab5ec25383749bc83690dd02768d56983e49184282"
+					"asset": "sha256:f6662346793727c4a5a11a813983a74964f40a626c7ca35df96fe2582b1fbebf",
+					"binary": "sha256:f6662346793727c4a5a11a813983a74964f40a626c7ca35df96fe2582b1fbebf"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Linux-aarch64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.70.0/buf-Linux-aarch64",
 				"digests": {
-					"asset": "sha256:8acd7161665ce25933a7cb2c982b3137bbcaa6e70ad58ea2cc311dba4f4f2f5c",
-					"binary": "sha256:8acd7161665ce25933a7cb2c982b3137bbcaa6e70ad58ea2cc311dba4f4f2f5c"
+					"asset": "sha256:95eaebf9c6a25fd26510c9596b6cedebbb2ab90258904f96edc9625e505181b6",
+					"binary": "sha256:95eaebf9c6a25fd26510c9596b6cedebbb2ab90258904f96edc9625e505181b6"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/bufbuild/buf/releases/download/v1.69.0/buf-Linux-x86_64",
+				"url": "https://github.com/bufbuild/buf/releases/download/v1.70.0/buf-Linux-x86_64",
 				"digests": {
-					"asset": "sha256:c1989e0f23143c044cc4f3e1d5c0d3453fa5f83f8330aed6bab76080192740b2",
-					"binary": "sha256:c1989e0f23143c044cc4f3e1d5c0d3453fa5f83f8330aed6bab76080192740b2"
+					"asset": "sha256:e2bbcdd324da09c16a15963dc2dae0525c955c05dc118223cf732f4f7509c5e6",
+					"binary": "sha256:e2bbcdd324da09c16a15963dc2dae0525c955c05dc118223cf732f4f7509c5e6"
 				}
 			}
 		},
@@ -18543,32 +18543,32 @@ var toolbox_default = {
 		"postInstall": ["golangci-lint", "version"]
 	},
 	goreleaser: {
-		"version": "2.15.4",
-		"released": "2026-04-21T13:21:37Z",
-		"updated": "2026-04-27T08:57:54Z",
+		"version": "2.16.0",
+		"released": "2026-05-24T16:28:33Z",
+		"updated": "2026-06-01T09:08:59Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Darwin_arm64.tar.gz",
+				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.16.0/goreleaser_Darwin_arm64.tar.gz",
 				"extract": "goreleaser",
 				"digests": {
-					"asset": "sha256:d9cd0978d64686eb54e53e9f08b400edc8b1f9034f98fca43ec7a3f641327081",
-					"binary": "sha256:00bb9830455455e19c2226107d53a9871474e09cdb54c8a816642718144f9cb9"
+					"asset": "sha256:8f6898256f35531165d90f2db581c5ee0d32bda83ebc25ac231ff5bdb9d2071a",
+					"binary": "sha256:e55c16ba2e68b4b0d2654e1b0aa5ec63743b6436958c348f7518706718c59d5d"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Linux_arm64.tar.gz",
+				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.16.0/goreleaser_Linux_arm64.tar.gz",
 				"extract": "goreleaser",
 				"digests": {
-					"asset": "sha256:de01ca1497571e9b348413cd2e7f74be49b8d57696ae386f7eedd06176544a88",
-					"binary": "sha256:80079de07f90c0d8040423210179755b75e56916d9e32330f625d835e8d671b0"
+					"asset": "sha256:0102d974373fcdeb77042d1f5897caffa193be36620fdc6c1da43a01ef8e10d3",
+					"binary": "sha256:aa598487f8d1bcef7c2236a166af11d6cb83ca32b423714f15c65522c012d06b"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.15.4/goreleaser_Linux_x86_64.tar.gz",
+				"url": "https://github.com/goreleaser/goreleaser/releases/download/v2.16.0/goreleaser_Linux_x86_64.tar.gz",
 				"extract": "goreleaser",
 				"digests": {
-					"asset": "sha256:aae00c71a4a6d55e08cce9273a1516bdce33c1e07cffb7e502fa6fec4377dede",
-					"binary": "sha256:1d7e39b5241cd21f09ff0986432f96837834954336dc60b0625e270031991d55"
+					"asset": "sha256:eaae05b5eba07533bd0f06846b68c808399504784df00c62eb219541fc04e5e2",
+					"binary": "sha256:00b06a2f8de8711ade37289b2cb61887936a8b04745414c5b23298fc8e9e3dfd"
 				}
 			}
 		},
@@ -18639,32 +18639,32 @@ var toolbox_default = {
 		"postInstall": ["helm", "version"]
 	},
 	helmfile: {
-		"version": "1.5.1",
-		"released": "2026-05-11T01:05:06Z",
-		"updated": "2026-05-18T06:13:31Z",
+		"version": "1.5.2",
+		"released": "2026-05-22T01:16:52Z",
+		"updated": "2026-06-01T09:08:52Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.1/helmfile_1.5.1_darwin_arm64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.2/helmfile_1.5.2_darwin_arm64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:ff3c0b754906f60f3b191924de2bcc3f95100e61786653446294680846dd20b3",
-					"binary": "sha256:961369679fb819c69b85286603d5615a826072bf6214a6a076b66ce768c7fa21"
+					"asset": "sha256:55e22265177e3d21fcf5a5dfed51f7deaf9c4f6bd460f3961263ebefd428579f",
+					"binary": "sha256:8b68689ad8b1d2cb1a6ab4a4da6033e8213f3f9d7fa69809449417484225b289"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.1/helmfile_1.5.1_linux_arm64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.2/helmfile_1.5.2_linux_arm64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:580984c7c2785d6c7255dc49cc24d3a4c70dae5d7f25a80f58f93b08d91cf753",
-					"binary": "sha256:282d9dd6a2957b9a7b29c8ce06edd2c281c774a84a82a11a317179f21ab2764a"
+					"asset": "sha256:4488ca172141a2ad563ac99fffdd8f4761620b40e8e7878ab3fd0e436d4ec057",
+					"binary": "sha256:1a20a7cf27ebe23cc9181ba38d581e1c8bb7741aa5316f4a9bc1bd0013e73ab5"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.1/helmfile_1.5.1_linux_amd64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.5.2/helmfile_1.5.2_linux_amd64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:4c0c92f711aaf95b953065a0a76c6adfd4f7fb9f8c7065db5c94d32a0caf288f",
-					"binary": "sha256:60e098d770c79ed7163c47105facc31ccd25761ecf4da60a2328658566c9f484"
+					"asset": "sha256:96e342ff19a45c2e36371f93cf6264f3ef285bbde0fc363e56cb53bdef3df1ff",
+					"binary": "sha256:eb5b7b0b39e96e1ea68e79ebc70663455dc8bed5d0ad121ed4a3c7acff03f503"
 				}
 			}
 		},
