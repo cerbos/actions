@@ -517,32 +517,32 @@
     ]
   },
   "reimage": {
-    "version": "0.12.1",
-    "released": "2026-04-08T09:21:07Z",
-    "updated": "2026-04-16T10:10:58Z",
+    "version": "0.14.0",
+    "released": "2026-06-01T14:49:37Z",
+    "updated": "2026-06-02T16:11:27Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Darwin_arm64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.14.0/reimage_0.14.0_Darwin_arm64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:01b61dac4ad5469d873d6ef2f6ac64e573159f19bc79f08838438dba402bc222",
-          "binary": "sha256:a753d5b22b7a652e2d0153183b5c665f4d009ae0ac1cf2f988d4ed46be41c1aa"
+          "asset": "sha256:81b85e57e54fd62a5e7c0fecdac3d2df368e4e80015f57eeb4d7329e4ec568d4",
+          "binary": "sha256:cc72cdd063a1e091611c479686924e85aadfb73be929482ae81bca72d43c08dc"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_arm64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.14.0/reimage_0.14.0_Linux_arm64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:26111155ff70112d51382e6baf45fa0003168fa55f45f89e46993befab9000f1",
-          "binary": "sha256:8aa5bc8b0cc8a64dabbb1ca5fb7138bb5d1cc31b56aa33c20f4fd9fd0d748215"
+          "asset": "sha256:516f56b3c6539c22343f2ed81c0c78871429cf56c6e46f6e9fdfdd6015859d2f",
+          "binary": "sha256:a537a87189e58d4764fe903883ea8a7a43808e468aecc64a38276f369d14d45c"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.12.1/reimage_0.12.1_Linux_x86_64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.14.0/reimage_0.14.0_Linux_x86_64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:75e47a86af40e937d5839d54c6b22860f7974689287928bbfacd0c246d995963",
-          "binary": "sha256:a90c64ee068a149e13fac5234f6141407672493ba1177ecf10c39023a22e4d88"
+          "asset": "sha256:c46329f7353c85ecd504b22eb10ec1c9e19396e9b97851bf751bf2f66ff1d000",
+          "binary": "sha256:9c124336dc06fac0d0960739c6d9188992c207e17c9d6b98286ec202ad01c251"
         }
       }
     },
@@ -753,32 +753,32 @@
     ]
   },
   "terraform": {
-    "version": "1.15.4",
-    "released": "2026-05-20T10:13:03Z",
-    "updated": "2026-05-25T10:45:50Z",
+    "version": "1.15.5",
+    "released": "2026-05-27T12:28:31Z",
+    "updated": "2026-06-02T16:11:25Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_darwin_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.5/terraform_1.15.5_darwin_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:d6b99521a436bfc0e44b18ca47e2c8fec37a74039bf3b529ecc3c71d3e5a9fbf",
-          "binary": "sha256:c4947a577e0a7fe9aba8aeaae23897bc27e2cfe70c0b040608d39eed877dd6f8"
+          "asset": "sha256:01137660510005b918bba82154866fbeac4393163d8277c2abe861dfb5842c3c",
+          "binary": "sha256:0402aec05ab85fc5bd49f963ed89ff795a14278b30219f15936dffc2e0e2a655"
         }
       },
       "linux/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_linux_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.5/terraform_1.15.5_linux_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:87da14c6700fee1bdaffedc943c4aca7bb078aad1f3eeccbdaae0484f90e1bec",
-          "binary": "sha256:7d26da1fbc125f007141f747634f04909a2ac4cbe531979570d1d5ef07025586"
+          "asset": "sha256:06e7b48de826146c6d9331ba35b13da12332d8392be30d1dd6b789ba4713fff0",
+          "binary": "sha256:6b8e68ff094aa85cc8db906c053ecec9ac85c353013c23e91c071f8554442d85"
         }
       },
       "linux/x64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.4/terraform_1.15.4_linux_amd64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.5/terraform_1.15.5_linux_amd64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:a71695fa6db9344db02ff1adb69cce891c1b2b4dc31c08df0dd4a12101a33b26",
-          "binary": "sha256:cdc51e91a8681ed1f208da77e9a96e06e50492f7e259fb0007a2c48401453e4d"
+          "asset": "sha256:702b2136af6728c8ff037f843dd2dbce2b7ad88786b7381d1d72aefa250f601c",
+          "binary": "sha256:d42b544fbd42bfab4f0ddfe1bd8ec985fbd59fb4fb7ff339d5f134c73e177279"
         }
       }
     },
