@@ -18703,29 +18703,29 @@ var toolbox_default = {
 		"postInstall": ["just", "--version"]
 	},
 	kind: {
-		"version": "0.31.0",
-		"released": "2025-12-18T00:51:55Z",
-		"updated": "2026-04-27T14:54:17Z",
+		"version": "0.32.0",
+		"released": "2026-06-02T16:28:58Z",
+		"updated": "2026-06-08T07:23:29Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-darwin-arm64",
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.32.0/kind-darwin-arm64",
 				"digests": {
-					"asset": "sha256:88bf554fe9da6311c9f8c2d082613c002911a476f6b5090e9420b35d84e70c5c",
-					"binary": "sha256:88bf554fe9da6311c9f8c2d082613c002911a476f6b5090e9420b35d84e70c5c"
+					"asset": "sha256:dca67911095a110c2b5c36e26df6cac860c602033e456c0db47be498cdef1ebb",
+					"binary": "sha256:dca67911095a110c2b5c36e26df6cac860c602033e456c0db47be498cdef1ebb"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-linux-arm64",
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.32.0/kind-linux-arm64",
 				"digests": {
-					"asset": "sha256:8e1014e87c34901cc422a1445866835d1e666f2a61301c27e722bdeab5a1f7e4",
-					"binary": "sha256:8e1014e87c34901cc422a1445866835d1e666f2a61301c27e722bdeab5a1f7e4"
+					"asset": "sha256:b92cd615e97585de8ddade28ed5cd7feb4248d717c233eea5b03c37298900f5d",
+					"binary": "sha256:b92cd615e97585de8ddade28ed5cd7feb4248d717c233eea5b03c37298900f5d"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.31.0/kind-linux-amd64",
+				"url": "https://github.com/kubernetes-sigs/kind/releases/download/v0.32.0/kind-linux-amd64",
 				"digests": {
-					"asset": "sha256:eb244cbafcc157dff60cf68693c14c9a75c4e6e6fedaf9cd71c58117cb93e3fa",
-					"binary": "sha256:eb244cbafcc157dff60cf68693c14c9a75c4e6e6fedaf9cd71c58117cb93e3fa"
+					"asset": "sha256:50030de23cf40a18505f20426f6a8506bedf13c6e509244bd1fa9463721b0f54",
+					"binary": "sha256:50030de23cf40a18505f20426f6a8506bedf13c6e509244bd1fa9463721b0f54"
 				}
 			}
 		},
@@ -18983,32 +18983,32 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.44.0",
-		"released": "2026-05-01T17:10:55Z",
-		"updated": "2026-05-11T08:55:22Z",
+		"version": "1.45.0",
+		"released": "2026-06-02T20:22:47Z",
+		"updated": "2026-06-08T07:23:29Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.44.0/syft_1.44.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.45.0/syft_1.45.0_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:24e4d34078ae81da7c82539616f0ccac3e226cf4f74a38ce6fb3463619e50a55",
-					"binary": "sha256:09aa35f766d0ea34b2e64d82b9c6e2e315ff74019bd7cebe7f3bf6057ef6c62f"
+					"asset": "sha256:a3be0f0329b45f87908eda10cfeab261936b2bfbc47eaa36694ca8d613f9ca7e",
+					"binary": "sha256:c927acea1a3a3c84d09110f5aef65289b6b6c8940e7d89bd216bf260973ff405"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.44.0/syft_1.44.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.45.0/syft_1.45.0_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:6f6cdcdc695721d91ce756e3b5bc3e3416599c464101f5e32e9c3f33054ee6d9",
-					"binary": "sha256:ce828dc43bc44271f77c5e3fbc35efce71890cd83ba8dd39d6cfc8e2a031b2f2"
+					"asset": "sha256:3101fc588a6662ab3d46eda470159f82d6c6c0fd59f618fdd29928ed1c1197bb",
+					"binary": "sha256:ecbed56346cb5850688ae863b053834e454123c0c0ee658120e59689fa672970"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.44.0/syft_1.44.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.45.0/syft_1.45.0_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:0e91737aee2b5baf1d255b959630194a302335d848ff97bb07921eb6205b5f5a",
-					"binary": "sha256:23d4e25a32026ab27351c3c044a40bcc51311c00b8bb990aa204bec4b0bb19cd"
+					"asset": "sha256:cd5efa489e93ecde99c03a218db5dee8b3f03610466d7565cefd735610d1b28b",
+					"binary": "sha256:1a3ec573ff86d6336ba567e6b0817d71e42b16fa3fe1aa64e1f7dac27c36d8ef"
 				}
 			}
 		},
