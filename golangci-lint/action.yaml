@@ -67,7 +67,7 @@ runs:
   steps:
     - name: Install golangci-lint
       if: inputs.action != 'run'
-      uses: cerbos/actions/install-tools@45e39b3387e34378b22469726a25c97d2ff63d84
+      uses: cerbos/actions/install-tools@0173a61a5c56997a7c4ab495349c6706614c463b
       with:
         tools: golangci-lint
 
