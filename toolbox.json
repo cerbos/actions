@@ -67,32 +67,32 @@
     ]
   },
   "crane": {
-    "version": "0.21.6",
-    "released": "2026-05-18T19:10:58Z",
-    "updated": "2026-05-25T09:28:21Z",
+    "version": "0.21.7",
+    "released": "2026-06-17T22:00:28Z",
+    "updated": "2026-06-23T13:40:40Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Darwin_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Darwin_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:a124f297d1e63e8b6c63c2463e43565290d2fd074c1dadb5ca73d737bc7b2484",
-          "binary": "sha256:a982a0ce9c69730ddaf7b6f33dcc362c5898e5597dea880c0944530bc57f318f"
+          "asset": "sha256:1858c55dcd6053fe869bcb0c4ec20666383ddce445ad0f7e15e1e506b1f7fe52",
+          "binary": "sha256:ff5ebee8f2f72c1edf463a7e9bf57fd97fab4b03e1bfba51d7eddc8f798d4c3b"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Linux_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Linux_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:6f61571ca0c2a5da27c2927fcb143255ccb2b74b8977dfcb44645b372ab0f951",
-          "binary": "sha256:080335d375b50601c53f4c49953eb1574e0d6d9ae8396be3e1b2d8fddd96a17e"
+          "asset": "sha256:b6ee979d9411dfb05ce35ab9e156fe5de7def11a230764a7856ffa2eb971fa88",
+          "binary": "sha256:b9f05127a1466f0b2c50afd41c0ebdd80635ba511f59387412be74edd6b586c3"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.6/go-containerregistry_Linux_x86_64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Linux_x86_64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:7ebbdcd05b652345c1f5105f8475e518534b90d66f3bdb50017be63f426ea435",
-          "binary": "sha256:f093582da0ef1130f64b063b66063b57282ba585049de3e32f7e4f2007791b1a"
+          "asset": "sha256:1a57bc98207fa1c0d04bf760699099e26f8383499bfd55b99c1b919a928a7230",
+          "binary": "sha256:73c254403f06a07b5274261093693afa01ab964645c929ebb79cd66e077c6ba2"
         }
       }
     },
@@ -277,32 +277,32 @@
     ]
   },
   "helm": {
-    "version": "4.2.1",
-    "released": "2026-06-12T03:08:17Z",
-    "updated": "2026-06-22T05:52:45Z",
+    "version": "4.2.2",
+    "released": "2026-06-17T20:07:36Z",
+    "updated": "2026-06-23T13:40:40Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://get.helm.sh/helm-v4.2.1-darwin-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.2-darwin-arm64.tar.gz",
         "extract": "darwin-arm64/helm",
         "digests": {
-          "asset": "sha256:896472d2ec0740c60f64a9df0fc30d478beee38a1a2a6ed91aa6e6ee177c1575",
-          "binary": "sha256:c2c6592631d7165654025e0f80aa4a75967a0e32cf223f5f365c9cb5028e9ed0"
+          "asset": "sha256:5410a0dae3d5d91f45653b161260d9301aabc4ae80ae50a6605d66884b6df8ea",
+          "binary": "sha256:da346616aaaddb924560e8b3a538e83556dc070889a5d35a54ce363a189d4c73"
         }
       },
       "linux/arm64": {
-        "url": "https://get.helm.sh/helm-v4.2.1-linux-arm64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.2-linux-arm64.tar.gz",
         "extract": "linux-arm64/helm",
         "digests": {
-          "asset": "sha256:596b9a73d366c1e72ce67d595c22805480e30914593aafbc9f547694e72814db",
-          "binary": "sha256:2febc450f75db11987d823e3e9cea6e1472c9d58a4e7012d467238c136293077"
+          "asset": "sha256:78803142087a0069fa4b50d3f32a84d3ef25c14d1ee8a40fbccf86a6216d2f36",
+          "binary": "sha256:52178284a85dda79ffe6779ca0624866aa65b8336b6a6c16cd07b261b1bc805e"
         }
       },
       "linux/x64": {
-        "url": "https://get.helm.sh/helm-v4.2.1-linux-amd64.tar.gz",
+        "url": "https://get.helm.sh/helm-v4.2.2-linux-amd64.tar.gz",
         "extract": "linux-amd64/helm",
         "digests": {
-          "asset": "sha256:479dca836e5b45e8bd222400c5591b0e3a647378f03ff96597180db97c17fdae",
-          "binary": "sha256:1ce3db0d1efbea3c381b28599c54944d6b0e8ae65d410132992e49886765a3e0"
+          "asset": "sha256:9adafecab4d406853bba163a70e9f104f47dbbf65ce24b7653bae7e36150bcb6",
+          "binary": "sha256:9dc598ed93d4a45352d2c4a3258b6ccabb6213bd3817f0ed5aacc8c428a4ff0d"
         }
       }
     },
