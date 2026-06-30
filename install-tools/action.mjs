@@ -40,7 +40,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	value: mod,
 	enumerable: true
 }) : target, mod));
-var __require = /* @__PURE__ */ createRequire(import.meta.url);
+var __require = /* #__PURE__ */ (() => createRequire(import.meta.url))();
 //#endregion
 //#region node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/utils.js
 /**
@@ -8082,7 +8082,7 @@ var require_readable = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	* @returns {Uint8Array}
 	*/
 	function chunksConcat(chunks, length) {
-		if (chunks.length === 0 || length === 0) return new Uint8Array(0);
+		if (chunks.length === 0 || length === 0) return /* @__PURE__ */ new Uint8Array(0);
 		if (chunks.length === 1) return new Uint8Array(chunks[0]);
 		const buffer = new Uint8Array(Buffer.allocUnsafeSlow(length).buffer);
 		let offset = 0;
@@ -19156,32 +19156,32 @@ var toolbox_default = {
 		"postInstall": ["telepresence", "version"]
 	},
 	terraform: {
-		"version": "1.15.6",
-		"released": "2026-06-10T10:16:44Z",
-		"updated": "2026-06-22T05:52:43Z",
+		"version": "1.15.7",
+		"released": "2026-06-24T15:51:14Z",
+		"updated": "2026-06-30T14:20:59Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.6/terraform_1.15.6_darwin_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_darwin_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:8d4c6791a744332bc7ca3962c61ab2ed8e5d25a7299f176f5edffb9cb525e85f",
-					"binary": "sha256:e4ef32a653f0d58cb5c53e4b4cbaa59e1dd0496aab4965d08a218e9579f6cea7"
+					"asset": "sha256:711791bf41365137a9a4adbf3e4c4a18dd7389d45c6a3039e3c6946bc750080e",
+					"binary": "sha256:4bb36f1edd88ffb5a508e8b65ca00f89fbdc8d5143bafc2f43c9d5cc40e1d262"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.6/terraform_1.15.6_linux_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:404c9cfa43728d31005f6e7a848b8a7cc701320067d9d87d8850031a5beb37b0",
-					"binary": "sha256:06d123171e9630cf050389bf9bf41953bd483afde73991bd25e1d94ba8319ccd"
+					"asset": "sha256:7a9e92105ede978cf9049a2fbe53dfe67c6a8da4b4d7f613d89e7dd7c63ec40d",
+					"binary": "sha256:ed06b3f29ac8f7b72a30f28f831c72d15d76321597582d3de900a60c926c88d7"
 				}
 			},
 			"linux/x64": {
-				"url": "https://releases.hashicorp.com/terraform/1.15.6/terraform_1.15.6_linux_amd64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_amd64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:a7150d3b0e1b5c466ad42e8c499954a3c54645f8b56b385fa025d34f7e88faa9",
-					"binary": "sha256:935a33be2bba133d4ee0f766abc1f4866f3f47b199249cb403962230076a19ea"
+					"asset": "sha256:73bbb8f5188ad75d4fb853fd100ae4d7e146ef7af7db18776109642fdb7759d2",
+					"binary": "sha256:15cc5bba01dbcf61c3c18236014d3a5323f919a484a77be288de5c9835feb9fc"
 				}
 			}
 		},
