@@ -27,6 +27,7 @@ inputs:
     description: |
       Experimental options for the action.
       List of comma separated options.
+      Available options: `automatic-module-directories`, `no-run-logs-group`
     required: false
   github-token:
     description: The token is used for fetching the patch of a pull request to show only new issues.
