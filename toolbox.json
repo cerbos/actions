@@ -517,32 +517,32 @@
     ]
   },
   "reimage": {
-    "version": "0.15.0",
-    "released": "2026-07-15T07:50:20Z",
-    "updated": "2026-07-15T08:25:27Z",
+    "version": "0.15.1",
+    "released": "2026-07-15T10:24:56Z",
+    "updated": "2026-07-15T10:44:44Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.0/reimage_0.15.0_Darwin_arm64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.1/reimage_0.15.1_Darwin_arm64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:5e1894e27b1191c43a79041b9e0837c92ac98c6d48836dbd3817b2aa618ffba1",
-          "binary": "sha256:eceaa4851e48780ec9e60a8f81cc620f7b454bfaaf98218cf4e4ba3032fd5983"
+          "asset": "sha256:ba630630bedfd2df8172720ade07ddc71a34e14648a779ea31dc48edd685c232",
+          "binary": "sha256:aba4aab91a9e42a01b8924e4625a0acbe2f9267fcae67ffdaa87d9145212e775"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.0/reimage_0.15.0_Linux_arm64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.1/reimage_0.15.1_Linux_arm64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:2d4964a2b13fcac1d91c58b6d479b597637a3df1706ebcbf9d91a29dcedda34e",
-          "binary": "sha256:4a432e49f54723db684e301e7f729036e744ae7893bb910ed4984dc1b34b182f"
+          "asset": "sha256:a5e0c2eb41c2d6030b46e8eab9bd61ec08ce75492a343564994d3189a35e0e6e",
+          "binary": "sha256:e0706e2fa083a5740682dcbd9d8909ba2504c1d3ef0b6cf99d52e89f5070f947"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.0/reimage_0.15.0_Linux_x86_64.tar.gz",
+        "url": "https://github.com/cerbos/reimage/releases/download/v0.15.1/reimage_0.15.1_Linux_x86_64.tar.gz",
         "extract": "reimage",
         "digests": {
-          "asset": "sha256:abffdb967e0e009f9ec1b2252d7d1820750ce129cf83b6f78d23b6a2a2c7200b",
-          "binary": "sha256:b6aa2dfe5feebb8177feca3896fc498140a9344dc79a7443696516f2c95cdd2f"
+          "asset": "sha256:e8abaaaa8c8f87ba527172520227caeb670d5f7aa644632f886ae9343a37e05b",
+          "binary": "sha256:3cf0101f4fa9e550b888fca4911862f5ea62caa4a3f75bb74cce73e071c7750d"
         }
       }
     },
