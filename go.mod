@@ -10,11 +10,11 @@ require (
 	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v89 v89.0.0
 	github.com/google/renameio/v2 v2.0.2
-	github.com/lmittmann/tint v1.1.3
+	github.com/lmittmann/tint v1.2.0
 	github.com/sigstore/sigstore-go v1.2.2
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
 	go.uber.org/multierr v1.11.0
-	golang.org/x/mod v0.37.0
+	golang.org/x/mod v0.38.0
 	golang.org/x/sync v0.22.0
 )
 
