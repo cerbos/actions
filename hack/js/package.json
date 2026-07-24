@@ -5,7 +5,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.10.0",
+      "version": "11.15.0",
       "onFail": "download"
     },
     "runtime": {
@@ -26,9 +26,9 @@
   "devDependencies": {
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "24.13.2",
-    "prettier": "3.9.4",
-    "rolldown": "1.1.4",
+    "@types/node": "24.13.3",
+    "prettier": "3.9.5",
+    "rolldown": "1.2.0",
     "typescript": "6.0.3"
   }
 }
