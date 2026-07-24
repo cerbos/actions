@@ -21,7 +21,7 @@ func Run(command func(context.Context) error) {
 	logLevel := slog.LevelInfo
 	_ = logLevel.UnmarshalText([]byte(os.Getenv("LOG_LEVEL")))
 
-	ctx = log.Context(ctx, slog.New(tint.NewHandler(os.Stderr, &tint.Options{Level: logLevel, TimeFormat: "15:04:05.000"})))
+	ctx = log.Context(ctx, slog.New(tint.NewTextHandler(os.Stderr, &tint.Options{Level: logLevel, TimeFormat: "15:04:05.000"})))
 
 	if err := command(ctx); err != nil {
 		log.Error(ctx, "Failed", "err", err)
