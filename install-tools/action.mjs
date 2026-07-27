@@ -19118,61 +19118,61 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.48.0",
-		"released": "2026-07-16T14:41:44Z",
-		"updated": "2026-07-24T08:09:17Z",
+		"version": "1.49.0",
+		"released": "2026-07-21T13:11:42Z",
+		"updated": "2026-07-27T08:07:34Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.48.0/syft_1.48.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.49.0/syft_1.49.0_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:fef3e6d5df336a0a4c3e421e503119d1e221cf82a3ef5e426a791fcd81667e87",
-					"binary": "sha256:dbecffadfefbf3095e992195e592cd9a5f7232a9cb3ec6019cb1b6a9afe2a185"
+					"asset": "sha256:4d137302fb3e049cb1b124b1cbd840a77280dc9f50a45a5a4389250a2228b3cb",
+					"binary": "sha256:edcfa80da9767f12a670721bc542b8a0d25c5d61e90a5ce06128cf4d68679ac5"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.48.0/syft_1.48.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.49.0/syft_1.49.0_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:6865a3d97c4e28b4b38571c17a2bf512da4494ef1d37613c3122fce0d67e63b0",
-					"binary": "sha256:c0bc05b0d7258a0a2313e063210c191e4549f4073ce5fcde2ebbad40a90c9b23"
+					"asset": "sha256:c7c32de183c32368de197edba75e8dba7632915f7761bacd55149a9ca7fe0fa4",
+					"binary": "sha256:2db8d39bafe1cba4d432cdfc41a985ddcd905cc0f0dfde28eea93ff13f296cd8"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.48.0/syft_1.48.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.49.0/syft_1.49.0_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:6cef9a7f37220d9067eaf9cfaaa2fce986e9f320a8d42cbc36658c99af78ea04",
-					"binary": "sha256:fd260522b9695350ee23483c88b803e96ffe9f8f3954106a7bcad7940a1ade89"
+					"asset": "sha256:7aa2f03ee92739cf643279ba3990548b9925d4e22cae13f46831ee62821147fe",
+					"binary": "sha256:6368bf376b578991192e2e94f5e276e6c70d313d6368ad8c249866f020a86cb0"
 				}
 			}
 		},
 		"postInstall": ["syft", "--version"]
 	},
 	telepresence: {
-		"version": "2.30.1",
-		"released": "2026-07-17T12:48:57Z",
-		"updated": "2026-07-24T08:09:15Z",
+		"version": "2.31.0",
+		"released": "2026-07-22T05:24:59Z",
+		"updated": "2026-07-27T08:07:34Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.30.1/telepresence-darwin-arm64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.31.0/telepresence-darwin-arm64",
 				"digests": {
-					"asset": "sha256:ce21b7bcec0636f90c70aabd461c2b693fdd4fd12849fbb177a8a6995dbc4b3f",
-					"binary": "sha256:ce21b7bcec0636f90c70aabd461c2b693fdd4fd12849fbb177a8a6995dbc4b3f"
+					"asset": "sha256:ffd4d2bdbdbb06cbfb6566f73c91b277b5997de3398d905df63f93826ee58f27",
+					"binary": "sha256:ffd4d2bdbdbb06cbfb6566f73c91b277b5997de3398d905df63f93826ee58f27"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.30.1/telepresence-linux-arm64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.31.0/telepresence-linux-arm64",
 				"digests": {
-					"asset": "sha256:400e7c26938c9f9beb5257f8e0eb58ab1d28ce5122297e7327c3f8891703cdc3",
-					"binary": "sha256:400e7c26938c9f9beb5257f8e0eb58ab1d28ce5122297e7327c3f8891703cdc3"
+					"asset": "sha256:db36616218aab0d07900a8bd695ee9ed8177d4f6e4968a78867a9accf9de8a5a",
+					"binary": "sha256:db36616218aab0d07900a8bd695ee9ed8177d4f6e4968a78867a9accf9de8a5a"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.30.1/telepresence-linux-amd64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.31.0/telepresence-linux-amd64",
 				"digests": {
-					"asset": "sha256:9316fd8d6a589f7b28a33ca5eee2605e6443e8913c23feb8e2be3c81f7beef3c",
-					"binary": "sha256:9316fd8d6a589f7b28a33ca5eee2605e6443e8913c23feb8e2be3c81f7beef3c"
+					"asset": "sha256:ba30ed7392b95d7c3500b2391e90299324e37893cc1f2ff27bafd690c30219a2",
+					"binary": "sha256:ba30ed7392b95d7c3500b2391e90299324e37893cc1f2ff27bafd690c30219a2"
 				}
 			}
 		},
