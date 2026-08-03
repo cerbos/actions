@@ -81,7 +81,7 @@ inputs:
     required: false
     default: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
   public_github_token:
-    description: GitHub token for github.com. Must be set when running on a private GitHub Enterprise instance to authenticate requests, otherwise ignored.
+    description: GitHub token for github.com. Must be set when running on a private GitHub Enterprise instance to authenticate requests, otherwise ignored. Used to resolve buf versions and download buf binaries from github.com. The token only needs read access to public repositories.
     required: false
   push:
     description: Whether to run the push step. Runs by default on pushes, for non forked repositories.
@@ -115,7 +115,7 @@ runs:
         tools: buf
 
     - name: Run buf
-      uses: bufbuild/buf-action@fd21066df7214747548607aaa45548ba2b9bc1ff # v1.4.0
+      uses: bufbuild/buf-action@8c6a16e16f12ba20b6470afa9c2ba9b5ba8c97c3 # v1.5.0
       with:
         version: ${{ steps.install.outputs.buf }}
         # wrap:uses.with:start
