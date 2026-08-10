@@ -9,6 +9,7 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
 	"github.com/cerbos/actions/hack/go/pkg/github"
 	"github.com/cerbos/actions/hack/go/pkg/platform"
+	"github.com/cerbos/actions/hack/go/pkg/semver"
 	"github.com/cerbos/actions/hack/go/pkg/sigstore"
 	"github.com/cerbos/actions/hack/go/pkg/toolbox"
 )
@@ -20,7 +21,12 @@ const (
 
 var (
 	Tool = updater.Tool{
-		Repo:        github.Repository{Owner: "google", Name: "go-containerregistry"},
+		Repo: github.Repository{Owner: "google", Name: "go-containerregistry"},
+		FindNewerReleaseOptions: []github.FindNewerReleaseOption{
+			github.VersionConstraint(func(version semver.Version) bool {
+				return version != "v0.21.8" // https://github.com/google/go-containerregistry/issues/2390
+			}),
+		},
 		Verify:      verify,
 		PostInstall: []string{"crane", "version"},
 	}
