@@ -8,7 +8,7 @@ require (
 	aead.dev/minisign v0.3.0
 	github.com/ProtonMail/gopenpgp/v3 v3.4.1
 	github.com/goccy/go-yaml v1.19.2
-	github.com/google/go-github/v89 v89.0.0
+	github.com/google/go-github/v90 v90.0.0
 	github.com/google/renameio/v2 v2.0.2
 	github.com/lmittmann/tint v1.2.0
 	github.com/sigstore/sigstore-go v1.3.0
