@@ -67,32 +67,32 @@
     ]
   },
   "crane": {
-    "version": "0.21.7",
-    "released": "2026-06-17T22:00:28Z",
-    "updated": "2026-06-23T13:40:40Z",
+    "version": "0.21.9",
+    "released": "2026-08-05T20:25:03Z",
+    "updated": "2026-08-17T06:13:10Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Darwin_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.9/go-containerregistry_Darwin_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:1858c55dcd6053fe869bcb0c4ec20666383ddce445ad0f7e15e1e506b1f7fe52",
-          "binary": "sha256:ff5ebee8f2f72c1edf463a7e9bf57fd97fab4b03e1bfba51d7eddc8f798d4c3b"
+          "asset": "sha256:11cc3640e53473eb0d8c501068573e52a259f4d82177e6dd11b7bacb8955459e",
+          "binary": "sha256:4aaac559b38d739afa64dc3b3865098d7877ffb56e121d6bfc3790e5f4f071aa"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Linux_arm64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.9/go-containerregistry_Linux_arm64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:b6ee979d9411dfb05ce35ab9e156fe5de7def11a230764a7856ffa2eb971fa88",
-          "binary": "sha256:b9f05127a1466f0b2c50afd41c0ebdd80635ba511f59387412be74edd6b586c3"
+          "asset": "sha256:1f4c647b7bb260ab5435661df5b526cf59950ebf95201790db7183ac189cbcbd",
+          "binary": "sha256:db5b5f8ecb141c369f9fa173d9fe1a0477c8d57bd3c1ea48dc05258bb86864b6"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.7/go-containerregistry_Linux_x86_64.tar.gz",
+        "url": "https://github.com/google/go-containerregistry/releases/download/v0.21.9/go-containerregistry_Linux_x86_64.tar.gz",
         "extract": "crane",
         "digests": {
-          "asset": "sha256:1a57bc98207fa1c0d04bf760699099e26f8383499bfd55b99c1b919a928a7230",
-          "binary": "sha256:73c254403f06a07b5274261093693afa01ab964645c929ebb79cd66e077c6ba2"
+          "asset": "sha256:5c16d8ddb971cb1d5e6ed8b1e743da8224414eeba2c2762d8f1a61b2f095699e",
+          "binary": "sha256:b0bb9155edd97f42f1f9438860b71e8d68177c5ca11536fe755e6b11aefa5f4d"
         }
       }
     },
@@ -242,32 +242,32 @@
     ]
   },
   "grype": {
-    "version": "0.116.1",
-    "released": "2026-07-28T21:39:05Z",
-    "updated": "2026-08-03T09:30:25Z",
+    "version": "0.117.0",
+    "released": "2026-08-10T16:48:27Z",
+    "updated": "2026-08-17T06:13:10Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.116.1/grype_0.116.1_darwin_arm64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_darwin_arm64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:f493f169cbaae48bade169532b20235fc16653d2a044a5bc6fe6f69a3923f975",
-          "binary": "sha256:361b86bc5906fa38ad24cc8a0c2ce9128ac7d8931e82505236a8d0b16bbf2fbe"
+          "asset": "sha256:bfcefa3f3b1690d9c77d847841b32ebd6106ab0e0e32f810924707e704d53584",
+          "binary": "sha256:34938b3387d4f79b92effe5d5018286d5a7113cd8722fb0fd2b3b2457233eead"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.116.1/grype_0.116.1_linux_arm64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_linux_arm64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:a8d7504a149629324eb5f4ce3dc25dfd211bbfe047e64ee2bf7844b466c3d84d",
-          "binary": "sha256:e6a6cf2882a29bf25018930f2b25f794fbd8c582b39f2cbc99a260797aad0eab"
+          "asset": "sha256:935f628bdf9331ffdd946931ea5fdb50045d3970ba52670cbeb44a88f127291b",
+          "binary": "sha256:b29b77ccccefe5d896cc2ceeed3e812f370d42ec4e509dc7619b0fd718b74ef8"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/anchore/grype/releases/download/v0.116.1/grype_0.116.1_linux_amd64.tar.gz",
+        "url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_linux_amd64.tar.gz",
         "extract": "grype",
         "digests": {
-          "asset": "sha256:0122df7b655981abe547ad3d2190d65551dac6a2bfc80b4dc2a989b5d0587458",
-          "binary": "sha256:a8fff88f37a08af6a536e162f37f9902ec94af03df9928ee6295dffe7044dc43"
+          "asset": "sha256:38525dab1e06f162ebaa02f94d82d1f807076b011a44180cf2777edf1a7b9c26",
+          "binary": "sha256:b0b47eded8a2a69eeea216c9f6b227d4c4969e2da9fae19eecfe8746979f5ea3"
         }
       }
     },
@@ -686,32 +686,32 @@
     ]
   },
   "syft": {
-    "version": "1.50.0",
-    "released": "2026-07-28T17:38:08Z",
-    "updated": "2026-08-03T09:30:26Z",
+    "version": "1.51.0",
+    "released": "2026-08-10T14:48:46Z",
+    "updated": "2026-08-17T06:13:12Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/anchore/syft/releases/download/v1.50.0/syft_1.50.0_darwin_arm64.tar.gz",
+        "url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_darwin_arm64.tar.gz",
         "extract": "syft",
         "digests": {
-          "asset": "sha256:e32fdb9d47823fa633748a1efca2528fd77c37469ea93c9e40ab835da44e4cce",
-          "binary": "sha256:5d59c9e6fa641793ddb48bc90b5b7ad63bf7303a52835b75b1beee3757463998"
+          "asset": "sha256:4f37f4c7fefce0a68e4cf71ba3f5f9829a99e65d89b29f7ee41b8c2c10ea8c59",
+          "binary": "sha256:b1147cee2d7f49d6ea58d9c95b24734985a4cc208fdd3f0f0f1ff950622f0252"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/anchore/syft/releases/download/v1.50.0/syft_1.50.0_linux_arm64.tar.gz",
+        "url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_linux_arm64.tar.gz",
         "extract": "syft",
         "digests": {
-          "asset": "sha256:887c57cbcc2d0e8c5c110a4571a3fc7150058b24d74f993ee4663516e5c8ce86",
-          "binary": "sha256:898a6def9d84742ea5a465f862266ce46ab0adbe33e5a79cfc9ad09ae128ad47"
+          "asset": "sha256:6c0466811541ea03add5213a60a1562f0851e4c0b0ecfdee1a694a9455285900",
+          "binary": "sha256:e1e854c616a9bf054a1ee9fe260da91725a3191bf1624bc5783aac482c877ff8"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/anchore/syft/releases/download/v1.50.0/syft_1.50.0_linux_amd64.tar.gz",
+        "url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_linux_amd64.tar.gz",
         "extract": "syft",
         "digests": {
-          "asset": "sha256:bf7b29ff57f06da30918266a0e1c2885a8f99784798d1bdb1628886aa015d788",
-          "binary": "sha256:22f2b95baf524d45ad16b0ad5cdeb200c4b8a816493768cec50e4682b1f24b0e"
+          "asset": "sha256:2a2e837a2c8d59ec9af5472ee22d3b04ee463c4e44476ecf993fd1e5ab6ebc7f",
+          "binary": "sha256:5a8b71e94f4607973145f02e27e01d50b9f7c7bc41e38d40b39606ad138b43b5"
         }
       }
     },
