@@ -18863,64 +18863,64 @@ var toolbox_default = {
 		"postInstall": ["grype", "--version"]
 	},
 	helm: {
-		"version": "4.2.3",
-		"released": "2026-07-09T20:25:38Z",
-		"updated": "2026-07-15T08:25:30Z",
+		"version": "4.2.4",
+		"released": "2026-08-13T14:57:35Z",
+		"updated": "2026-08-24T08:18:34Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://get.helm.sh/helm-v4.2.3-darwin-arm64.tar.gz",
+				"url": "https://get.helm.sh/helm-v4.2.4-darwin-arm64.tar.gz",
 				"extract": "darwin-arm64/helm",
 				"digests": {
-					"asset": "sha256:048ecf5ad3160f83d918f9fe945238d2132b079640f7b106175331c25f242c64",
-					"binary": "sha256:e8fe1a6caf4091026ad776eb2fe059a2d7a82fc69c22bd08cbcb3689d93e5c0d"
+					"asset": "sha256:d747eb4e28bd2727173d15b759fa0a17822291ec09db7ced3d55af290a3661a2",
+					"binary": "sha256:66f6b8881392bfa15c6c1dceef980426a28709c8122d5dc8a7a29697cad7334c"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://get.helm.sh/helm-v4.2.3-linux-arm64.tar.gz",
+				"url": "https://get.helm.sh/helm-v4.2.4-linux-arm64.tar.gz",
 				"extract": "linux-arm64/helm",
 				"digests": {
-					"asset": "sha256:21abd9354d39b2cd79a8d76be6912cd137a983cbf997193503fb8a6a6e2f2785",
-					"binary": "sha256:01bdd0c90f371968326162daaa427cdd14da2641ded094131afc44fb7a538b62"
+					"asset": "sha256:564de2191b881e9f71b5606b25345821ea1682f06ab90499d3ab22b530176da1",
+					"binary": "sha256:0690653ac2aad19150f0c22383ceb8aaf4fd96666fcfabb9d4641fbf757e0490"
 				}
 			},
 			"linux/x64": {
-				"url": "https://get.helm.sh/helm-v4.2.3-linux-amd64.tar.gz",
+				"url": "https://get.helm.sh/helm-v4.2.4-linux-amd64.tar.gz",
 				"extract": "linux-amd64/helm",
 				"digests": {
-					"asset": "sha256:e9b88b4ee95b18c706839c28d3a0220e5bc470e9cd9262410c90793c45ff8b7c",
-					"binary": "sha256:aeb4645b9e6658948efa290e28dd23ae75a16fb73f137942f2294fd5c7fcb573"
+					"asset": "sha256:c306b46f719b0a4da32d0f78ee21bf90ce8d602f15b22ab753f0674d1670a7f3",
+					"binary": "sha256:92e191314f44aac173711bb0247c38c727f3ddf65ad16a01c0861d509a63a9e1"
 				}
 			}
 		},
 		"postInstall": ["helm", "version"]
 	},
 	helmfile: {
-		"version": "1.7.3",
-		"released": "2026-08-04T10:31:11Z",
-		"updated": "2026-08-10T06:12:24Z",
+		"version": "1.7.4",
+		"released": "2026-08-16T02:47:19Z",
+		"updated": "2026-08-24T08:18:33Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.3/helmfile_1.7.3_darwin_arm64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.4/helmfile_1.7.4_darwin_arm64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:b69933ab364b010c320d1c858265d1845735784d8b317211e046cf74e22c6e80",
-					"binary": "sha256:4bb8c18afeafe2374ab32ae1ec2df80cf82d74002bb370106a10378e3c70927c"
+					"asset": "sha256:e1490d371fecc1f2d9aae914ef34058f3cb2363c9ee63350b37a85c3994d71d9",
+					"binary": "sha256:c7776cd4f9e4738137604a560d8569fcad62aad44bbb946f3266636224198380"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.3/helmfile_1.7.3_linux_arm64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.4/helmfile_1.7.4_linux_arm64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:4a2346df40362f49f395e47d5d6a16a29322b5c6968720c1bde60d101ae97e3b",
-					"binary": "sha256:3bad7603ba6eed6c75797c7683148e36abcba1b561617915d63bd8a7c3d47c1b"
+					"asset": "sha256:0292f57a4638a21e775b0ce8bde37ee3fdd65dbbdbe0e5b9a06718f1dd04c7fa",
+					"binary": "sha256:d119553eb01406db560c484f69b084c1267a110c49f45afc0418a5d68069b9e9"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.3/helmfile_1.7.3_linux_amd64.tar.gz",
+				"url": "https://github.com/helmfile/helmfile/releases/download/v1.7.4/helmfile_1.7.4_linux_amd64.tar.gz",
 				"extract": "helmfile",
 				"digests": {
-					"asset": "sha256:23d7df593f704ab1709b3020c8c8083b1517c9e780b5010e756a7d36bd901552",
-					"binary": "sha256:446b29f74cadf4f180c62ae755faf5f782e1f9678a36a6d6818f37076622a85d"
+					"asset": "sha256:f96ef0a015df06b29d7f38bf0ca08821018ae25eb96bf2c7abd3affa1b84e112",
+					"binary": "sha256:e87be6da74e6599549829b562c26d56283fe8f3b8be6f108c6e01845c6bc11c0"
 				}
 			}
 		},
@@ -19332,32 +19332,32 @@ var toolbox_default = {
 		"postInstall": ["terraform", "version"]
 	},
 	vals: {
-		"version": "0.45.0",
-		"released": "2026-07-23T23:54:04Z",
-		"updated": "2026-08-03T09:30:26Z",
+		"version": "0.46.0",
+		"released": "2026-08-15T08:34:35Z",
+		"updated": "2026-08-24T08:18:33Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.45.0/vals_0.45.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.46.0/vals_0.46.0_darwin_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:f7641736ee8c70ecf89cf976dc128a2295595092d54dd5de76b37496270c1e32",
-					"binary": "sha256:673e549d488a9149459397ad7c6effc402d4c48097541d7cf254cd0a2f4b94e0"
+					"asset": "sha256:f869c467210162201048e7187b59a6cb30dc7658e3f347229adc9542e3cca266",
+					"binary": "sha256:65206186ca0b3df2e9ea0af30c08a0d3b02d92958b04df78ccaa889b8977186b"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.45.0/vals_0.45.0_linux_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.46.0/vals_0.46.0_linux_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:89cd7564df903eeac72007c7a289ee95e71df9725906ed0d47ff609da995f33a",
-					"binary": "sha256:abf2a2748dba0a650aafd7c352a03904b36fc844d5ddc8ecaf0f3ed6ea62e9d9"
+					"asset": "sha256:a5b5470de20ade57944cdce7393ba9b5be57ded359162e41ec0ea0920c114f6f",
+					"binary": "sha256:4a15295ffa0e4d97a7ae29a3e3401446c2f83a5cc600c47ce699390792617a41"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.45.0/vals_0.45.0_linux_amd64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.46.0/vals_0.46.0_linux_amd64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:fe94d8785d56c9f5f00a061a9e1b08d1dc07d20466edf73b070f0ee89768e7f2",
-					"binary": "sha256:6f87b9e6413f980100610f5b55af2b374c240fb487182147d3cf671a8fe055ca"
+					"asset": "sha256:42d2f672dc98b040b8179e87b1c3474418003b95a938ba3bbe13310e5e82847c",
+					"binary": "sha256:2cfa85fe7d9158a6a232849bed472ffa4dade7aba634b5cf927bf94cb2ea06e6"
 				}
 			}
 		},
