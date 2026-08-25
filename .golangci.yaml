@@ -90,4 +90,7 @@ formatters:
         - dot
 
     gofumpt:
-      extra-rules: true
+      extra:
+        balance-calls: true
+        clothe-returns: true
+        group-params: true

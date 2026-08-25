@@ -80,8 +80,8 @@ func (c *Client) verify(release *github.Release, assetName string, bundle *bundl
 
 	return c.verifier.Verify(bundle, verify.NewPolicy(
 		verify.WithArtifactDigest("sha256", asset.Digest[:]),
-		verify.WithCertificateIdentity(identity)),
-	)
+		verify.WithCertificateIdentity(identity),
+	))
 }
 
 func BundleFromAsset(release *github.Release, assetName string) (*bundle.Bundle, error) {
