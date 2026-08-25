@@ -172,32 +172,32 @@
     ]
   },
   "golangci-lint": {
-    "version": "2.12.2",
-    "released": "2026-05-06T11:01:25Z",
-    "updated": "2026-05-11T14:41:14Z",
+    "version": "2.13.0",
+    "released": "2026-08-19T22:56:17Z",
+    "updated": "2026-08-25T10:21:51Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.12.2/golangci-lint-2.12.2-darwin-arm64.tar.gz",
-        "extract": "golangci-lint-2.12.2-darwin-arm64/golangci-lint",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.0/golangci-lint-2.13.0-darwin-arm64.tar.gz",
+        "extract": "golangci-lint-2.13.0-darwin-arm64/golangci-lint",
         "digests": {
-          "asset": "sha256:a9c54498731b3128f79e090be6110f3e5fffccc617b08142ed244d4126c73f29",
-          "binary": "sha256:691b9100ce968ff0009b6b7757ef6a585e31ae9ab11dfe0340ebb6e8e21fdc3d"
+          "asset": "sha256:72eae670097978e61b78a773a25c27439e35d54094fd986cee5eeeb25d7144fd",
+          "binary": "sha256:c1fb98c6295f113e9499b814512123378390f0f1771cdf22057f56f10714e1cc"
         }
       },
       "linux/arm64": {
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.12.2/golangci-lint-2.12.2-linux-arm64.tar.gz",
-        "extract": "golangci-lint-2.12.2-linux-arm64/golangci-lint",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.0/golangci-lint-2.13.0-linux-arm64.tar.gz",
+        "extract": "golangci-lint-2.13.0-linux-arm64/golangci-lint",
         "digests": {
-          "asset": "sha256:44cd40a8c76c86755375adfeea52cfd3533cb43d7bd647771e0ae065e166df3a",
-          "binary": "sha256:66dbbe60d3e1fc6b07807be7cbe58fe9ed45afe190018fba2112870e2e30b737"
+          "asset": "sha256:3a91c7bb9c135099a97858bea431d6dd2f54e4bf68d479c776c2350428d60e41",
+          "binary": "sha256:5274f3710e39d38bb8a8d46be1b249ae4a4ed6d00d15723abe3d0cff310b03ad"
         }
       },
       "linux/x64": {
-        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.12.2/golangci-lint-2.12.2-linux-amd64.tar.gz",
-        "extract": "golangci-lint-2.12.2-linux-amd64/golangci-lint",
+        "url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.0/golangci-lint-2.13.0-linux-amd64.tar.gz",
+        "extract": "golangci-lint-2.13.0-linux-amd64/golangci-lint",
         "digests": {
-          "asset": "sha256:8df580d2670fed8fa984aac0507099af8df275e665215f5c7a2ae3943893a553",
-          "binary": "sha256:e26335d9bd381a60e5769a13b0ccc7967db5b6fb9c39a896a1f6fd0befe0a661"
+          "asset": "sha256:a10e8d8359d76b9e2b41da60f9d98bb26fd53c7a453caa82e0a172d6f72fd2ca",
+          "binary": "sha256:6cc16f4da35e7e6b73f77b1b96093568590242d2396ee9f23835e7c8a28accac"
         }
       }
     },
@@ -414,29 +414,29 @@
     ]
   },
   "kubectl": {
-    "version": "1.36.3",
-    "released": "2026-07-22T18:07:38Z",
-    "updated": "2026-08-03T09:30:25Z",
+    "version": "1.36.4",
+    "released": "2026-08-20T03:06:27Z",
+    "updated": "2026-08-25T10:21:54Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://dl.k8s.io/release/v1.36.3/bin/darwin/arm64/kubectl",
+        "url": "https://dl.k8s.io/release/v1.36.4/bin/darwin/arm64/kubectl",
         "digests": {
-          "asset": "sha256:fc8582acde13869a606730a79379d6515f30c68afcced0b5ac8789d5d002b7d6",
-          "binary": "sha256:fc8582acde13869a606730a79379d6515f30c68afcced0b5ac8789d5d002b7d6"
+          "asset": "sha256:c9e4f713d6fee0043a3d835cca13077cda2bc0973840eb9779360df0b5bdfc69",
+          "binary": "sha256:c9e4f713d6fee0043a3d835cca13077cda2bc0973840eb9779360df0b5bdfc69"
         }
       },
       "linux/arm64": {
-        "url": "https://dl.k8s.io/release/v1.36.3/bin/linux/arm64/kubectl",
+        "url": "https://dl.k8s.io/release/v1.36.4/bin/linux/arm64/kubectl",
         "digests": {
-          "asset": "sha256:3d86f24401c41ae5a46ac50eef8865fe891d3647d324a0836f6c63757a126e62",
-          "binary": "sha256:3d86f24401c41ae5a46ac50eef8865fe891d3647d324a0836f6c63757a126e62"
+          "asset": "sha256:0ecf44450ee6063bf19dd166a103ee6df4a9034455c2abce626e6eea657d73fb",
+          "binary": "sha256:0ecf44450ee6063bf19dd166a103ee6df4a9034455c2abce626e6eea657d73fb"
         }
       },
       "linux/x64": {
-        "url": "https://dl.k8s.io/release/v1.36.3/bin/linux/amd64/kubectl",
+        "url": "https://dl.k8s.io/release/v1.36.4/bin/linux/amd64/kubectl",
         "digests": {
-          "asset": "sha256:ebbd080e7c2e275093b55915722043257eb24004363e20acb3c4d71919f88336",
-          "binary": "sha256:ebbd080e7c2e275093b55915722043257eb24004363e20acb3c4d71919f88336"
+          "asset": "sha256:8b8f088da2dab964f853b38464033b1be15ede2839eca751482357c45abdd05a",
+          "binary": "sha256:8b8f088da2dab964f853b38464033b1be15ede2839eca751482357c45abdd05a"
         }
       }
     },
@@ -753,32 +753,32 @@
     ]
   },
   "terraform": {
-    "version": "1.15.8",
-    "released": "2026-07-08T15:30:58Z",
-    "updated": "2026-07-15T08:25:25Z",
+    "version": "1.15.9",
+    "released": "2026-08-19T13:23:34Z",
+    "updated": "2026-08-25T10:21:50Z",
     "downloads": {
       "darwin/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.9/terraform_1.15.9_darwin_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:f210110c5698b94d803a7a63cdb0251b5455c150841478808e2bbb343f95ed68",
-          "binary": "sha256:ec83c7c64d8eb67b2d7c37935d6bcbe93b4ec3533b1ee223a8fb07daa098f9e8"
+          "asset": "sha256:05b27586a5d7d84105690ecccc7edbbf48bc3d6d577745cb61f163ba990adf4f",
+          "binary": "sha256:22ff703f614935d5f1f42e38f834ae99e92b6652b63567f89917642336e215c3"
         }
       },
       "linux/arm64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_arm64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.9/terraform_1.15.9_linux_arm64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:8891e9dcedc9e3b8950bc6af9d4d8af1f4cfade3062f53b9dc403a89f6ce8c9c",
-          "binary": "sha256:00f55981f5215594c418cd6b20f44fa4c99f9126650602e65d533d131005ea81"
+          "asset": "sha256:0afa6c29f61ca5ea270e950e43e50ecf2418b598507bf580e8ae76e1e6699b19",
+          "binary": "sha256:52276e438c4c6e97c211d9cccf88bfcd59562022e3640d33f47e2fad6aebee3c"
         }
       },
       "linux/x64": {
-        "url": "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip",
+        "url": "https://releases.hashicorp.com/terraform/1.15.9/terraform_1.15.9_linux_amd64.zip",
         "extract": "terraform",
         "digests": {
-          "asset": "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d",
-          "binary": "sha256:8b6cb96cd46080ee1287baf646c70078715a99123b9b3a6ce2a7fe3892ec703a"
+          "asset": "sha256:76edd0b22d2f27d3d2e097cd793209646f719cf60f02ff3af626b07361137da1",
+          "binary": "sha256:c39d41adb17963bac5dd610ad47815dd81e945371a7cabc344a45d63b1b093bd"
         }
       }
     },
