@@ -18767,32 +18767,32 @@ var toolbox_default = {
 		"postInstall": ["ghz", "--version"]
 	},
 	"golangci-lint": {
-		"version": "2.13.1",
-		"released": "2026-08-20T14:25:56Z",
-		"updated": "2026-08-25T15:00:50Z",
+		"version": "2.13.2",
+		"released": "2026-08-27T22:52:33Z",
+		"updated": "2026-09-02T08:37:37Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.1/golangci-lint-2.13.1-darwin-arm64.tar.gz",
-				"extract": "golangci-lint-2.13.1-darwin-arm64/golangci-lint",
+				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.2/golangci-lint-2.13.2-darwin-arm64.tar.gz",
+				"extract": "golangci-lint-2.13.2-darwin-arm64/golangci-lint",
 				"digests": {
-					"asset": "sha256:0c9818baf6fb8ad26c6d2ef51b68d5a1e260ef07727036b1431647cc44637c7c",
-					"binary": "sha256:4ed19b42f46e5e186aceabc5fae89e10b72d526c9388acefbadc4db005ab43c8"
+					"asset": "sha256:f4bf83f0b64f055c42b28fc9a38861839f69c096e61c788e72dfaae412011789",
+					"binary": "sha256:78ffa18bf2d9ffbde06ae76d1a266c0f83d354990bcf9028cb22111dcc3f443e"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.1/golangci-lint-2.13.1-linux-arm64.tar.gz",
-				"extract": "golangci-lint-2.13.1-linux-arm64/golangci-lint",
+				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.2/golangci-lint-2.13.2-linux-arm64.tar.gz",
+				"extract": "golangci-lint-2.13.2-linux-arm64/golangci-lint",
 				"digests": {
-					"asset": "sha256:908317c23db18448f924e853b3d8a659fd919614cd438f224810a4053daa2607",
-					"binary": "sha256:a11e11eb045bfdbdd83c3447d5db6a7bd308d7add77ae34437f1d7eb2470905d"
+					"asset": "sha256:a2a4e0065aa41be71f7c5ac90f271b61751331e5d04314e62afe4027855f0893",
+					"binary": "sha256:85cc0601d07afb7474837d615ae2efe0c1715d1010a0fedf86a4a6fd4630dfe0"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.1/golangci-lint-2.13.1-linux-amd64.tar.gz",
-				"extract": "golangci-lint-2.13.1-linux-amd64/golangci-lint",
+				"url": "https://github.com/golangci/golangci-lint/releases/download/v2.13.2/golangci-lint-2.13.2-linux-amd64.tar.gz",
+				"extract": "golangci-lint-2.13.2-linux-amd64/golangci-lint",
 				"digests": {
-					"asset": "sha256:b17bfbc9d4aaa48be7f4f1ce3240bc3d8200c870c072bacf15c26219e2cfb9cc",
-					"binary": "sha256:4a69ed380cd8593077aefea87e2bce8082ede83b431a5bf405072cab168be812"
+					"asset": "sha256:2277d43b98ec0054280f2ac26b53268bae97682444678a59a657dd565da021d6",
+					"binary": "sha256:97aa6134a250a0f964d112a5e6c01c80f87e4b0512872ebe0845834b5a03b76b"
 				}
 			}
 		},
@@ -18831,32 +18831,32 @@ var toolbox_default = {
 		"postInstall": ["goreleaser", "--version"]
 	},
 	grype: {
-		"version": "0.117.0",
-		"released": "2026-08-10T16:48:27Z",
-		"updated": "2026-08-17T06:13:10Z",
+		"version": "0.118.0",
+		"released": "2026-08-27T19:57:59Z",
+		"updated": "2026-09-02T08:37:38Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_darwin_arm64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:bfcefa3f3b1690d9c77d847841b32ebd6106ab0e0e32f810924707e704d53584",
-					"binary": "sha256:34938b3387d4f79b92effe5d5018286d5a7113cd8722fb0fd2b3b2457233eead"
+					"asset": "sha256:938f050bb5076c8aa761867b39843abad2414dfe4cc82b7d36886e634f49c640",
+					"binary": "sha256:e678673799c36951cbeb69583d020fa5c9fa5e6db3e68d19ab3f1914de3957c0"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_linux_arm64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:935f628bdf9331ffdd946931ea5fdb50045d3970ba52670cbeb44a88f127291b",
-					"binary": "sha256:b29b77ccccefe5d896cc2ceeed3e812f370d42ec4e509dc7619b0fd718b74ef8"
+					"asset": "sha256:32aceeb8ee837244775fcb522372c8b3a47914986385f3148f4ee2c930482a84",
+					"binary": "sha256:abbadfff923ea8d328272c2a750314244dcc948c420c1f615645570cea8e480b"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.117.0/grype_0.117.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.118.0/grype_0.118.0_linux_amd64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:38525dab1e06f162ebaa02f94d82d1f807076b011a44180cf2777edf1a7b9c26",
-					"binary": "sha256:b0b47eded8a2a69eeea216c9f6b227d4c4969e2da9fae19eecfe8746979f5ea3"
+					"asset": "sha256:1d444c5e7360471815f7158f71935fcecc68a3c417d85c7344f770854300bba2",
+					"binary": "sha256:91705979c6ccb736b87e3250831f5e1a35f13767fd2032ffa85c55b1e6f58f90"
 				}
 			}
 		},
@@ -19021,32 +19021,32 @@ var toolbox_default = {
 		]
 	},
 	oras: {
-		"version": "1.3.3",
-		"released": "2026-07-10T18:40:53Z",
-		"updated": "2026-07-24T08:09:15Z",
+		"version": "1.3.4",
+		"released": "2026-08-27T19:26:44Z",
+		"updated": "2026-09-02T08:37:37Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/oras-project/oras/releases/download/v1.3.3/oras_1.3.3_darwin_arm64.tar.gz",
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.4/oras_1.3.4_darwin_arm64.tar.gz",
 				"extract": "oras",
 				"digests": {
-					"asset": "sha256:f33fc12753c54172b0d0d19eaa0318d3f90fe9b094d96e8b259c881713c92e1c",
-					"binary": "sha256:4b8a42fc8e7976710eef8b846309b5426aa4d12d0de9dfd691d58507f23cf180"
+					"asset": "sha256:217761a9500242ff473de8656b5aca21136ff39e17e9e61fd8936bbfd902704c",
+					"binary": "sha256:50ae33461ea6e2746b774587d2cb060850961ce01bfd6e70b48d4267919b491c"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/oras-project/oras/releases/download/v1.3.3/oras_1.3.3_linux_arm64.tar.gz",
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.4/oras_1.3.4_linux_arm64.tar.gz",
 				"extract": "oras",
 				"digests": {
-					"asset": "sha256:ac7156f93a21e903f7ad606c792f3560f17e0cd0e36365634701b1e7cc4e4eca",
-					"binary": "sha256:f4bdc5f948233b03042734bf679d6926323701f4dcc08de25301af82b648d6f3"
+					"asset": "sha256:15702c6e3a4a56a8bd8ac5c17efdbcab56d9bada661ccbcf017f5b10c1d89399",
+					"binary": "sha256:2915306a072ba69e4efbbe20d79246c5dbba8158efc8c4400841eca70dd5f458"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/oras-project/oras/releases/download/v1.3.3/oras_1.3.3_linux_amd64.tar.gz",
+				"url": "https://github.com/oras-project/oras/releases/download/v1.3.4/oras_1.3.4_linux_amd64.tar.gz",
 				"extract": "oras",
 				"digests": {
-					"asset": "sha256:9ce999f8d2de03fc03968b29d743077a58783e545e5eaa53917ca177352d0e59",
-					"binary": "sha256:a9c7694677a72251c89c176331d41b2198d8e85cbaece038bcbc8da0679e1139"
+					"asset": "sha256:f27adb935022d94df8dc77719c322dda592c78a0d57a6f7dcdd8d900b248c454",
+					"binary": "sha256:246c47e91bf2749a555ffe00a9824844c6df3a26d61974e3ce08f2077d79c556"
 				}
 			}
 		},
@@ -19239,32 +19239,32 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.51.0",
-		"released": "2026-08-10T14:48:46Z",
-		"updated": "2026-08-17T06:13:12Z",
+		"version": "1.51.1",
+		"released": "2026-08-27T16:54:58Z",
+		"updated": "2026-09-02T08:37:37Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:4f37f4c7fefce0a68e4cf71ba3f5f9829a99e65d89b29f7ee41b8c2c10ea8c59",
-					"binary": "sha256:b1147cee2d7f49d6ea58d9c95b24734985a4cc208fdd3f0f0f1ff950622f0252"
+					"asset": "sha256:ac063af3b9874769deb7ea1e6d76841e68f9e3bb50cd654226fc977de65532c1",
+					"binary": "sha256:47cd0bc89537c80eed48f34766743d54574e5830deff243cf54d99696a8e9ce0"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:6c0466811541ea03add5213a60a1562f0851e4c0b0ecfdee1a694a9455285900",
-					"binary": "sha256:e1e854c616a9bf054a1ee9fe260da91725a3191bf1624bc5783aac482c877ff8"
+					"asset": "sha256:a7fd2b784e6664acd44719270574f6cd8c6864fc2b1700bf9099bd1cccda7d7f",
+					"binary": "sha256:617cef943234e0cae184b4901414ca4059ad6c6923a9c9decb46f49f6a2c6573"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.51.0/syft_1.51.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.51.1/syft_1.51.1_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:2a2e837a2c8d59ec9af5472ee22d3b04ee463c4e44476ecf993fd1e5ab6ebc7f",
-					"binary": "sha256:5a8b71e94f4607973145f02e27e01d50b9f7c7bc41e38d40b39606ad138b43b5"
+					"asset": "sha256:8fcb33017a0dc1058298c923c436d19dfa68ae93968e0b423248542e3afb9fc3",
+					"binary": "sha256:abca2def61de9952fa06d3977bb1e064818facb9badfce502b450d3d6846a91f"
 				}
 			}
 		},
