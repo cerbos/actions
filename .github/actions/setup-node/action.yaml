@@ -5,15 +5,8 @@ runs:
   using: composite
   steps:
     - name: Set up Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-      with:
-        node-version-file: .node-version
-
-    - name: Set up pnpm
-      uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
       with:
         cache: true
-        cache_dependency_path: hack/js/pnpm-lock.yaml
-        package_json_file: hack/js/package.json
-        run_install: |
-          cwd: hack/js
+        cache-dependency-path: hack/js/pnpm-lock.yaml
+        working-directory: hack/js
