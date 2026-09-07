@@ -18610,32 +18610,32 @@ function _getCacheDirectory() {
 //#region ../../toolbox.json
 var toolbox_default = {
 	actionlint: {
-		"version": "1.7.12",
-		"released": "2026-03-30T17:47:17Z",
-		"updated": "2026-04-20T10:27:00Z",
+		"version": "1.13.0",
+		"released": "2026-08-28T22:24:51Z",
+		"updated": "2026-09-07T08:47:55Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_darwin_arm64.tar.gz",
+				"url": "https://github.com/kjanat/actionlint/releases/download/v1.13.0/actionlint_1.13.0_darwin_arm64.tar.gz",
 				"extract": "actionlint",
 				"digests": {
-					"asset": "sha256:aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f",
-					"binary": "sha256:8db11704dc296f096216db4db65d86cd7f0ebfdf4c38453a1da276b137b88388"
+					"asset": "sha256:5800c16968b636ec37f8f03e8c5d630fd1b5ab2fc7043987cb6dd6b03277c37d",
+					"binary": "sha256:fbad7399540f9abf0eeab05e79531a09b3675979c1518947a055ecfc4d279b62"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_arm64.tar.gz",
+				"url": "https://github.com/kjanat/actionlint/releases/download/v1.13.0/actionlint_1.13.0_linux_arm64.tar.gz",
 				"extract": "actionlint",
 				"digests": {
-					"asset": "sha256:325e971b6ba9bfa504672e29be93c24981eeb1c07576d730e9f7c8805afff0c6",
-					"binary": "sha256:ac0323433c2853ec3fb978c611430c5b3dc5d43c58d1a1ec031b00ab572beb60"
+					"asset": "sha256:66fc4e30c73f7300e76fcc7fa31d06f83d69985eeabc0e6817e5b0eccfcaee25",
+					"binary": "sha256:59e0b75302cb904cdad7b6a59b2352961093c92c0f3c46d26fd27c745396b118"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz",
+				"url": "https://github.com/kjanat/actionlint/releases/download/v1.13.0/actionlint_1.13.0_linux_amd64.tar.gz",
 				"extract": "actionlint",
 				"digests": {
-					"asset": "sha256:8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
-					"binary": "sha256:c872d6db8c6bf83a8eaa704fc93999f027d55dffbc63b8a6abdccb47df5f4cd4"
+					"asset": "sha256:e4106b4c56be58223ce4b68f97a272ae49483ef306c38b5837cefd5616a2c791",
+					"binary": "sha256:9faa45baab37dfa9e62c75cc1d963c947cfe8fff28208e7333c54d27219d8b99"
 				}
 			}
 		},
