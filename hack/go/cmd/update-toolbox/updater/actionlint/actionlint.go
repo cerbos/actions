@@ -14,7 +14,7 @@ import (
 )
 
 var Tool = updater.Tool{
-	Repo:        github.Repository{Owner: "rhysd", Name: "actionlint"},
+	Repo:        github.Repository{Owner: "kjanat", Name: "actionlint"},
 	Verify:      verify,
 	PostInstall: []string{"actionlint", "--version"},
 }
