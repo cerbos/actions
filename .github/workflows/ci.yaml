@@ -27,7 +27,7 @@ jobs:
           persist-credentials: false
 
       - name: Lint GitHub Actions
-        uses: ./lint-actions
+        uses: $/lint-actions
 
   actions-test:
     name: Test GitHub Actions
@@ -43,13 +43,13 @@ jobs:
         run: jq --raw-output '["tools<<EOF"] + keys + ["EOF"] | .[]' < toolbox.json >> "${GITHUB_OUTPUT}"
 
       - name: Test install-tools
-        uses: ./install-tools
+        uses: $/install-tools
         with:
           tools: ${{ steps.toolbox.outputs.tools }}
 
       - name: Test notify-slack
         if: always() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
-        uses: ./notify-slack
+        uses: $/notify-slack
         with:
           webhook-url: ${{ secrets.SLACK_TEST_WEBHOOK_URL }}
 
@@ -63,7 +63,7 @@ jobs:
           persist-credentials: false
 
       - name: Lint
-        uses: ./golangci-lint
+        uses: $/golangci-lint
         with:
           problem-matchers: true
 
@@ -82,7 +82,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Go
-        uses: ./.github/actions/setup-go
+        uses: $/.github/actions/setup-go
         with:
           go-version: ${{ matrix.go-version }}
 
@@ -104,16 +104,10 @@ jobs:
           persist-credentials: false
 
       - name: Set up Go
-        uses: ./.github/actions/setup-go
+        uses: $/.github/actions/setup-go
 
       - name: Tidy
         run: go mod tidy
-
-      - name: Run update-internal-actions
-        if: github.event_name != 'push'
-        run: go run ./hack/go/cmd/update-internal-actions
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run update-toolbox
         run: go run ./hack/go/cmd/update-toolbox
@@ -126,7 +120,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Check for uncommitted changes
-        uses: ./check-repo-status
+        uses: $/check-repo-status
 
   js:
     name: Lint and test JavaScript code
@@ -138,7 +132,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: ./.github/actions/setup-node
+        uses: $/.github/actions/setup-node
 
       - name: Lint
         run: pnpm run lint
@@ -149,4 +143,4 @@ jobs:
         working-directory: hack/js
 
       - name: Check for uncommitted changes
-        uses: ./check-repo-status
+        uses: $/check-repo-status

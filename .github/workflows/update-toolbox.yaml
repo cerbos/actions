@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Go
-        uses: ./.github/actions/setup-go
+        uses: $/.github/actions/setup-go
 
       - name: Run update-toolbox
         id: update-toolbox
@@ -37,7 +37,7 @@ jobs:
 
       - name: Set up Node.js
         if: steps.update-toolbox.outputs.summary != ''
-        uses: ./.github/actions/setup-node
+        uses: $/.github/actions/setup-node
 
       - name: Build
         if: steps.update-toolbox.outputs.summary != ''
@@ -46,7 +46,7 @@ jobs:
 
       - name: Create pull request
         if: steps.update-toolbox.outputs.summary != ''
-        uses: ./create-pull-request
+        uses: $/create-pull-request
         with:
           client-id: ${{ secrets.CERBOS_BOT_CLIENT_ID }}
           private-key: ${{ secrets.CERBOS_BOT_PRIVATE_KEY }}
@@ -60,6 +60,6 @@ jobs:
 
       - name: Notify Slack on failure
         if: failure()
-        uses: ./notify-slack
+        uses: $/notify-slack
         with:
           webhook-url: ${{ secrets.SLACK_CI_NOTIFICATIONS_WEBHOOK_URL }}
