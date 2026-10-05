@@ -6,7 +6,7 @@ toolchain go1.27.1
 
 require (
 	aead.dev/minisign v0.3.0
-	github.com/ProtonMail/gopenpgp/v3 v3.4.1
+	github.com/ProtonMail/gopenpgp/v3 v3.5.1
 	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v92 v92.0.0
 	github.com/google/renameio/v2 v2.0.2
@@ -19,7 +19,7 @@ require (
 )
 
 require (
-	github.com/ProtonMail/go-crypto v1.4.1 // indirect
+	github.com/ProtonMail/go-crypto v1.5.2 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
