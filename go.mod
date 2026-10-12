@@ -6,16 +6,16 @@ toolchain go1.27.1
 
 require (
 	aead.dev/minisign v0.3.0
-	github.com/ProtonMail/gopenpgp/v3 v3.5.1
+	github.com/ProtonMail/gopenpgp/v3 v3.5.2
 	github.com/goccy/go-yaml v1.19.2
 	github.com/google/go-github/v92 v92.0.0
 	github.com/google/renameio/v2 v2.0.2
-	github.com/lmittmann/tint v1.2.0
+	github.com/lmittmann/tint v1.2.1
 	github.com/sigstore/sigstore-go v1.3.0
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
 	go.uber.org/multierr v1.11.0
 	golang.org/x/mod v0.41.0
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 )
 
 require (
