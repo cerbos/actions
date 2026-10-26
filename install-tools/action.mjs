@@ -19588,29 +19588,29 @@ var toolbox_default = {
 		"postInstall": ["syft", "--version"]
 	},
 	telepresence: {
-		"version": "2.32.2",
-		"released": "2026-10-08T03:08:48Z",
-		"updated": "2026-10-19T10:09:22Z",
+		"version": "2.32.3",
+		"released": "2026-10-21T12:12:05Z",
+		"updated": "2026-10-26T14:55:24Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.2/telepresence-darwin-arm64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.3/telepresence-darwin-arm64",
 				"digests": {
-					"asset": "sha256:7dd082528251a220d219b2afb1664a8ea8aa96c8424e2bf8922059933941b3c1",
-					"binary": "sha256:7dd082528251a220d219b2afb1664a8ea8aa96c8424e2bf8922059933941b3c1"
+					"asset": "sha256:502adb9d03800e131380b0bc25566b9dc0698e0462a06a9a17a58a1710b87e33",
+					"binary": "sha256:502adb9d03800e131380b0bc25566b9dc0698e0462a06a9a17a58a1710b87e33"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.2/telepresence-linux-arm64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.3/telepresence-linux-arm64",
 				"digests": {
-					"asset": "sha256:11f2aa4abb2fbba372cee6d717f8b822dfddee4649c13560bdc6ee774b5d7add",
-					"binary": "sha256:11f2aa4abb2fbba372cee6d717f8b822dfddee4649c13560bdc6ee774b5d7add"
+					"asset": "sha256:b52c4ee113054aafca3b9e4d67bcc79fe2b57741a4be7a25ddd221af6f5758eb",
+					"binary": "sha256:b52c4ee113054aafca3b9e4d67bcc79fe2b57741a4be7a25ddd221af6f5758eb"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.2/telepresence-linux-amd64",
+				"url": "https://github.com/telepresenceio/telepresence/releases/download/v2.32.3/telepresence-linux-amd64",
 				"digests": {
-					"asset": "sha256:84138f4d3fd35699b2607622937380353fd3de0898bc73b32c891c22ddf6f48f",
-					"binary": "sha256:84138f4d3fd35699b2607622937380353fd3de0898bc73b32c891c22ddf6f48f"
+					"asset": "sha256:e9c32ab75c8b0247d11fce0fc15894bf70b2964465217879353a3be0b5fe8ede",
+					"binary": "sha256:e9c32ab75c8b0247d11fce0fc15894bf70b2964465217879353a3be0b5fe8ede"
 				}
 			}
 		},
@@ -19649,32 +19649,32 @@ var toolbox_default = {
 		"postInstall": ["terraform", "version"]
 	},
 	vals: {
-		"version": "0.47.0",
-		"released": "2026-09-21T04:34:05Z",
-		"updated": "2026-09-28T05:35:31Z",
+		"version": "0.50.0",
+		"released": "2026-10-21T10:02:29Z",
+		"updated": "2026-10-26T14:55:25Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.47.0/vals_0.47.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.50.0/vals_0.50.0_darwin_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:a76255090319c61e701d32633d4d89ccc7891f1e4bd3c1c8fa6bc38184df3fd4",
-					"binary": "sha256:ae3b33a440aeba2910d6e94e06e2827f9085878266af002e53454b3411b70556"
+					"asset": "sha256:8f960625cc7f96d7055d02882d5d3b22c5ba31b8e2b31dcd948eb79eb4e105c5",
+					"binary": "sha256:03efb2b7cbb21dd4b003864254152d7ac803048c3dc9af7ecb367c0ed034b4be"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.47.0/vals_0.47.0_linux_arm64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.50.0/vals_0.50.0_linux_arm64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:835f3d5d438ab92ce7929498b6fe0543d1972efde39cfd956b1ecda3dc6adff7",
-					"binary": "sha256:5ea31ce69b4137917d6d5e73e7d7cecfce9eb5ef761ea5af39dbc77444483821"
+					"asset": "sha256:1e7c4d2b187391c7ef33be69c548cc6624152e75816c9d458e52a462e409542f",
+					"binary": "sha256:6b321a1968adb73bc460418fed649cd2c33d317a37993f8a3033b551ca28e676"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/helmfile/vals/releases/download/v0.47.0/vals_0.47.0_linux_amd64.tar.gz",
+				"url": "https://github.com/helmfile/vals/releases/download/v0.50.0/vals_0.50.0_linux_amd64.tar.gz",
 				"extract": "vals",
 				"digests": {
-					"asset": "sha256:b327e52811c0c84c5adad26bf2536491e07fc75018a84a66109e1e5325a3d833",
-					"binary": "sha256:2d822bf43af96a1aef8cd71001f9a4798e05d98675fb04fda8d376574c0c75cc"
+					"asset": "sha256:4cb1664b1e0aa49481cb05fabe2c52d4944dcaab31c4805924b668ae9f54c379",
+					"binary": "sha256:d5c845486017efef362307242ce6e7e94e59fdf92697f3ddea4ab6efcd115cac"
 				}
 			}
 		},
