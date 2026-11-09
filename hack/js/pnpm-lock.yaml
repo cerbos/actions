@@ -457,8 +457,8 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
-  semver@7.8.5:
-    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+  semver@7.8.6:
+    resolution: {integrity: sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -502,7 +502,7 @@ snapshots:
       '@actions/exec': 3.0.0
       '@actions/http-client': 4.0.1
       '@actions/io': 3.0.2
-      semver: 7.8.5
+      semver: 7.8.6
 
   '@oxc-project/types@0.156.0': {}
 
@@ -644,7 +644,7 @@ snapshots:
       '@rolldown/binding-win32-arm64-msvc': 1.2.16
       '@rolldown/binding-win32-x64-msvc': 1.2.16
 
-  semver@7.8.5: {}
+  semver@7.8.6: {}
 
   tunnel@0.0.6: {}
 
