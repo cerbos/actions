@@ -33,6 +33,13 @@ inputs:
       Defaults to false.
     required: false
     default: "false"
+  cache:
+    description: |-
+      Cache modules and plugins downloaded from the BSR between workflow runs.
+      The cache key is derived from the contents of all buf.lock files in the
+      repository.
+    required: false
+    default: "false"
   domain:
     description: Domain for logging into the BSR, enterprise only.
     required: false
@@ -127,7 +134,7 @@ runs:
         tools: buf
 
     - name: Run buf
-      uses: bufbuild/buf-action@85aebf73123b5c15fd5528aaecbf9129cddf7fa7 # v1.6.0
+      uses: bufbuild/buf-action@37ac33d8960807670a6e9719080e885197b09cc6 # v1.7.0
       with:
         version: ${{ steps.install.outputs.buf }}
         # wrap:uses.with:start
@@ -136,6 +143,7 @@ runs:
         breaking: ${{ inputs.breaking }}
         breaking_against: ${{ inputs.breaking_against }}
         breaking_against_registry: ${{ inputs.breaking_against_registry }}
+        cache: ${{ inputs.cache }}
         domain: ${{ inputs.domain }}
         exclude_imports: ${{ inputs.exclude_imports }}
         exclude_paths: ${{ inputs.exclude_paths }}
