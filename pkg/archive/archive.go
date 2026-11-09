@@ -12,8 +12,8 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/hack/go/pkg/tempfile"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/tempfile"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 func Extract(download *toolbox.Download, archive *tempfile.File) (io.ReadCloser, error) {

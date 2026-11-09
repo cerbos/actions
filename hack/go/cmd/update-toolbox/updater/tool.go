@@ -11,13 +11,13 @@ import (
 	"github.com/sourcegraph/conc/pool"
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/hack/go/pkg/archive"
-	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
-	"github.com/cerbos/actions/hack/go/pkg/platform"
-	"github.com/cerbos/actions/hack/go/pkg/semver"
-	"github.com/cerbos/actions/hack/go/pkg/tempfile"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/archive"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/platform"
+	"github.com/cerbos/actions/pkg/semver"
+	"github.com/cerbos/actions/pkg/tempfile"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 type Tool struct {

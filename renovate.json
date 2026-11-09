@@ -15,7 +15,7 @@
       "groupName": "npm deps"
     },
     {
-      "matchPackageNames": ["cerbos/actions"],
+      "matchPackageNames": ["cerbos/actions", "github.com/cerbos/actions"],
       "enabled": false
     }
   ]

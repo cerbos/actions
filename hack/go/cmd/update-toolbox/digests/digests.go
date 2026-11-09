@@ -6,8 +6,8 @@ import (
 	"fmt"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
-	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
+	"github.com/cerbos/actions/pkg/digest"
 )
 
 func FromRelease(release *github.Release, assetName string) (digest.Digests, error) {
