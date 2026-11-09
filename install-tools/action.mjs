@@ -18994,32 +18994,32 @@ var toolbox_default = {
 		"postInstall": ["goreleaser", "--version"]
 	},
 	grype: {
-		"version": "0.121.0",
-		"released": "2026-10-19T20:26:32Z",
-		"updated": "2026-10-26T06:55:39Z",
+		"version": "0.121.1",
+		"released": "2026-11-02T17:24:31Z",
+		"updated": "2026-11-09T06:39:55Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.121.1/grype_0.121.1_darwin_arm64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:7be39d3a0428c664ce0183e4aba31ed9accffce9eda7e7f6fa84e9c512285f27",
-					"binary": "sha256:4fc87cd48bc1d85bb46f6d61dc3ff8f9f2730e3e51cb94423adee1a3a47d11ba"
+					"asset": "sha256:daa9ffdc0022b34fb476f94cbcabac9d850882c895d83e4a5ecf5e0ab13bce77",
+					"binary": "sha256:fc7335bec51a9b75854dc5f415caf635d40f7252dfdb106ef6bffa3d452f0d58"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.121.1/grype_0.121.1_linux_arm64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:86f570f75ca947ea3dd6486309232bcff6d78e44ba081ae75ab14eab72be3dae",
-					"binary": "sha256:e81fd2b6669c5a9ab7fee756e63e769cc40163310c11e546420b4d93e2118543"
+					"asset": "sha256:33670612aad351c48cf3c37f4a85d8b043d1b64b21e6034e675bb00b956d78c1",
+					"binary": "sha256:11ce78fe1ee658ac519f53c3f04b110203d2f1ea3ab98a14c88cc92523a2a8ca"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/grype/releases/download/v0.121.0/grype_0.121.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/grype/releases/download/v0.121.1/grype_0.121.1_linux_amd64.tar.gz",
 				"extract": "grype",
 				"digests": {
-					"asset": "sha256:64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519",
-					"binary": "sha256:bd511334178bc3002eb9eb58880f89e01e35f7fed7cfbe671171127a8afa3596"
+					"asset": "sha256:bc3ea3f9e6fd56ac781c08c6c5e614271b79f438200757f6932085c19b0a4657",
+					"binary": "sha256:497a3587a0a9fbce68888dffc7cb80670ddf92d827ca49939e430a02168e7c91"
 				}
 			}
 		},
@@ -19402,32 +19402,32 @@ var toolbox_default = {
 		"postInstall": ["stern", "--version"]
 	},
 	syft: {
-		"version": "1.55.0",
-		"released": "2026-10-19T18:54:42Z",
-		"updated": "2026-10-26T06:55:37Z",
+		"version": "1.56.0",
+		"released": "2026-11-02T16:47:35Z",
+		"updated": "2026-11-09T06:39:55Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_darwin_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.56.0/syft_1.56.0_darwin_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:1217c258bd5eb91ef3189cf22a82e02f9cac07e4ce934350f428e93aff674625",
-					"binary": "sha256:55a63db797b2a060aa56c7a03991bb11084e01ed4e3863df12370d74e84b4821"
+					"asset": "sha256:c19b97a8c175ac7bd8105b8c8240ce740bf078333b12cc62ea49002c1b33e6e0",
+					"binary": "sha256:be5ce20de6d56d3a62e6c460ad8f80645a47b544d05d5642e8a1d0431b70d3c1"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_linux_arm64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.56.0/syft_1.56.0_linux_arm64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:929bd163db2d7cd2255d3bcb8967208079813d7b46b0c952f7b794d8e2c7d304",
-					"binary": "sha256:4f8068b25551a42991a292a42078519fdc739a97a6f6310e1dcf1367a258c1c2"
+					"asset": "sha256:ace61b9397ae28189c674ae332d67a8074dafd71e87724dfb8b22412d8253bb5",
+					"binary": "sha256:4d0a13ee6990168e7eba965a687e790c5067ba901729c2ebe060ab5388c0f929"
 				}
 			},
 			"linux/x64": {
-				"url": "https://github.com/anchore/syft/releases/download/v1.55.0/syft_1.55.0_linux_amd64.tar.gz",
+				"url": "https://github.com/anchore/syft/releases/download/v1.56.0/syft_1.56.0_linux_amd64.tar.gz",
 				"extract": "syft",
 				"digests": {
-					"asset": "sha256:bb65249542db5fedeeb4d3f9b018b75e7264dbfbbb10486f044581a92f90490d",
-					"binary": "sha256:64c9631c3560336c55c549df0de08cd577d02399c9de807ac390960a4ed5c351"
+					"asset": "sha256:1c2493cfcf52d3367d6cb25780d9190c111c2219c34c820574c43e8bae15c528",
+					"binary": "sha256:20572660f157af9f9bd4db5541e89f306ad108cdec0376eabd7d682ed98cbf2d"
 				}
 			}
 		},
@@ -19463,32 +19463,32 @@ var toolbox_default = {
 		"postInstall": ["telepresence", "version"]
 	},
 	terraform: {
-		"version": "1.17.0",
-		"released": "2026-10-21T15:39:20Z",
-		"updated": "2026-11-02T06:34:45Z",
+		"version": "1.17.1",
+		"released": "2026-10-28T16:08:42Z",
+		"updated": "2026-11-09T06:39:53Z",
 		"downloads": {
 			"darwin/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.17.0/terraform_1.17.0_darwin_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.17.1/terraform_1.17.1_darwin_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:7472a54cca911d46c0e399a5ebbce44444912d0d4dad7495f37f1fa51e7ca6b7",
-					"binary": "sha256:6cb9932b1fbe2d461f98abd384e9488ea325f531137c7d83f01bde83e3dc52cc"
+					"asset": "sha256:b1ecb3fe0d0a0290c1ab6f83d967d43f25da05d0b671ee0fb355252268dce95a",
+					"binary": "sha256:8f6a015b7b0d76933fccb5be4487d3d0c69edb49035483510b2b90727d83412e"
 				}
 			},
 			"linux/arm64": {
-				"url": "https://releases.hashicorp.com/terraform/1.17.0/terraform_1.17.0_linux_arm64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.17.1/terraform_1.17.1_linux_arm64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:f32478134ffc6d710eec474bbd316652cdddc0f4e336973a3745e8d3a3309cdf",
-					"binary": "sha256:aa811293314ba9cdcd7519df5b5dd3c1a28feece1d1390d7844fea039e6f9782"
+					"asset": "sha256:988e950a1c23058093b0e66ab2d5fb53fc18345ecfbd5871acf51dbac9325edd",
+					"binary": "sha256:b6971a40dfb403af8920b29b2268a1ab927956aae3e47e8a88ae503fee20ed55"
 				}
 			},
 			"linux/x64": {
-				"url": "https://releases.hashicorp.com/terraform/1.17.0/terraform_1.17.0_linux_amd64.zip",
+				"url": "https://releases.hashicorp.com/terraform/1.17.1/terraform_1.17.1_linux_amd64.zip",
 				"extract": "terraform",
 				"digests": {
-					"asset": "sha256:c168cab7c637a8769fdb90089ddd19de701bc6ff8aca64dc2e2185fe46f59f67",
-					"binary": "sha256:664b66cc0bcd7ed28fd27569719ccaa8a40c230b8be45060ce4d65e2852e1bcc"
+					"asset": "sha256:4638628058e71a55212b1c563712eac03b902128f40740f3dc8174df12135061",
+					"binary": "sha256:1eaecd79a92a0114d70017b5d5e274c12e5b4561d971ff0b5e24073cddd287dc"
 				}
 			}
 		},
