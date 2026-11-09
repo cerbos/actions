@@ -12,7 +12,7 @@ import (
 	"aead.dev/minisign"
 	pgp "github.com/ProtonMail/gopenpgp/v3/crypto"
 
-	"github.com/cerbos/actions/hack/go/pkg/digest"
+	"github.com/cerbos/actions/pkg/digest"
 )
 
 var ErrVerificationFailed = errors.New("failed to verify signature")

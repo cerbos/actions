@@ -11,11 +11,11 @@ import (
 	"github.com/sourcegraph/conc/pool"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
-	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
-	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/signing"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/platform"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 // https://github.com/GoogleContainerTools/skaffold/blob/c186fff81c8031cec0927df89aecd52ce6623eb0/KEYS

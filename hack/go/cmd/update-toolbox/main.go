@@ -37,10 +37,10 @@ import (
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/telepresence"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/terraform"
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater/vals"
-	"github.com/cerbos/actions/hack/go/pkg/command"
-	"github.com/cerbos/actions/hack/go/pkg/log"
 	"github.com/cerbos/actions/hack/go/pkg/timer"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/command"
+	"github.com/cerbos/actions/pkg/log"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 var tools = map[string]updater.Tool{
@@ -75,6 +75,10 @@ func main() {
 }
 
 func updateToolbox(ctx context.Context) error {
+	if err := os.Chdir("../.."); err != nil {
+		return err
+	}
+
 	clients, err := updater.NewClients(ctx)
 	if err != nil {
 		return err

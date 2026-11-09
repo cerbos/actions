@@ -17,10 +17,10 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/cerbos/actions/hack/go/pkg/digest"
-	"github.com/cerbos/actions/hack/go/pkg/log"
-	"github.com/cerbos/actions/hack/go/pkg/semver"
 	"github.com/cerbos/actions/hack/go/pkg/timer"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/log"
+	"github.com/cerbos/actions/pkg/semver"
 )
 
 const (

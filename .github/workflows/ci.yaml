@@ -53,8 +53,8 @@ jobs:
         with:
           webhook-url: ${{ secrets.SLACK_TEST_WEBHOOK_URL }}
 
-  go-lint:
-    name: Lint Go code
+  go-lint-external:
+    name: Lint external Go code
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -66,6 +66,21 @@ jobs:
         uses: $/golangci-lint
         with:
           problem-matchers: true
+
+  go-lint-internal:
+    name: Lint internal Go code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Lint
+        uses: $/golangci-lint
+        with:
+          problem-matchers: true
+          working-directory: hack/go
 
   go-test-external:
     name: Test external Go code (Go ${{ matrix.go-version }})
@@ -107,15 +122,17 @@ jobs:
         uses: $/.github/actions/setup-go
 
       - name: Tidy
-        run: go mod tidy
+        run: |
+          go mod tidy
+          go -C hack/go mod tidy
 
       - name: Run update-toolbox
-        run: go run ./hack/go/cmd/update-toolbox
+        run: go -C hack/go run ./cmd/update-toolbox
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run wrap-actions
-        run: go run ./hack/go/cmd/wrap-actions
+        run: go -C hack/go run ./cmd/wrap-actions
         env:
           GITHUB_TOKEN: ${{ github.token }}
 

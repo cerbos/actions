@@ -60,6 +60,9 @@ linters:
       template: |-
         Copyright {{ YEAR }} {{ COMPANY }}
 
+    gomoddirectives:
+      replace-local: true
+
     govet:
       disable:
         - shadow

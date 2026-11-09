@@ -12,11 +12,11 @@ import (
 	"go.uber.org/multierr"
 
 	"github.com/cerbos/actions/hack/go/cmd/update-toolbox/updater"
-	"github.com/cerbos/actions/hack/go/pkg/digest"
 	"github.com/cerbos/actions/hack/go/pkg/github"
-	"github.com/cerbos/actions/hack/go/pkg/platform"
 	"github.com/cerbos/actions/hack/go/pkg/signing"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/platform"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 var Tool = updater.Tool{

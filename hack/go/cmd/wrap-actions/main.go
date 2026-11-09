@@ -19,9 +19,9 @@ import (
 	"github.com/sourcegraph/conc/pool"
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/hack/go/pkg/command"
 	"github.com/cerbos/actions/hack/go/pkg/github"
-	"github.com/cerbos/actions/hack/go/pkg/log"
+	"github.com/cerbos/actions/pkg/command"
+	"github.com/cerbos/actions/pkg/log"
 )
 
 type Action struct {
@@ -98,6 +98,10 @@ func main() {
 }
 
 func wrapActions(ctx context.Context) error {
+	if err := os.Chdir("../.."); err != nil {
+		return err
+	}
+
 	client, err := github.NewClient(ctx)
 	if err != nil {
 		return err

@@ -16,13 +16,13 @@ import (
 	"go.uber.org/multierr"
 
 	"github.com/cerbos/actions"
-	"github.com/cerbos/actions/hack/go/pkg/archive"
-	"github.com/cerbos/actions/hack/go/pkg/command"
-	"github.com/cerbos/actions/hack/go/pkg/digest"
-	"github.com/cerbos/actions/hack/go/pkg/log"
-	"github.com/cerbos/actions/hack/go/pkg/platform"
-	"github.com/cerbos/actions/hack/go/pkg/tempfile"
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/archive"
+	"github.com/cerbos/actions/pkg/command"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/log"
+	"github.com/cerbos/actions/pkg/platform"
+	"github.com/cerbos/actions/pkg/tempfile"
+	"github.com/cerbos/actions/pkg/toolbox"
 )
 
 func main() {

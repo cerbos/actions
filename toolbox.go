@@ -5,7 +5,7 @@ package actions
 import (
 	"bytes"
 
-	"github.com/cerbos/actions/hack/go/pkg/toolbox"
+	"github.com/cerbos/actions/pkg/toolbox"
 
 	_ "embed"
 )

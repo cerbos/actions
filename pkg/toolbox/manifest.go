@@ -11,9 +11,9 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/cerbos/actions/hack/go/pkg/digest"
-	"github.com/cerbos/actions/hack/go/pkg/platform"
-	"github.com/cerbos/actions/hack/go/pkg/semver"
+	"github.com/cerbos/actions/pkg/digest"
+	"github.com/cerbos/actions/pkg/platform"
+	"github.com/cerbos/actions/pkg/semver"
 )
 
 const manifestPath = "toolbox.json"
