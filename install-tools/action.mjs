@@ -1,13 +1,13 @@
 import { createRequire } from "node:module";
 import { createReadStream, createWriteStream } from "node:fs";
-import { mkdir } from "node:fs/promises";
-import { arch, platform } from "node:os";
+import { mkdir as mkdir$1 } from "node:fs/promises";
+import { arch as arch$1, platform as platform$2 } from "node:os";
 import { join, resolve } from "node:path";
 import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { setTimeout as setTimeout$1 } from "node:timers/promises";
-import * as os$1 from "os";
-import os, { EOL } from "os";
+import * as os from "os";
+import os$1, { EOL } from "os";
 import * as crypto from "crypto";
 import * as fs from "fs";
 import { constants, promises } from "fs";
@@ -104,7 +104,7 @@ function toCommandProperties(annotationProperties) {
 */
 function issueCommand(command, properties, message) {
 	const cmd = new Command(command, properties, message);
-	process.stdout.write(cmd.toString() + os$1.EOL);
+	process.stdout.write(cmd.toString() + os.EOL);
 }
 function issue(name, message = "") {
 	issueCommand(name, {}, message);
@@ -146,14 +146,14 @@ function issueFileCommand(command, message) {
 	const filePath = process.env[`GITHUB_${command}`];
 	if (!filePath) throw new Error(`Unable to find environment variable for file command ${command}`);
 	if (!fs.existsSync(filePath)) throw new Error(`Missing file at path: ${filePath}`);
-	fs.appendFileSync(filePath, `${toCommandValue(message)}${os$1.EOL}`, { encoding: "utf8" });
+	fs.appendFileSync(filePath, `${toCommandValue(message)}${os.EOL}`, { encoding: "utf8" });
 }
 function prepareKeyValueMessage(key, value) {
 	const delimiter = `ghadelimiter_${crypto.randomUUID()}`;
 	const convertedValue = toCommandValue(value);
 	if (key.includes(delimiter)) throw new Error(`Unexpected input: name should not contain the delimiter "${delimiter}"`);
 	if (convertedValue.includes(delimiter)) throw new Error(`Unexpected input: value should not contain the delimiter "${delimiter}"`);
-	return `${key}<<${delimiter}${os$1.EOL}${convertedValue}${os$1.EOL}${delimiter}`;
+	return `${key}<<${delimiter}${os.EOL}${convertedValue}${os.EOL}${delimiter}`;
 }
 // node_modules/.pnpm/tunnel@0.0.6/node_modules/tunnel/lib/tunnel.js
 var require_tunnel$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
@@ -16468,7 +16468,7 @@ var __awaiter$8 = function(thisArg, _arguments, P, generator) {
 		step((generator = generator.apply(thisArg, _arguments || [])).next());
 	});
 };
-const { chmod, copyFile: copyFile$1, lstat, mkdir: mkdir$1, open, readdir, rename, rm, rmdir, stat, symlink, unlink } = fs.promises;
+const { chmod, copyFile: copyFile$1, lstat, mkdir, open, readdir, rename, rm, rmdir, stat, symlink, unlink } = fs.promises;
 const IS_WINDOWS$2 = process.platform === "win32";
 /**
 * Custom implementation of readlink to ensure Windows junctions
@@ -16653,7 +16653,7 @@ function rmRF(inputPath) {
 function mkdirP(fsPath) {
 	return __awaiter$7(this, void 0, void 0, function* () {
 		ok(fsPath, "a path argument must be provided");
-		yield mkdir$1(fsPath, { recursive: true });
+		yield mkdir(fsPath, { recursive: true });
 	});
 }
 /**
@@ -16813,11 +16813,11 @@ var ToolRunner = class extends events.EventEmitter {
 	_processLineBuffer(data, strBuffer, onLine) {
 		try {
 			let s = strBuffer + data.toString();
-			let n = s.indexOf(os$1.EOL);
+			let n = s.indexOf(os.EOL);
 			while (n > -1) {
 				onLine(s.substring(0, n));
-				s = s.substring(n + os$1.EOL.length);
-				n = s.indexOf(os$1.EOL);
+				s = s.substring(n + os.EOL.length);
+				n = s.indexOf(os.EOL);
 			}
 			return s;
 		} catch (err) {
@@ -16957,7 +16957,7 @@ var ToolRunner = class extends events.EventEmitter {
 				this._debug("arguments:");
 				for (const arg of this.args) this._debug(`   ${arg}`);
 				const optionsNonNull = this._cloneExecOptions(this.options);
-				if (!optionsNonNull.silent && optionsNonNull.outStream) optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + os$1.EOL);
+				if (!optionsNonNull.silent && optionsNonNull.outStream) optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + os.EOL);
 				const state = new ExecState(optionsNonNull, this.toolPath);
 				state.on("debug", (message) => {
 					this._debug(message);
@@ -17153,8 +17153,8 @@ function exec(commandLine, args, options) {
 		return new ToolRunner(toolPath, args, options).exec();
 	});
 }
-os.platform();
-os.arch();
+os$1.platform();
+os$1.arch();
 /**
 * The code to exit an action
 */
@@ -17214,7 +17214,7 @@ function getMultilineInput(name, options) {
 */
 function setOutput(name, value) {
 	if (process.env["GITHUB_OUTPUT"] || "") return issueFileCommand("OUTPUT", prepareKeyValueMessage(name, value));
-	process.stdout.write(os$1.EOL);
+	process.stdout.write(os.EOL);
 	issueCommand("set-output", { name }, toCommandValue(value));
 }
 /**
@@ -17246,7 +17246,7 @@ function error(message, properties = {}) {
 * @param message info message
 */
 function info(message) {
-	process.stdout.write(message + os$1.EOL);
+	process.stdout.write(message + os.EOL);
 }
 /**
 * Begin an output group.
@@ -19022,7 +19022,7 @@ process.platform;
 function cacheDir(sourceDir, tool, version, arch) {
 	return __awaiter(this, void 0, void 0, function* () {
 		version = import_semver.clean(version) || version;
-		arch = arch || os$1.arch();
+		arch = arch || os.arch();
 		debug(`Caching tool ${tool} ${version} ${arch}`);
 		debug(`source dir: ${sourceDir}`);
 		if (!fs.statSync(sourceDir).isDirectory()) throw new Error("sourceDir is not a directory");
@@ -19042,7 +19042,7 @@ function cacheDir(sourceDir, tool, version, arch) {
 function find(toolName, versionSpec, arch) {
 	if (!toolName) throw new Error("toolName parameter is required");
 	if (!versionSpec) throw new Error("versionSpec parameter is required");
-	arch = arch || os$1.arch();
+	arch = arch || os.arch();
 	if (!isExplicitVersion(versionSpec)) versionSpec = evaluateVersions(findAllVersions(toolName, arch), versionSpec);
 	let toolPath = "";
 	if (versionSpec) {
@@ -19064,7 +19064,7 @@ function find(toolName, versionSpec, arch) {
 */
 function findAllVersions(toolName, arch) {
 	const versions = [];
-	arch = arch || os$1.arch();
+	arch = arch || os.arch();
 	const toolPath = path.join(_getCacheDirectory(), toolName);
 	if (fs.existsSync(toolPath)) {
 		const children = fs.readdirSync(toolPath);
@@ -19981,12 +19981,12 @@ function errorMessage(message, error) {
 	}
 	return message;
 }
-const platform$1 = `${platform()}/${arch()}`;
+const platform = `${platform$2()}/${arch$1()}`;
 function sourceFromManifest(tool) {
 	validateTool(tool);
 	const { version, downloads, postInstall } = toolbox_default[tool];
-	const download = downloads[platform$1];
-	if (!download) throw new Error(`Unsupported platform "${platform$1}" for tool "${tool}"`);
+	const download = downloads[platform];
+	if (!download) throw new Error(`Unsupported platform "${platform}" for tool "${tool}"`);
 	return {
 		tool,
 		version,
@@ -20081,7 +20081,7 @@ async function createDirectory({ tool, version }) {
 	const tempDir = process.env["RUNNER_TEMP"];
 	if (!tempDir) throw new Error("Missing RUNNER_TEMP");
 	const path = resolve(tempDir, `cerbos-toolbox-${tool}-${version}`);
-	await mkdir(path);
+	await mkdir$1(path);
 	return path;
 }
 async function postInstallTool({ tool, postInstall: [command, ...args] }) {
